@@ -48,13 +48,16 @@ npm install gulp --save-dev</pre>
 <h3>Hello World!</h3>
 <p>Assuming our project directory is <span class="lang:default decode:true  crayon-inline ">my-project</span> , create a <span class="lang:default decode:true  crayon-inline ">gulpfile.js</span>  file in it. All gulp tasks reside in this file.</p>
 <p>Now, we create our first task that prints out <strong>Hello.</strong></p>
-<pre class="lang:js decode:true">// require gulp. this is why we install gulp locally.
+
+{% highlight javascript %}
+// require gulp. this is why we install gulp locally.
 var gulp = require("gulp");
 
 // say hello
 gulp.task("sayHello", function(){
     console.log("Hello");
-});</pre>
+});
+{% endhighlight %}
 <ul>
 <li>First, we require <span class="lang:default decode:true  crayon-inline ">gulp</span> so we can use gulp's API for creating tasks.</li>
 <li>Next, we create a task using <span class="lang:js decode:true crayon-inline">gulp.task</span> method with the <strong>task name</strong> being <span class="lang:default decode:true  crayon-inline">sayHello</span>  and an anonymous function that defines what <span class="lang:default decode:true  crayon-inline">sayHello</span> does. In this case, we just print out <strong>Hello</strong></li>

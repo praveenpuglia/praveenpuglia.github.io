@@ -10,6 +10,8 @@ tagline:             'Web Developer'
 description:         'All things JavaScript & CSS. Want to travel the World & beyond!'
 url:                 http://praveenpuglia.com
 baseurl:             ''
+markdown: kramdown
+highlighter: rouge
 
 # About/contact
 author:
