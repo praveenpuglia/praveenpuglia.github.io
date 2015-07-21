@@ -41,10 +41,14 @@ comments:
 <p><strong><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager" target="_blank">NodeJS and NPM must be installed.</a></strong></p>
 <p>Gulp needs to be installed both globally( for command line usage ) and locally into our project( for creating project tasks )</p>
 <h4>Global Installation</h4>
-<pre class="lang:sh decode:true">sudo npm install -g gulp</pre>
+{% highlight bash%}
+sudo npm install -g gulp
+{% endhighlight %}
 <h4>Local Installation</h4>
-<pre class="lang:zsh decode:true">cd path/to/your/project/root
-npm install gulp --save-dev</pre>
+{% highlight bash%}
+cd path/to/your/project/root
+npm install gulp --save-dev
+{% endhighlight %}
 <h3>Hello World!</h3>
 <p>Assuming our project directory is <span class="lang:default decode:true  crayon-inline ">my-project</span> , create a <span class="lang:default decode:true  crayon-inline ">gulpfile.js</span>  file in it. All gulp tasks reside in this file.</p>
 <p>Now, we create our first task that prints out <strong>Hello.</strong></p>
