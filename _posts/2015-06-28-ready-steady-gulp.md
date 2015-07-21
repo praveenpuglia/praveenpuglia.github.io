@@ -50,6 +50,10 @@ cd path/to/your/project/root
 npm install gulp --save-dev
 {% endhighlight %}
 <h3>Hello World!</h3>
+```c
+#include <stdio.h>
+```
+some `inline` code.
 <p>Assuming our project directory is <span class="lang:default decode:true  crayon-inline ">my-project</span> , create a <span class="lang:default decode:true  crayon-inline ">gulpfile.js</span>  file in it. All gulp tasks reside in this file.</p>
 <p>Now, we create our first task that prints out <strong>Hello.</strong></p>
 
