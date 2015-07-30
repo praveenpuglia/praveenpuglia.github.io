@@ -90,7 +90,7 @@ comments:
 </ul>
 <p>Now restart WAMP and you should be good to go.</p>
 <p><em><strong>UPDATE - </strong>In the newer versions of Windows 10, you may not find the World Wide Web Publishing Service. If WAMP isn't working even then, try the next approach.</em></p>
-<p><img class="aligncenter size-full wp-image-110" src="http://praveenpuglia.com/wp-content/uploads/2015/02/wamp.png" alt="Wamp on Windows 10 - Services" width="1366" height="728" /></p>
+<p><img class="aligncenter size-full wp-image-110" src="/assets/images/2015/02/wamp.png" alt="Wamp on Windows 10 - Services" /></p>
 <p>If you don't want to do it that way though, you can<em> change the port WAMP listens to</em>.  Here's how to do that.</p>
 <ul>
 <li>Click on the WAMP icon in system tray.</li>
