@@ -26,7 +26,7 @@ tags:
 - css
 comments: []
 ---
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2015/02/span_vs_i.png"><img class="aligncenter size-full wp-image-119" src="http://praveenpuglia.com/wp-content/uploads/2015/02/span_vs_i.png" alt=" VS " width="742" height="322" /></a></p>
+<p><a href="/assets/images/2015/02/span_vs_i.png"><img class="aligncenter size-full wp-image-119" src="/assets/images/2015/02/span_vs_i.png" alt=" VS " width="742" height="322" /></a></p>
 <p>Do you use <span class="lang:default decode:true  crayon-inline">&lt;span&gt;</span> or <span class="lang:default decode:true  crayon-inline">&lt;i&gt;</span> for icons? Whatever your answer is, keep that at the back of your mind. I am sure you have reasons! Let me tell you what I use. It's  <span class="lang:default decode:true  crayon-inline">&lt;i&gt;</span>.</p>
 <p>In my conversations with people about html &amp; semantics, over time, this topic has come up too often! For all we know, there isn't a right choice. Not at least from what we have got from the <a href="http://www.w3.org/TR/html5/text-level-semantics.html">HTML Spec</a>.</p>
 <p>So how do we go about choosing an element to deal with icons? I'll say choose as a human would; by being stupid and finding a fit. Religious folks... angry?</p>

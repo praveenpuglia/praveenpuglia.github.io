@@ -28,7 +28,7 @@ tags:
 - miui
 comments: []
 ---
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg"><img class="alignleft wp-image-82" src="http://praveenpuglia.com/wp-content/uploads/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg" alt="" width="450" height="450" /></a></p>
+<p><a href="/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg"><img class="alignleft wp-image-82" src="/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg" alt="" width="450" height="450" /></a></p>
 <p>It's been a while I have been using Xiaomi Redmi 1S and I have a confession to make. It's a powerful product with bad design.</p>
 <p>I have used a Moto E and a Nexus 5 earlier but never complained on this aspect. There are various points where Redmi falls flat. I know it's a super cheap phone but that does not prevent Xiomi from making it usable.</p>
 <h2>Size</h2>

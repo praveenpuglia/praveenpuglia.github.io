@@ -43,7 +43,7 @@ comments:
     a nightmare if not done properly.
 ---
 <p>Let's have a look at it first.</p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/08/india.jpg"><img class="alignnone size-full wp-image-44" style="border: 1px solid #ccc;" src="http://praveenpuglia.com/wp-content/uploads/2014/08/india.jpg" alt="Independence Day - Cover Photo" width="851" height="315" /></a></p>
+<p><a href="/assets/images/2014/08/india.jpg"><img class="alignnone size-full wp-image-44" style="border: 1px solid #ccc;" src="/assets/images/2014/08/india.jpg" alt="Independence Day - Cover Photo" width="851" height="315" /></a></p>
 <p>Yeah! This is what I came up with when I had to put together myself, India and the Independence Day.</p>
 <p>Essentially there were couple of thoughts going on when I fired up Photoshop and had a blank document of size <strong>851 X 315. </strong>I told myself - I am gonna make something today that...</p>
 <ul>
@@ -60,4 +60,4 @@ comments:
 <p class="color-patches"><span class="color-patch gray">#666666</span> as my text color.</p>
 <p>There it was. I got what I needed. Minimal - Unique - Indian. :)</p>
 <p>Show your love by making it your cover photo or use the cropped version below for instagram. Let me know what you thought in the comments below. <strong>Jai Hind!</strong></p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/08/india_square.jpg"><img class="size-full wp-image-58 aligncenter" style="border: 1px solid #ccc;" src="http://praveenpuglia.com/wp-content/uploads/2014/08/india_square.jpg" alt="Indian Independence Day" width="315" height="315" /></a></p>
+<p><a href="/assets/images/2014/08/india_square.jpg"><img class="size-full wp-image-58 aligncenter" style="border: 1px solid #ccc;" src="/assets/images/2014/08/india_square.jpg" alt="Indian Independence Day" width="315" height="315" /></a></p>

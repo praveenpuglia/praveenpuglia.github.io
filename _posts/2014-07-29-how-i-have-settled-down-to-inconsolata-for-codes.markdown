@@ -10,8 +10,6 @@ author:
   url: ''
 author_login: praveenpuglia
 author_email: praveenpuglia@gmail.com
-wordpress_id: 12
-wordpress_url: http://praveenpuglia.com/?p=12
 date: '2014-07-29 23:54:32 +0530'
 date_gmt: '2014-07-29 18:24:32 +0530'
 categories:
@@ -24,23 +22,6 @@ tags:
 - sublime text
 - coding
 - typography
-comments:
-- id: 963
-  author: jainil
-  author_email: shahjainil09@gmail.com
-  author_url: ''
-  date: '2015-02-17 20:15:54 +0530'
-  date_gmt: '2015-02-17 14:45:54 +0530'
-  content: Nice dude.. I WD start using sublime text3.. 11pt.. Thanks for ready suggestion..
-- id: 964
-  author: praveenpuglia
-  author_email: praveenpuglia@gmail.com
-  author_url: ''
-  date: '2015-02-17 20:19:04 +0530'
-  date_gmt: '2015-02-17 14:49:04 +0530'
-  content: "My pleasure! Let me know if you need help setting it up! I highly recomment
-    subscribing to this newsletter for small but nifty tricks! - http://sublimetexttips.com/\r\n\r\nHappy
-    coding!"
 ---
 <p>Choosing the coding font that suits your style is a difficult job. It has to impress you with it's curves, spaces and visual aesthetics. For me, there are these specific things that mattered the most.</p>
 <ul>
@@ -53,22 +34,22 @@ comments:
 <p>Now there are no ways to settle on a font unless you try them... and I tried a lot of them. Here goes my list.</p>
 <p><strong><a href="https://github.com/uarun/dotfiles/blob/master/fonts/Andale-Mono.ttf">Andale Mono</a> </strong></p>
 <p>This was the first font I used after I was done with default "Consolas". I still like it. The problem was that it did not perform well in smaller font sizes with my monitor. I liked the sharpness though. It's also simple and minimal. Here's how it looks.</p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/07/andale-mono.png"><img class="alignnone wp-image-27 size-full" src="http://praveenpuglia.com/wp-content/uploads/2014/07/andale-mono.png" alt="Andale Mono" width="573" height="246" /></a></p>
+<p><a href="/assets/images/2014/07/andale-mono.png"><img class="alignnone wp-image-27 size-full" src="/assets/images/2014/07/andale-mono.png" alt="Andale Mono" /></a></p>
 <p><strong><a href="http://dejavu-fonts.org/wiki/Main_Page">DejaVu Sans Mono</a></strong></p>
 <p>After using Andale Mono for long, I wanted to try something new. I settled down to this one for some time. The bad? it looked wider than I would expect it to be at lower font sizes. Also, it didn't just fit my eyes when tested with different programming languages. I used it primarily because of the sharpness factor.</p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/07/deja-vu-sans-mono.png"><img class="alignnone wp-image-29 size-full" src="http://praveenpuglia.com/wp-content/uploads/2014/07/deja-vu-sans-mono.png" alt="deja-vu-sans-mono" width="577" height="245" /></a></p>
+<p><a href="/assets/images/2014/07/deja-vu-sans-mono.png"><img class="alignnone wp-image-29 size-full" src="/assets/images/2014/07/deja-vu-sans-mono.png" alt="deja-vu-sans-mono" /></a></p>
 <p><a href="https://www.google.com/fonts/specimen/Droid+Sans"><strong>Droid Sans Mono</strong></a></p>
 <p>Then came this. It was crisp, a little less than DejaVu Sans Mono but acceptable. But it solved the space problem I had with the previous one. It scaled well for smaller and larger font sizes and became my friend for long. <em>Bonus - it's less curvy.</em></p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/07/droid-sans-mono.png"><img class="alignnone wp-image-33 size-full" src="http://praveenpuglia.com/wp-content/uploads/2014/07/droid-sans-mono.png" alt="droid-sans-mono" width="566" height="261" /></a></p>
+<p><a href="/assets/images/2014/07/droid-sans-mono.png"><img class="alignnone wp-image-33 size-full" src="/assets/images/2014/07/droid-sans-mono.png" alt="droid-sans-mono" /></a></p>
 <p><strong><a href="http://www.carrois.com/fira-3-1/">Fira</a></strong></p>
 <p>I was still using Droid Sans but I was getting bored. It was time when I heard about Fira coming out as <a href="https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/">Firefox OS Typeface</a>. I was excited and gave it a try. Sadly, it never suited my style. It just didn't feel right. I fell back to Droid Sans Mono. Plus, the letters "r" or "j", they specifically looked too bad and congested in smaller font sizes.</p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/07/fira-mono.png"><img class="alignnone size-full wp-image-34" src="http://praveenpuglia.com/wp-content/uploads/2014/07/fira-mono.png" alt="fira-mono" width="557" height="272" /></a></p>
+<p><a href="/assets/images/2014/07/fira-mono.png"><img class="alignnone size-full wp-image-34" src="/assets/images/2014/07/fira-mono.png" alt="fira-mono" /></a></p>
 <p><a href="https://github.com/todylu/monaco.ttf"><strong>Monaco</strong></a></p>
 <p>This was one of those fonts which I saw at a lot of places on web. It's the default monospace font for mac and I could see why it's popular. It's different by design, has lot of breathing space, and performed well in lower resolutions. I love it. But I have never been able to settle down to it as my default coding font. Something kept me away from that.</p>
 <p>May be on a different system, I will give it another try.</p>
-<p><img class="alignnone size-full wp-image-35" src="http://praveenpuglia.com/wp-content/uploads/2014/07/monaco.png" alt="monaco" width="560" height="266" /></p>
+<p><img class="alignnone size-full wp-image-35" src="/assets/images/2014/07/monaco.png" alt="monaco" /></p>
 <p><a href="https://www.google.com/fonts/specimen/Inconsolata"><strong>Inconsolata</strong></a></p>
 <p>Then one fine day I found this. I had heard about Inconsolata before but never gave it a try. But once I did, I stopped imagining my way back to any other font. It made my code look beautiful. It has the right amount of sharpness and size I require. It scales extremely well with smaller and higher font sizes. I fell in love. &lt;3</p>
-<p><a href="http://praveenpuglia.com/wp-content/uploads/2014/07/inconsolata.png"><img class="alignnone size-full wp-image-37" src="http://praveenpuglia.com/wp-content/uploads/2014/07/inconsolata.png" alt="inconsolata" width="476" height="225" /></a></p>
+<p><a href="/assets/images/2014/07/inconsolata.png"><img class="alignnone size-full wp-image-37" src="/assets/images/2014/07/inconsolata.png" alt="inconsolata" /></a></p>
 <p>I use Inconsolata for coding everywhere now. I use it even for plain text. It's brilliant. Even on web, this particular font renders much better than any coding font I have ever used.</p>
 <p>I have made it a point to recommend it to people who love coding.</p>
