@@ -13,9 +13,11 @@ I work with amazing folks at [Imaginea Technologies Inc.](http://imaginea.com/) 
 ## What Do You Love To Do ?
 My recent love would be swimming. It's great in fact. Calms the heck down. I love spending time reading and exploring stuff about the Cosmos, Interstellar Space and Astronomy. (You may get bored by my science-everywhere-syndrome ;))
 
-I also love to walk, long walks especially. The help me get insights on myself and my decisions. 
+I also love to walk, long walks especially. They help me get insights on myself and my decisions. 
 
-And yeah! Music. Instrumentals.
+Music. Instrumentals.
+
+Functional Programming. JavaScript. CSS Animations.
 
 ## What Are You Interested In ?
 Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
@@ -25,11 +27,10 @@ Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
 
 > If you are spending way more effort than you think it should require, you should start over.
 
-I made those up, but sure I follow them.
-
 ## Where Can I Find You ?
-- [Twitter](https://twitter.com/praveenpuglia) 
 - [Codepen](http://codepen.io/praveenpuglia)
 - [GitHub](https://github.com/praveenpuglia) 
+
+- [Twitter](https://twitter.com/praveenpuglia) 
 - [Email](mailto:praveenpuglia@gmail.com)
 - [Website( Yeah! this one :D )](http://praveenpuglia.com)   
