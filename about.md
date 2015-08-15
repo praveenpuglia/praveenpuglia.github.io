@@ -2,8 +2,8 @@
 layout: page
 title: About
 ---
-Hi!
-
+![Praveen Puglia](http://www.gravatar.com/avatar/08f8df25ec3b58272bd422dab475006f.jpg?s=200)
+ 
 ## Who Are You ?
 I am Praveen, a Web Developer from India. I spend my time writing CSS, JavaScript and HTML that looks cool, performs better. 
 
