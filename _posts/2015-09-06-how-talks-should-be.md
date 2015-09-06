@@ -26,6 +26,6 @@ It's up to a speaker how they roll the talk and make it an enjoyable and a learn
 
 So while gearing up with the event speakers and thinking how the talks should be for CodePen Hyderabad, I tried to look at some of the talks that left me with the wow feeling and clearly a pattern emerged. This pen below sums it up.
 
-<p data-height="268" data-theme-id="4977" data-slug-hash="ZbYZgW" data-default-tab="result" data-user="praveenpuglia" class='codepen'>See the Pen <a href='http://codepen.io/praveenpuglia/pen/ZbYZgW/'>How I like to think of Tech Talks</a> by Praveen Puglia (<a href='http://codepen.io/praveenpuglia'>@praveenpuglia</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="400" data-theme-id="4977" data-slug-hash="ZbYZgW" data-default-tab="result" data-user="praveenpuglia" class='codepen'>See the Pen <a href='http://codepen.io/praveenpuglia/pen/ZbYZgW/'>How I like to think of Tech Talks</a> by Praveen Puglia (<a href='http://codepen.io/praveenpuglia'>@praveenpuglia</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
