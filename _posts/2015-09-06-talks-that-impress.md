@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: How Talks Should Be
+title: Talks That Impress
 author:
   display_name: Praveen Puglia
   login: praveenpuglia
