@@ -23,6 +23,13 @@ tags:
 - skype
 - localhost
 ---
+### Edit For Windows 10 Clean Install
+If you have done clean installation of Windows 10, you may not have the **Word Wide Web Publishing Service**. In that case, simple WAMP/XAMPP installation should work fine.
+
+If it doesn't, try installing [Visual C++ Redistributable](http://www.microsoft.com/en-us/download/details.aspx?id=30679) and then re-install WAMP/XAMPP.
+
+---
+
 Shortly after the Windows 10 Technical Preview was made available, I was excited to try it out. And so I did. Everything was pretty cool until I tried starting WAMP, just to find out that it never starts( stuck at the yellow state in the notification area ). Whenever a new version of Windows comes up there is something or the other wrong with WAMP.
 
 Skype wasn't the problem this time because I didn't have it installed. I also removed the modern Skype that comes installed with the Technical Preview. Neither it was [the IPV6 issue](https://praveenpuglia.wordpress.com/2012/11/20/setting-up-wamp-server-in-windows-8/) which stopped it from working on Windows 8.
