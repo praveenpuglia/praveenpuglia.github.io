@@ -24,6 +24,7 @@ tags:
 - localhost
 ---
 ### Edit For Windows 10 Clean Install
+---
 If you have done clean installation of Windows 10, you may not have the **Word Wide Web Publishing Service**. In that case, simple WAMP/XAMPP installation should work fine.
 
 If it doesn't, try installing [Visual C++ Redistributable](http://www.microsoft.com/en-us/download/details.aspx?id=30679) and then re-install WAMP/XAMPP.
