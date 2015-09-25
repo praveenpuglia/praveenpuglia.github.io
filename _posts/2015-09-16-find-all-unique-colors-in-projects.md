@@ -42,9 +42,9 @@ Next up is using all of this in the find tool to search for colors. This is easy
 - <kbd>Alt</kbd> + <kbd>R</kbd> to enable regular expressions search.
 - Enter `<project>` as **Where**. 
 - Combile the expressions above using the `|` operator.
-- <kbd>Find/kbd>
+- <kbd>Find</kbd>
 
-{{GIF TO EXPLAIN HOW TO FIND IN PROJECTS FOR ALL COLORS}}
+<iframe src="https://www.youtube.com/embed/9ZpdpmWjZck" frameborder="0" allowfullscreen></iframe>
 
 The job doesn't finish there. Once you hit Find it shows you the **Find Results** page with all those occurrences. The problem is, those aren't selected for you to copy! Here's how to do that.
 
