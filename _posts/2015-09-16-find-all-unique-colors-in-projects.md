@@ -44,8 +44,6 @@ Next up is using all of this in the find tool to search for colors. This is easy
 - Combile the expressions above using the `|` operator.
 - <kbd>Find</kbd>
 
-<iframe src="https://www.youtube.com/embed/9ZpdpmWjZck" frameborder="0" allowfullscreen></iframe>
-
 The job doesn't finish there. Once you hit Find it shows you the **Find Results** page with all those occurrences. The problem is, those aren't selected for you to copy! Here's how to do that.
 
 - Open up the find tool. <kbd>Ctrl</kbd> + <kbd>F</kbd>. This time we just want to search the **Find Results** tab content.
@@ -53,9 +51,9 @@ The job doesn't finish there. Once you hit Find it shows you the **Find Results*
 - <kbd>Ctrl</kbd> + <kbd>Enter</kbd> or click **Find All**.
 - Copy and paste the selected occurrences in a new tab.
 
-{{GIF EXPLAINING HOW TO FIND IN FIND RESULTS}}
+<iframe style="width:100%; height:350px" src="https://www.youtube.com/embed/9ZpdpmWjZck" frameborder="0" allowfullscreen></iframe>
 
-Another problem we have is that we might have copied duplicate colors. Sublime doesn't find unique colors. You can use JavaScript's `Set` to get that done. The aim is to get an array of copied colors and create a new set out of it.
+Another problem we have is that we have copied duplicate colors. Sublime doesn't find unique colors. You can use JavaScript's `Set` to get that done. The aim is to get an array of copied colors and create a new set out of it.
 
 {{GIF EXPLAINING HOW TO MAKE AN ARRAY}}
 
