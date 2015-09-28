@@ -1,7 +1,7 @@
 ---
 layout: post
 status: publish
-published: true
+published: false
 title: Find All Unique Colors In Projects
 author:
   display_name: Praveen Puglia
