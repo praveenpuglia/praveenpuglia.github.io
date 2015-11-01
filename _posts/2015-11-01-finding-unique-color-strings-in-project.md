@@ -2,7 +2,7 @@
 layout: post
 status: publish
 published: true
-title: Show Me My Colors
+title: Finding Unique Color Strings In Project
 author:
   display_name: Praveen Puglia
   login: praveenpuglia
