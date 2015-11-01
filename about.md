@@ -28,9 +28,9 @@ Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
 > If you are spending way more effort than you think it should require, you should start over.
 
 ## Where Can I Find You ?
+
 - [Codepen](http://codepen.io/praveenpuglia)
 - [GitHub](https://github.com/praveenpuglia) 
-
 - [Twitter](https://twitter.com/praveenpuglia) 
 - [Email](mailto:praveenpuglia@gmail.com)
 - [Website( Yeah! this one :D )](http://praveenpuglia.com)   
