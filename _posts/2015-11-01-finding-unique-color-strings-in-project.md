@@ -10,9 +10,9 @@ author:
   url: ''
 author_login: praveenpuglia
 author_email: praveenpuglia@gmail.com
-excerpt: Combile Sublime Text and some JavaScript to get all unique colors used in your projects.
-date: '2015-09-16 00:00:00 +0530'
-date_gmt: '2015-09-16 00:00:00 +0530'
+excerpt: Combine Sublime Text and JavaScript magic to get all unique colors used in your projects.
+date: '2015-11-01 00:00:00 +0530'
+date_gmt: '2015-11-01 00:00:00 +0530'
 categories:
 - Workflow
 tags:
