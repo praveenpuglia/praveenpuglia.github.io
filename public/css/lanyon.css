@@ -41,11 +41,13 @@ body {
 }
 
 html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
@@ -82,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 56em) {
   .container {
-    max-width: 38rem;
+    max-width: 48rem;
   }
 }
 
