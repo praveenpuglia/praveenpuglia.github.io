@@ -3,7 +3,9 @@ layout: page
 title: About
 ---
 ![Praveen Puglia](http://www.gravatar.com/avatar/08f8df25ec3b58272bd422dab475006f.jpg?s=200)
- 
+ <a href="http://stackexchange.com/users/1247292">
+<img src="http://stackexchange.com/users/flair/1247292.png?theme=clean" width="208" height="58" alt="profile for Praveen Puglia on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Praveen Puglia on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+</a>
 ## Who Are You ?
 I am Praveen, a Web Developer from India. I spend my time writing CSS, JavaScript and HTML that looks cool, performs better. 
 
