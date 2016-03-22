@@ -1,7 +1,7 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           ':title'
+permalink:           ':title/'
 
 # Setup
 title:               Praveen Puglia
@@ -14,7 +14,7 @@ markdown:            redcarpet
 # About/contact
 author:
   name:              Praveen Puglia
-  url:               https://twitter.com/praveenpugli
+  url:               https://twitter.com/praveenpuglia
   email:             praveenpuglia@gmail.com
 
 # Custom vars
