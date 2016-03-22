@@ -20,7 +20,7 @@ tags:
 ---
 The world of web development is wild. Every day there are literally tons of new things to learn. I feel exhausted time to time and it's really important for one to remain inspired. I like it when I look at work done by people and wonder wide eyed - *How the heck is this done?*. That inspires me.
 
-Following people on Internet has been the key for me to learn new things and experiment with latest and greatest stuff. It's also been a great source of knowledge of future tech. It also gave me the opportunity to talk to them time to time and even [meet them](/meeting-lea-and-chris/). Here's a short list of people I follow for their amazing work.
+Following people on Internet has been the key for me to learn new things and experiment with latest and greatest stuff. It's also been a great source of knowledge of future tech. It gave me the opportunity to talk to them time to time and even [meet them](/meeting-lea-and-chris/). Here's a short list of people I follow for their amazing work & everyday tips.
 
 #### [Lea Verou](https://twitter.com/LeaVerou)
 Following her on twitter did a lot of good to me. She writes about everything in web development world. I often find that the tips she posts laer become some of the real good tools/techniques I ever used.
@@ -42,4 +42,4 @@ I came to know about her a year ago or so. I was totally wowed by her [personal 
 
 They are my major source of stuff I work with and care about. I do follow a lot of others who are really amazing. Their work makes me think and rethink and always make me realize that there's more to learn and better ways of solving problems.
 
-**P.S** - You can look at the list of people I follow on twitter here - https://twitter.com/praveenpuglia/followers for more. Once you start following some of them, twitter's suggestion will help you a lot.
+**P.S.** - You can look at the list of [people I follow on twitter](https://twitter.com/praveenpuglia/followers) for more. Once you start following some of them, twitter's suggestion will help you a lot.
