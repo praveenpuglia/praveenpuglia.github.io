@@ -43,14 +43,17 @@ Lately, if something has totally changed the way I work, it's [Gulp](http://gulp
 Gulp needs to be installed both **globally** ( for command line usage ) and **locally**  into our project( for creating project tasks )
 
 #### Global Installation
+
 ```bash
 sudo npm install -g gulp
 ```
+
 #### Local Installation
 ```bash
 cd path/to/your/project/root
 npm install gulp --save-dev
 ```
+
 ## Hello World!
 Assuming our project directory is `my-project`, create a `gulpfile.js` file in it. All gulp tasks reside in this file.
 Now, we create our first task that prints *Hello* .

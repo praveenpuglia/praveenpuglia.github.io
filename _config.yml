@@ -8,8 +8,8 @@ title:               Praveen Puglia
 tagline:             'Web Developer'
 description:         'All things JavaScript & CSS. Want to travel the World & beyond!'
 url:                 http://praveenpuglia.com
-baseurl:             'http://praveenpuglia.com'
-markdown:            redcarpet
+baseurl:             ''
+markdown:            kramdown
 
 # About/contact
 author:
