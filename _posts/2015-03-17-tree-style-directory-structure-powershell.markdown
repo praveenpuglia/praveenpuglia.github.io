@@ -27,10 +27,13 @@ tags:
 - folders
 comments: []
 ---
-<p>One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.</p>
-<p>In PowerShell, you can use the <span class="lang:default decode:true crayon-inline">tree</span><span style="line-height: 1.5;"> command to print a tree structure, starting from the current directory to it's descendants at deepest levels.</span></p>
-<pre class="lang:sh decode:true">&gt; cd 'C:\Python27\tcl\tcl8.5'
-&gt; tree
+One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.
+
+In PowerShell, you can use the `tree` command to print a tree structure, starting from the current directory to it's descendants at deepest levels.
+
+```bash
+> cd 'C:\Python27\tcl\tcl8.5'
+> tree
 ├───encoding
 ├───http1.0
 ├───msgs
@@ -56,7 +59,13 @@ comments: []
 ├───Mexico
 ├───Pacific
 ├───SystemV
-└───US</pre>
-<p>You can also specify a custom path as an argument.</p>
-<pre class="lang:sh decode:true ">&gt; tree 'C:\Program Files'</pre>
-<p>Make sure you use a font that supports lot of glyphs to see the lines.</p>
+└───US
+```
+
+You can also specify a custom path as an argument.
+
+```bash
+> tree 'C:\Program Files'
+```
+
+Make sure you use a font that supports lot of glyphs to see the lines.

@@ -118,7 +118,8 @@ gulp.task("default", function(){
 Gulp has 3 other methods `.src`,`.dest` & `.watch` apart from `.task`. We'll look into those by trying to minify CSS, a real world use case for gulp.
 
 Before we go ahead, we need to know a little more about how gulp works. Gulp generates a stream from the files we pass in via `gulp.src`  method. We then `pipe` the stream through various processors like minify, uglify, sass, sourcemaps etc. Remember, all the processing done, is still on the generated stream and not written to disk. To do that, we use `gulp.dest` .
-#### Minify CSS
+
+### Minify CSS
 Create a style.css in css directory and put the following content.
 
 ```css
@@ -131,7 +132,7 @@ body, html{
   height : 100%;
 }
 ```
-We will install [gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css) plugin</a> to do the minification.
+We will install [gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css) plugin to do the minification.
 
 ```bash
 npm install gulp-minify-css --save-dev

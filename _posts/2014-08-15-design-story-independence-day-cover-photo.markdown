@@ -42,22 +42,33 @@ comments:
   content: Thanks Mona! And choosing colors can take up huge time and quickly become
     a nightmare if not done properly.
 ---
-<p>Let's have a look at it first.</p>
-<p><a href="/assets/images/2014/08/india.jpg"><img class="alignnone size-full wp-image-44" style="border: 1px solid #ccc;" src="/assets/images/2014/08/india.jpg" alt="Independence Day - Cover Photo" width="851" height="315" /></a></p>
-<p>Yeah! This is what I came up with when I had to put together myself, India and the Independence Day.</p>
-<p>Essentially there were couple of thoughts going on when I fired up Photoshop and had a blank document of size <strong>851 X 315. </strong>I told myself - I am gonna make something today that...</p>
-<ul>
-<li>...is <em>Unique</em>. 'coz I did not want to put the same flat tri-colored flag image as cover photo.</li>
-<li>...should represent myself, what I love to do.( "<em>design</em>" ) and my philosophy ( "<em>minimalism</em>" )</li>
-<li>...should follow modern design trends where you use simple geometric objects to create the image.</li>
-<li>...finally keeps the feeling of Independence Day intact.</li>
-</ul>
-<p>I tried couple of things like <strong>simple gradients, full-width solid colors </strong>and even <strong>simple square tiles </strong>but none of them really made me happy.</p>
-<p>After spending "<em>a lot</em>" of time on the shapes, I settled down to the one above. I wanted two squares and one circle to represent the Indian flag at it's bare minimum!</p>
-<p>Then I had to choose the right colors. I needed the perfect colors for those small shapes on my layers window. So I fired up google and did an image search - "<em>indian flag"</em>. Then, I chose some of the best photos out there to analyze the colors used in them. The following colors looked best on a flat white background.</p>
-<p class="color-patches"><span class="color-patch saffron">#FC7700</span><span class="color-patch blue">#314294</span><span class="color-patch green">#158809</span></p>
-<p class="color-patches">I was about to save the psd file and export as a .jpeg but it occurred to me that I should put the number of years of independence. Yet again, the color was really important. It should have been mild but sharp on a white background. I chose</p>
-<p class="color-patches"><span class="color-patch gray">#666666</span> as my text color.</p>
-<p>There it was. I got what I needed. Minimal - Unique - Indian. :)</p>
-<p>Show your love by making it your cover photo or use the cropped version below for instagram. Let me know what you thought in the comments below. <strong>Jai Hind!</strong></p>
-<p><a href="/assets/images/2014/08/india_square.jpg"><img class="size-full wp-image-58 aligncenter" style="border: 1px solid #ccc;" src="/assets/images/2014/08/india_square.jpg" alt="Indian Independence Day" width="315" height="315" /></a></p>
+Let's have a look at it first.
+
+[![Independence Day - Cover Photo](/assets/images/2014/08/india.jpg)](/assets/images/2014/08/india.jpg)
+
+Yeah! This is what I came up with when I had to put together myself, India and the Independence Day.
+
+Essentially there were couple of thoughts going on when I fired up Photoshop and had a blank document of size **851 X 315. **I told myself - I am gonna make something today that...
+
+*   ...is _Unique_. 'coz I did not want to put the same flat tri-colored flag image as cover photo.
+*   ...should represent myself, what I love to do.( "_design_" ) and my philosophy ( "_minimalism_" )
+*   ...should follow modern design trends where you use simple geometric objects to create the image.
+*   ...finally keeps the feeling of Independence Day intact.
+
+I tried couple of things like **simple gradients, full-width solid colors **and even **simple square tiles **but none of them really made me happy.
+
+After spending "_a lot_" of time on the shapes, I settled down to the one above. I wanted two squares and one circle to represent the Indian flag at it's bare minimum!
+
+Then I had to choose the right colors. I needed the perfect colors for those small shapes on my layers window. So I fired up google and did an image search - "_indian flag"_. Then, I chose some of the best photos out there to analyze the colors used in them. The following colors looked best on a flat white background.
+
+<span class="color-patch saffron">#FC7700</span><span class="color-patch blue">#314294</span><span class="color-patch green">#158809</span>
+
+I was about to save the psd file and export as a .jpeg but it occurred to me that I should put the number of years of independence. Yet again, the color was really important. It should have been mild but sharp on a white background. I chose
+
+<span class="color-patch gray">#666666</span> as my text color.
+
+There it was. I got what I needed. Minimal - Unique - Indian. :)
+
+Show your love by making it your cover photo or use the cropped version below for instagram. Let me know what you thought in the comments below. **Jai Hind!**
+
+[![Indian Independence Day](/assets/images/2014/08/india_square.jpg)](/assets/images/2014/08/india_square.jpg)
