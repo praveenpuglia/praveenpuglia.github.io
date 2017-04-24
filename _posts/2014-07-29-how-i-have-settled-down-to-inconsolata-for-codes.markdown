@@ -1,6 +1,5 @@
 ---
 layout: post
-status: publish
 published: true
 title: How I have settled down to Inconsolata for codes
 author:
@@ -8,10 +7,7 @@ author:
   login: praveenpuglia
   email: praveenpuglia@gmail.com
   url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
 date: '2014-07-29 23:54:32 +0530'
-date_gmt: '2014-07-29 18:24:32 +0530'
 categories:
 - Workflow
 - Typography

@@ -1,21 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: Make Your Web Apps Little More Native
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-excerpt: Use this simple CSS technique borrowed from Medium.com to help you get native feeling for web apps.
-date: '2016-05-18 10:00:00 +0530'
-date_gmt: '2016-05-18 10:00:00 +0530'
-categories:
-- CSS
-tags:
-- css
-- native
-- font
 ---
 Everybody loves Medium and there is just something about it that attracts people. The more I used it, the more I realized there was something wonderful it was doing to give it's users, the native feeling. I personally love apps when they adapt to different systems & devices. It shows that they care for their users and what sort of system they use. The user doesn't need to adapt to the app but the app adapts for the user's environment. Making elements adapt to native design system also creates a sense of trust.
 
