@@ -1,32 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: Xiaomi Redmi 1S is a powerful product with bad design
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: It's been a while I have been using Xiaomi Redmi 1S and I have a confession
-  to make. It's a powerful product with bad design.
-wordpress_id: 78
-wordpress_url: http://praveenpuglia.com/?p=78
-date: '2014-10-19 22:50:41 +0530'
-date_gmt: '2014-10-19 17:20:41 +0530'
-categories:
-- Design
-- Electronics
-- Mobile
-tags:
-- design
-- mobile
-- xiaomi
-- redmi
-- miui
-comments: []
+title: Xiaomi Redmi 1S Is A Powerful Product With Bad Design
 ---
 [![](/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg)](/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.jpg)
 

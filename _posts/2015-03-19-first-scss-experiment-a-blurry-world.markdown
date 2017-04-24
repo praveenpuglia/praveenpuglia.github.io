@@ -1,30 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: First SCSS Experiment - A Blurry World
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-wordpress_id: 159
-wordpress_url: http://praveenpuglia.com/?p=159
-date: '2015-03-19 22:17:10 +0530'
-date_gmt: '2015-03-19 16:47:10 +0530'
-categories:
-- Web Technologies
-- CSS
-- SCSS
-tags:
-- scss
-- sass
-- box-shadow
-- experiment
-- blur
-comments: []
 ---
 I know. I know. I am late into the business. All cool kids have nailed it completely and I took it up yesterday. But better late than never.
 

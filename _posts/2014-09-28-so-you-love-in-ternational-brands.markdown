@@ -1,32 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: So you love IN-ternational brands?
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: Indians go crazy about a brand that sounds foreign in nature. It's sad and
-  true. Guess what? It's a great weapon to make money as well. We immediately trust
-  it and are ready to pay more for a name that sounds "international".
-wordpress_id: 65
-wordpress_url: http://praveenpuglia.com/?p=65
-date: '2014-09-28 16:37:46 +0530'
-date_gmt: '2014-09-28 11:07:46 +0530'
-categories:
-- Branding
-- India
-tags:
-- brands
-- indian
-- foreign
-- marketing
-- branding
-comments: []
+title: So You Love IN-ternational Brands?
 ---
 I have never written anything about brands or branding before. I have never been bothered enough but as I realize, they do affect me and my surroundings. They bring in changes in how people interact with each other. They are used as tools to measure your mental and financial conditions. Having a good knowledge of brands make you appear sophisticated( ...or at least few people think so! )
 

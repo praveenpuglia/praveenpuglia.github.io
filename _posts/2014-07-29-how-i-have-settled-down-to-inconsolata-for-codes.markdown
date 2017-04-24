@@ -1,23 +1,6 @@
 ---
 layout: post
-published: true
-title: How I have settled down to Inconsolata for codes
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-date: '2014-07-29 23:54:32 +0530'
-categories:
-- Workflow
-- Typography
-tags:
-- inconsolata
-- font
-- text editor
-- sublime text
-- coding
-- typography
+title: How I Have Settle Down To Inconsolata For Code
 ---
 Choosing the coding font that suits your style is a difficult job. It has to impress you with it's curves, spaces and visual aesthetics. For me, there are these specific things that mattered the most.
 

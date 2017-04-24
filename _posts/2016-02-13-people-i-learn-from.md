@@ -1,22 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: People I Learn From
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-excerpt: People on web who inspire me to learn.
-date: '2016-03-21 18:40:00 +0530'
-date_gmt: '2016-03-21 18:40:00 +0530'
-categories:
-- Inspiration
-tags:
-- web
-- community
-- people
-- inspiration
 ---
 The world of web development is wild. Every day there are literally tons of new things to learn. I feel exhausted time to time and it's really important for one to remain inspired. I like it when I look at work done by people and wonder wide eyed - *How the heck is this done?*. That inspires me.
 

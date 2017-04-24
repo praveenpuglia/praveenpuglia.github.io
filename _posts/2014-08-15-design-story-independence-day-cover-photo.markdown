@@ -1,46 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: Design Story - Independence day cover photo
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: I had to do something special on the Independence Day and this time it should
-  have reflected who I am, what I do and my philosophy of life. Here's what I came
-  up with. Go! Use it!
-wordpress_id: 43
-wordpress_url: http://praveenpuglia.com/?p=43
-date: '2014-08-15 13:49:07 +0530'
-date_gmt: '2014-08-15 08:19:07 +0530'
-categories:
-- Design
-tags:
-- design
-- india
-- independence day
-comments:
-- id: 3
-  author: Monalisa
-  author_email: monalisa229@gmail.com
-  author_url: http://www.lawfarm.in
-  date: '2014-08-16 10:24:23 +0530'
-  date_gmt: '2014-08-16 04:54:23 +0530'
-  content: "Intriguing :) I didn't know how chosing colours could take such amount
-    of effort. \r\n\r\nI think you've implemented your philosophy of minimalism rather
-    well without having to lose out on clarity!"
-- id: 4
-  author: praveenpuglia
-  author_email: praveenpuglia@gmail.com
-  author_url: ''
-  date: '2014-08-16 10:42:00 +0530'
-  date_gmt: '2014-08-16 05:12:00 +0530'
-  content: Thanks Mona! And choosing colors can take up huge time and quickly become
-    a nightmare if not done properly.
+title: Design Story - Independence Day Cover Photo
 ---
 Let's have a look at it first.
 

@@ -1,27 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: Make WAMP work on Windows 10 Technical Preview
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: Whenever a new version of Windows comes up there is something or the other wrong with WAMP. Here's how to fix.
-date: '2015-02-12 22:24:00 +0530'
-date_gmt: '2015-02-12 16:54:00 +0530'
-categories:
-- Workflow
-- Web Technologies
-- Windows
-tags:
-- windows 10
-- wamp
-- skype
-- localhost
+title: Make WAMP Work On Windows 10
 ---
 ### Edit For Windows 10 Clean Install
 ---

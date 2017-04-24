@@ -1,27 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: Meeting Lea & Chris
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: The feeling when you meet Batman & Jesus together.
-date: '2015-12-11 00:00:00 +0530'
-date_gmt: '2015-12-11 00:00:00 +0530'
-categories:
-- Experiences
-tags:
-- lea verou
-- chris lilley
-- meetup
-- interview
-- christmas
-- css
-- svg
 ---
 **Reporting From Boston**  
 

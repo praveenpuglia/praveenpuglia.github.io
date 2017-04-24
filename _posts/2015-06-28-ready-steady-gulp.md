@@ -1,40 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: Ready Steady Gulp!
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: Lately, if something has totally changed the way I work, it's Gulp - the
-  streaming build system. There are lot of cool things you can do with gulp with great
-  flexibility. Let's get started!
-wordpress_id: 185
-wordpress_url: http://praveenpuglia.com/?p=185
-date: '2015-06-28 13:08:11 +0530'
-date_gmt: '2015-06-28 07:38:11 +0530'
-categories:
-- Workflow
-tags:
-- css
-- minify
-- gulp
-- watch
-- build
-- workflow
-- stream
-comments:
-- id: 1101
-  author: Ready Steady Gulp | experience@imaginea
-  author_email: ''
-  author_url: http://blog.imaginea.com/ready-steady-gulp/
-  date: '2015-07-03 12:38:01 +0530'
-  date_gmt: '2015-07-03 07:08:01 +0530'
-  content: "[&#8230;]  This post originally appeared on praveenpuglia.com [&#8230;]"
 ---
 Lately, if something has totally changed the way I work, it's [Gulp](http://gulpjs.com/)  - *the streaming build system* . There are lot of cool things you can do with gulp with great flexibility. Let's get started!
 ## Installation

@@ -1,24 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: Introducing Poppins
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-excerpt: A light color scheme for Sublime Text & Textmate with popping colors for awesome clarity.
-date: '2015-12-20 00:00:00 +0530'
-date_gmt: '2015-12-20 00:00:00 +0530'
-categories:
-- Workflow
-tags:
-- sublime text
-- text mate
-- theme
-- color scheme
-- light
-- poppins
+title: Introducing Poppins - An Eye Popping, Light Sublime Text 3 Syntax Theme
 ---
 <img class="human-photo" src="/assets/images/2015/12/poppins.jpg">
 

@@ -1,23 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: Talks That Impress
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: All the great talks that left impression on me, looked like this.
-date: '2015-09-06 00:00:00 +0530'
-date_gmt: '2015-09-06 00:00:00 +0530'
-categories:
-- Thoughts
-tags:
-- talks
-- thoughts
 ---
 
 I am organizing a [CodePen Meetup in India](http://nvite.co/e114)  for the first time ever and it's a big deal for me. Not just because CodePen is big and people know it for it's quality, but also because of the care I am required to take in all aspects of the event. Most importantly the talks.

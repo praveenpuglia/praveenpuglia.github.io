@@ -1,26 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
 title: Finding Unique Color Strings In Project
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: Combine Sublime Text and JavaScript magic to get all unique colors used in your projects.
-date: '2015-11-01 00:00:00 +0530'
-date_gmt: '2015-11-01 00:00:00 +0530'
-categories:
-- Workflow
-tags:
-- sublime text
-- regular expressions
-- regex
-- find
-- colors
 ---
 One of my recent projects is messy with it's color theory. Partly because it's brand new and there are things which will take different directions *soon*! 
 

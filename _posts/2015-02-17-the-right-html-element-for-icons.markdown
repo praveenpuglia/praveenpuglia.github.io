@@ -1,30 +1,6 @@
 ---
 layout: post
-status: publish
-published: true
-title: The right HTML element for icons
-author:
-  display_name: Praveen Puglia
-  login: praveenpuglia
-  email: praveenpuglia@gmail.com
-  url: ''
-author_login: praveenpuglia
-author_email: praveenpuglia@gmail.com
-excerpt: So how do we go about choosing an element to deal with icons? I'll say choose
-  as a human would; by being stupid and finding a fit. Religious folks... angry?
-wordpress_id: 97
-wordpress_url: http://praveenpuglia.com/?p=97
-date: '2015-02-17 22:54:49 +0530'
-date_gmt: '2015-02-17 17:24:49 +0530'
-categories:
-- Web Technologies
-- Semantics
-tags:
-- semantics
-- icons
-- html
-- css
-comments: []
+title: The Right HTML Element For Icons
 ---
 [![ VS ](/assets/images/2015/02/span_vs_i.png)](/assets/images/2015/02/span_vs_i.png)
 
