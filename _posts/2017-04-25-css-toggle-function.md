@@ -147,6 +147,6 @@ Isn't that cool?
 The saddest part is, however, that it's not supported in any of the browsers and it also doesn't seem like a priority to browser vendors for implementation.
 
 ### Resources
-- https://drafts.csswg.org/css-values-4/#funcdef-toggle
-- https://bugs.chromium.org/p/chromium/issues/detail?id=715070
+- [https://drafts.csswg.org/css-values-4/#funcdef-toggle](https://drafts.csswg.org/css-values-4/#funcdef-toggle)
+- [https://bugs.chromium.org/p/chromium/issues/detail?id=715070](https://bugs.chromium.org/p/chromium/issues/detail?id=715070)
 
