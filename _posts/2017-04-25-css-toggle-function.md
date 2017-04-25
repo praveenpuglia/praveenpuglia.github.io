@@ -79,7 +79,7 @@ The `toggle()` function has the following syntax.
 ```css
 property: toggle(value1, value2, value3...);
 ```
-Each argument to passed to `toggle()` is first evaluated as if it was the **only** value applied to property. This gives CSS engine the respective computed values.
+Each argument passed to `toggle()` is first evaluated as if it was the **only** value applied to property. This gives CSS engine the respective computed values.
 
 ```
 value1 --> computedValue1
