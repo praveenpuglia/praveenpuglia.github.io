@@ -116,6 +116,7 @@ Start          Original Pos.          End
 ```
 
 A `.blob` starts at `-40px`. Reaches `40px` at `50%` of the animation and then finishes off at it's original position `0` at 100% of the animation( If no 100% state is specified, the default state becomes the final state. )
+All in all, it looks like each blob is oscillating between `-40px` & `40px` positions.
 
 Let's apply this animation to all the `.blob`s. 
 ```css
