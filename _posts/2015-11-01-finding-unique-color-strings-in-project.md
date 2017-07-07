@@ -54,9 +54,9 @@ Example - `#fff Vs. #ffffff Vs. rgb(255,255,255)`.
 
 My initial thought ended here and I was happy but that didn't last long. The problem that remainned was that I still couldn't see those colors. Sure we have all the values but in the field of colors, seeing them makes more sense.
 
-So... I built this tool - [Show Me My Colors](http://praveenpuglia.com/show-me-my-colors)( couldn't find a 'cool' name :( ). You can input the list of all colors, including the duplicate ones, in this tool and it shows you, **visually**, the unique<sup>#</sup> colors! It's far from perfect but try it out! I have plans to make it easier to use so you don't have to do the heavy lifting. If you want to jump in in making it better, I am sure you'll get a free beer! ;)
+So... I built this tool - [chamarel](http://praveenpuglia.com/chamarel)( couldn't find a 'cool' name :( ). You can input the list of all colors, including the duplicate ones, in this tool and it shows you, **visually**, the unique<sup>#</sup> colors! It's far from perfect but try it out! I have plans to make it easier to use so you don't have to do the heavy lifting. If you want to jump in in making it better, I am sure you'll get a free beer! ;)
 
-![Show Me My Colors - Project](/assets/images/2015/11/show-me-my-colors.png)
+![Chamarel - Project](/assets/images/2015/11/show-me-my-colors.png)
 
 
 
