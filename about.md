@@ -9,17 +9,24 @@ title: About
 
 <style>
 .social-connect {
-    display: flex;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
 }
 .social-connect__item {
     display: grid;
     text-decoration: none;
     padding: 1rem;
-    grid-gutter: 1rem;
     align-items: center;
     justify-content: center;
     background: #f7f0ea;
     border-radius: 0.25rem;
+    transition: filter 0.3s;
+}
+.social-connect__item:hover {
+    filter: invert(100);
+    text-decoration: none;
+    -webkit-filter: invert(100);
 }
 </style>
 <div class="social-connect">
