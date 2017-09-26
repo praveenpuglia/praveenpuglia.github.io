@@ -47,7 +47,7 @@ I work with amazing folks at [Joveo](http://www.joveo.com/team.html). Connect wi
 - VueJS 😍
 - Creating awareness about Web Platform 😇
 - Music. Instrumentals. 😌
-- Black Hole. Neutron Star. Scince 👨‍🔬
+- Black Hole. Neutron Star. Science 👨‍🔬
 
 ## What Are You Interested In ?
 Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
@@ -56,5 +56,3 @@ Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
 > Everything has patterns. You just need right tools and willingness to identify them.
 
 > If you are spending way more effort than you think it should require, you should start over.
-
-
