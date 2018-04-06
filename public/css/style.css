@@ -1,0 +1,24 @@
+body {
+  display: grid;
+  grid-template-columns: 14em 1fr;
+  height: 100vh;
+}
+.wrap {
+  max-height: 100%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 960px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    width: auto;
+  }
+  .sidebar-item {
+    display: none;
+  }
+  .sidebar-nav {
+    display: flex;
+  }
+}
