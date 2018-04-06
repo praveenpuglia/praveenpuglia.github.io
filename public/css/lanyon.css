@@ -146,9 +146,7 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -14rem;
   width: 14rem;
-  visibility: hidden;
   overflow-y: auto;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
@@ -288,16 +286,9 @@ a.sidebar-nav-item:focus {
           transition: transform .3s ease-in-out;
 }
 
-#sidebar-checkbox:checked + .sidebar {
+.sidebar {
   z-index: 10;
   visibility: visible;
-}
-#sidebar-checkbox:checked ~ .sidebar,
-#sidebar-checkbox:checked ~ .wrap,
-#sidebar-checkbox:checked ~ .sidebar-toggle {
-  -webkit-transform: translateX(14rem);
-      -ms-transform: translateX(14rem);
-          transform: translateX(14rem);
 }
 
 
