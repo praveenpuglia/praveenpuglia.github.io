@@ -14,7 +14,7 @@ I often use mixins to share utility methods and constants related to those utili
 - data processing functions
 - common event handlers etc.
 
-Fitlers are slightly special because they can be used in both the script part and the template part of a component.
+Filters are slightly special because they can be used in both the script part and the template part of a component.
 
 I often end up requiring filters not only in templates, but also in the script part of my components. Sometimes exclusively in the script without any usage in the templates. In those cases, it does not feel right to bring in the utility functions as an entire mixin.
 
@@ -64,7 +64,7 @@ export default {
 In components where I need to convert millis to duration, only in the script, I just import the `getDurationByMillis` function instead of the entire mixin.
 
 ```ts
-import { getDurationByMillis } from '@/utils/datetime.ts`
+import { getDurationByMillis } from "@/utils/datetime.ts";
 ```
 
 I also put any constants that I need for my datetime utilities in that same utility file as well. Example -
