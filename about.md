@@ -2,8 +2,9 @@
 layout: page
 title: About
 ---
+
 ![Praveen Puglia](http://www.gravatar.com/avatar/08f8df25ec3b58272bd422dab475006f.jpg?s=200)
- <a href="http://stackexchange.com/users/1247292">
+<a href="http://stackexchange.com/users/1247292">
 <img src="http://stackexchange.com/users/flair/1247292.png?theme=clean" width="208" height="58" alt="profile for Praveen Puglia on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Praveen Puglia on Stack Exchange, a network of free, community-driven Q&amp;A sites">
 </a>
 
@@ -37,22 +38,29 @@ title: About
 </div>
 
 ## Who Are You ?
+
 I am Praveen, a Web Developer from Hyderabad, India. I spend my time writing CSS, JavaScript and HTML that looks cool, performs better.
 
 ## Where Do You Work ?
-I work with amazing folks at [Joveo](http://www.joveo.com/team.html). Connect with me if you are interested in doing some amazing frontend stuff.
+
+I am a Principal Engineer at <a href="https://voicezen.ai">Voicezen</a>. I take care of all things frontend and tools.
 
 ## What Do You Love To Do ?
+
 - CSS ❤️
 - VueJS 😍
 - Creating awareness about Web Platform 😇
 - Music. Instrumentals. 😌
-- Black Hole. Neutron Star. Science 👨‍🔬
+- Black Holes. Neutron Stars. Science 👨‍🔬
 
 ## What Are You Interested In ?
+
 Space. Physics. Language. Typography. Geometry. Minimalism. Design :)
 
 ## What's Your Philosophy ?
+
+> What's Unimportant is Paramount.
+
 > Everything has patterns. You just need right tools and willingness to identify them.
 
 > If you are spending way more effort than you think it should require, you should start over.
