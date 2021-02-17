@@ -44,9 +44,13 @@ Which means that Webpack has no idea about how to load a markdown file as a modu
 
 > _A loader for webpack that allows importing files as a String._
 
-The good part is that I didn't need to install raw-loader. Vue CLI already installs it & uses it. You can also check this out for yourself by running `vue inspect > webpack.js` in your project root and searching for raw-loader in it.
+I installed `raw-loader` as dev dependency.
 
-What I needed to do however is to direct webpack to use it via `vue.config.js`. Here's what that configuration looks like.
+```sh
+yarn add -D raw-loader
+```
+
+Next I needed to direct webpack to use it via `vue.config.js`. Here's what that configuration looks like.
 
 ```js
 module.exports = {
