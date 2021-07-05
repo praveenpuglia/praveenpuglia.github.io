@@ -37,19 +37,17 @@ Example -
 ```html
 <!-- From the official Vue Guide -->
 
-<div id="app">
-  {{ message }}
-</div>
+<div id="app">{{ message }}</div>
 
 <script src="https://unpkg.com/vue"></script>
 
 <script>
-var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
-})
+  var app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello Vue!",
+    },
+  });
 </script>
 ```
 
@@ -83,7 +81,7 @@ new Vue({
   // What about filters?
   filters: {},
   // You want to watch a property?
-  watch: {}
+  watch: {},
 });
 
 // you see where I am going with this?
@@ -93,22 +91,22 @@ Now that you know this, you already know most of the components API. Here's an e
 
 ```js
 let MyComponent = Vue.component({
-  name: 'my-component',
+  name: "my-component",
   template: `<h1> Hello World! </h1>`,
   data() {
     return {};
   },
   methods: {},
   computed: {},
-  filters: {}
+  filters: {},
 });
 ```
 
 The only things that you need to know are...
 
-* A component requires a `name` so you can use the component like `<my-component></my-component>`
-* A template so your component can render a piece of DOM.
-* `data` becomes a function that returns an object. So each instance of `MyComponent` can have separate data.
+- A component requires a `name` so you can use the component like `<my-component></my-component>`
+- A template so your component can render a piece of DOM.
+- `data` becomes a function that returns an object. So each instance of `MyComponent` can have separate data.
 
 That's it. Rest of the things work exactly how we have seen while creating a Vue instance.
 
@@ -127,12 +125,12 @@ I also like how Vue team has gone ahead and added little things that may seem un
 <a @click.once="doThis"></a>
 
 <!-- How about something should happen when you press Enter? -->
-<input @keyup.enter="submit">
+<input @keyup.enter="submit" />
 ```
 
 ```html
 <!-- Want the number input to give you a real number? -->
-<input type="number" v-model.number="age" placeholder="Your Age">
+<input type="number" v-model.number="age" placeholder="Your Age" />
 
 <!-- The `age` property in `data` will be a number instead of the default string -->
 ```
@@ -177,12 +175,12 @@ Neat right?
 
 Vue team knows that frontend development is more than just the view layer. Just like the core library, there are supporting libraries, all made by the Vue core members, to help developers accomplish most real world use cases. If you love the Vue documentation, you can expect the same level of thoughts gone into API design and documentation.
 
-* **vue-router** - For all the routing needs
-* **vuex** - Vue's Flux like implementaiton for state management.
-* **vue-rx** - For RxJS integration with Vue.
-* **vue-cli** - Your one stop shop for scaffolding and developing apps from tiny to large enterprise ones.
-* **TypeScript Support** - Vue has official typescript support if you are comfortable with it.
-* **vue-loader** - So YOU can use Single File Components and WEBPACK can do it's magic to figure out different parts of `.vue` files.
+- **vue-router** - For all the routing needs
+- **vuex** - Vue's Flux like implementaiton for state management.
+- **vue-rx** - For RxJS integration with Vue.
+- **vue-cli** - Your one stop shop for scaffolding and developing apps from tiny to large enterprise ones.
+- **TypeScript Support** - Vue has official typescript support if you are comfortable with it.
+- **vue-loader** - So YOU can use Single File Components and WEBPACK can do it's magic to figure out different parts of `.vue` files.
 
 ## Try It
 

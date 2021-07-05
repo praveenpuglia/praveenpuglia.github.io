@@ -1,21 +1,21 @@
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           ':title/'
+permalink: "blog/:title/"
 
 # Setup
-title:               Praveen Puglia
-tagline:             'Web Developer'
-description:         'All things JavaScript & CSS. Want to travel the World & beyond!'
-url:                 http://praveenpuglia.com
-baseurl:             ''
-markdown:            kramdown
+title: Praveen Puglia
+tagline: "Web Developer"
+description: "All things JavaScript & CSS. Want to travel the World & beyond!"
+url: http://praveenpuglia.com
+baseurl: ""
+markdown: kramdown
 
 # About/contact
 author:
-  name:              Praveen Puglia
-  url:               http://twitter.com/praveenpuglia
-  email:             praveenpuglia@gmail.com
+  name: Praveen Puglia
+  url: http://twitter.com/praveenpuglia
+  email: praveenpuglia@gmail.com
 
 # Custom vars
-version:             1.1.0
+version: 1.1.0

@@ -1,3 +1,6 @@
+html {
+  font-family: "Fira Sans", "Helvetica", "Arial", sans-serif;
+}
 body {
   display: grid;
   grid-template-columns: 14em 1fr;
@@ -21,4 +24,26 @@ body {
   .sidebar-nav {
     display: flex;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Fira Sans", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+}
+.post-title {
+  font-size: calc(1.5rem + 3vw);
+}
+.posts .post-title {
+  font-size: 1.4rem;
+}
+.tags-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  gap: 0.5rem;
 }
