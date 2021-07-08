@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to use AVIF today
+description: Short post on how to serve AVIF today with fallback for unsupported browsers.
 tags: [avif, image, compression, picture, fallback]
 ---
 
