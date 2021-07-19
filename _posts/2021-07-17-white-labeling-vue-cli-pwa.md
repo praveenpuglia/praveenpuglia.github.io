@@ -5,8 +5,6 @@ description: "Using Vue CLI PWA plugin to dynamically generate service worker as
 tags: [vue, vue-cli, pwa, service worker, plugin, white-labeling]
 ---
 
-# While-labeling, Vue CLI & PWA
-
 At [Voicezen](https://voicezen.ai/), I have been fortunate enough to work on a platform that has to be white-labelled. But what does it mean to be white-labelled?
 
 > A **white-label product** is a [product](<https://en.wikipedia.org/wiki/Product_(business)>) or service produced by one company (the [producer](<https://en.wikipedia.org/wiki/Production_(economics)>)) that other companies (the [marketers](https://en.wikipedia.org/wiki/Marketing)) [rebrand](https://en.wikipedia.org/wiki/Rebranding) to make it appear as if they had made it. - Wikipedia
