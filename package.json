@@ -1,0 +1,30 @@
+{
+  "name": "praveenpuglia.com",
+  "version": "1.0.0",
+  "description": "source for praveenpuglia.com",
+  "main": "index.js",
+  "scripts": {
+    "serve": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praveenpuglia/praveenpuglia.github.io.git"
+  },
+  "keywords": [
+    "blog",
+    "website"
+  ],
+  "author": "Praveen Puglia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/praveenpuglia/praveenpuglia.github.io/issues"
+  },
+  "homepage": "https://github.com/praveenpuglia/praveenpuglia.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0"
+  },
+  "dependencies": {
+    "luxon": "^2.3.0"
+  }
+}

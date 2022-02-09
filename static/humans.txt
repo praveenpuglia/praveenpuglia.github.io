@@ -1,0 +1,10 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Praveen Puglia -- Web Developer -- @praveenpuglia
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, POSTCSS, Javascript, 11ty
