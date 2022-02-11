@@ -1,5 +1,6 @@
 .main-header {
   min-height: 3rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
