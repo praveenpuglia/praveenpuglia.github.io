@@ -15,11 +15,11 @@ I am Praveen & that's not a cut off hand floating in the air.
 
 ## Current
 
-Frontend Platform @ [Sprinklr](sprinklr.com) | <small>Senior Director, Engineering</small>
+Frontend Platform @ [Sprinklr](https://sprinklr.com) | <small>Senior Director, Engineering</small>
 
 ## Past
 
-- [Voicezen](voicezen.ai)
-- [Joveo](joveo.com)
-- [Pramati](pramati.com)
-- [TCS](tcs.com)
+- [Voicezen](https://voicezen.ai)
+- [Joveo](https://joveo.com)
+- [Pramati](https://pramati.com)
+- [TCS](https://tcs.com)
