@@ -1,3 +1,6 @@
+:root {
+  --color-link: #0070f3;
+}
 /* Headings */
 h1,
 h2,
@@ -41,7 +44,7 @@ code:not([class*="language-"]) {
   font-size: 0.85rem;
 }
 a {
-  color: #0070f3;
+  color: var(--color-link);
   text-decoration: none;
   transition: 0.3s;
 }
@@ -93,16 +96,41 @@ blockquote {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 0.5rem;
-  font-size: 0.85rem;
+  gap: 1rem;
+}
+.navigation-link-item--social {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation-link-item--social::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -0.25rem;
+  border: 2px solid var(--color-link);
+  z-index: -1;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.16s;
+}
+.navigation-link-item--social:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }
 .navigation-link {
   display: inline-flex;
   align-items: center;
+  height: 100%;
+  flex: 1;
+  justify-content: center;
 }
 .navigation-link img {
   height: 1em;
-  margin-right: 0.25em;
 }
 @media (min-width: 768px) {
   .main-header {
@@ -113,10 +141,6 @@ blockquote {
   }
   .main-navigation {
     margin-left: auto;
-  }
-  .navigation-links {
-    font-size: 1rem;
-    gap: 1rem;
   }
 }
 /* Pages */
