@@ -26,5 +26,8 @@
   },
   "dependencies": {
     "luxon": "^2.3.0"
+  },
+  "volta": {
+    "node": "16.14.0"
   }
 }

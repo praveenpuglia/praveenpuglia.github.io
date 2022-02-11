@@ -6,8 +6,6 @@ tags: [vue, vue-cli, pwa, service worker, plugin, white-labeling]
 date: 2021-07-17
 ---
 
-# While-labeling, Vue CLI & PWA
-
 At [Voicezen](https://voicezen.ai/), I have been fortunate enough to work on a platform that has to be white-labelled. But what does it mean to be white-labelled?
 
 > A **white-label product** is a [product](<https://en.wikipedia.org/wiki/Product_(business)>) or service produced by one company (the [producer](<https://en.wikipedia.org/wiki/Production_(economics)>)) that other companies (the [marketers](https://en.wikipedia.org/wiki/Marketing)) [rebrand](https://en.wikipedia.org/wiki/Rebranding) to make it appear as if they had made it. - Wikipedia
@@ -31,7 +29,7 @@ On the engineering side, it means that we have to dynamically generate the manif
 
 We use [Vue CLI](https://cli.vuejs.org/) and along with that the [Vue CLI PWA Plugin](https://cli.vuejs.org/core-plugins/pwa.html). The first step is to have the assets / app-icons for each client in a separate, public directory. With a Vue CLI project we get a root level `public` directory. Here's what that looks like after our changes.
 
-```
+```bash
 .
 ├── img
 │   └── icons
@@ -76,7 +74,7 @@ We have 2 clients and then the `default` client which is a fallback. We'll talk 
 
 The next piece of the puzzle is to identify which client are we building the dist for. For that, we use `.env` files. When we build our application, we specify the client by adding the following in our `.env.production` file.
 
-```
+```text
 VUE_APP_CLIENT_ID=batman
 ```
 

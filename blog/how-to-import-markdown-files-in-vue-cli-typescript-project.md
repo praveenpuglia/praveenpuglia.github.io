@@ -20,7 +20,7 @@ I am also using the [Vue Markdown](https://www.npmjs.com/package/vue-markdown) c
 
 So I imported the markdown file in my component and the first thing I saw is the squiggly telling me this.
 
-```
+```text
 TS2307: Cannot find module './query-guide.md'.
 ```
 
@@ -36,7 +36,7 @@ declare module "*.md";
 
 Once that's sorted, I came across this.
 
-```
+```text
 Module parse failed: Unexpected character '#' (1:0)
 
 You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders

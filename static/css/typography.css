@@ -33,9 +33,28 @@ h6 {
 /* Code Blocks */
 code {
   font-family: "DM Mono", "Jetbrains Mono", "SF Mono", "Menlo", monospace !important;
+  font-weight: normal;
 }
 code:not([class*="language-"]) {
-  background-color: #ececec;
+  background-color: #e2e2e2;
   padding: 0.1rem 0.4rem;
   border-radius: 3px;
+  font-size: 0.85rem;
+}
+a {
+  color: #0070f3;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  box-shadow: 10px 10px rgb(0 0 0 / 10%);
+  border: 1px solid;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
 }
