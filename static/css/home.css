@@ -1,0 +1,8 @@
+.hero-banner img {
+  display: block;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: calc(100% - 2rem);
+  transform: translateX(-1rem);
+  box-shadow: 1rem 1rem rgba(0, 0, 0, 0.1), 2rem 2rem rgba(0, 0, 0, 0.1);
+}

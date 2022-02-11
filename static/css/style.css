@@ -1,0 +1,137 @@
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #666;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+/* Code Blocks */
+code {
+  font-family: "DM Mono", "Jetbrains Mono", "SF Mono", "Menlo", monospace !important;
+  font-weight: normal;
+}
+code:not([class*="language-"]) {
+  background-color: #e2e2e2;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+a {
+  color: #0070f3;
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 2rem;
+  box-shadow: 10px 10px rgb(0 0 0 / 10%);
+  border: 1px solid;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.main-header {
+  min-height: 3rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid;
+  flex-direction: column;
+}
+.main-header-logo {
+  margin-top: 0;
+}
+.main-header-logo::after {
+  content: "👋";
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: 0.16s;
+}
+.main-header-logo:hover::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+.navigation-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+.navigation-link {
+  display: inline-flex;
+  align-items: center;
+}
+.navigation-link img {
+  height: 1em;
+  margin-right: 0.25em;
+}
+@media (min-width: 768px) {
+  .main-header {
+    flex-direction: row;
+  }
+  .main-header-logo {
+    margin: 0;
+  }
+  .main-navigation {
+    margin-left: auto;
+  }
+  .navigation-links {
+    font-size: 1rem;
+    gap: 1rem;
+  }
+}
+/* Pages */
+.hero-banner img {
+  display: block;
+  margin: auto;
+  margin-bottom: 3rem;
+  max-width: calc(100% - 2rem);
+  transform: translateX(-1rem);
+  box-shadow: 1rem 1rem rgba(0, 0, 0, 0.1), 2rem 2rem rgba(0, 0, 0, 0.1);
+}
+body {
+  font-family: "Readex Pro", sans-serif;
+  color: #333;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 300;
+}

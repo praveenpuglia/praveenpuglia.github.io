@@ -1,0 +1,54 @@
+.main-header {
+  min-height: 3rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid;
+  flex-direction: column;
+}
+.main-header-logo {
+  margin-top: 0;
+}
+.main-header-logo::after {
+  content: "👋";
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: 0.16s;
+}
+.main-header-logo:hover::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+.navigation-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+.navigation-link {
+  display: inline-flex;
+  align-items: center;
+}
+.navigation-link img {
+  height: 1em;
+  margin-right: 0.25em;
+}
+@media (min-width: 768px) {
+  .main-header {
+    flex-direction: row;
+  }
+  .main-header-logo {
+    margin: 0;
+  }
+  .main-navigation {
+    margin-left: auto;
+  }
+  .navigation-links {
+    font-size: 1rem;
+    gap: 1rem;
+  }
+}
