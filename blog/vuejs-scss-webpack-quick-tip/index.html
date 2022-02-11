@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>VueJS + Webpack + SCSS - Quick Tip - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="VueJS + Webpack + SCSS - Quick Tip - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/vuejs-scss-webpack-quick-tip/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/vuejs-scss-webpack-quick-tip/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>VueJS + Webpack + SCSS - Quick Tip</h1>
+<h2>The Setup</h2>
+<ul>
+<li>Initializd with Vue CLI + Webpack template.</li>
+<li><a href="https://www.youtube.com/watch?v=jrxalQdn64k">Sass loader installed so we can use SCSS in our components</a>.</li>
+</ul>
+<h2>The Problem</h2>
+<p>As a project grows, we'll create many many components at different levels. Say we have a global set of SCSS variables that we might need to reference in our <code>.vue</code> single file components.</p>
+<p>Lets say, those variables are located at <code>src/_variables.scss</code> and the file looks like this.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token comment">//_variables.scss</span><br><br><span class="token comment">// COLORS</span><br>--------------------------<br><span class="token property"><span class="token variable">$brand-primary</span></span>  <span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$brand-secondary</span></span><span class="token punctuation">:</span> #666666<span class="token punctuation">;</span></code></pre>
+<h2>The Basic Solution</h2>
+<p>Since we are great at relative paths, we would go to say <code>src/components/Hello.vue</code> and import the variables like so.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">"../scss/variables"</span><span class="token punctuation">;</span></code></pre>
+<p>or if we want the variables in <code>src/components/admin/Dashboard.vue</code> we would import it like...</p>
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">"../../scss/variables"</span><span class="token punctuation">;</span></code></pre>
+<p>and then we can refer to <code>$brand-primary</code> in our components. That works!</p>
+<h2>The Better Solution</h2>
+<p>The problem with the above approach is evident.</p>
+<ul>
+<li>It's clumsy.</li>
+<li>Real world applications have much deeper levels.</li>
+<li>Bad for maintenance.</li>
+</ul>
+<p>We can easily fix this by using <a href="https://webpack.js.org/configuration/resolve/">Webpack Aliases</a>. What we are essentially doing there is that we are creating a special word for webpack to recognize and resolve that to a path of our choice.</p>
+<p>So we go to <code>webpack.base.conf.js</code> and look for <code>alias</code>. We add an entry for our <code>src/scss</code> directory as follows.</p>
+<pre class="language-js"><code class="language-js"><span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token operator">...</span><span class="token punctuation">,</span><br>    <span class="token string-property property">'$scss'</span><span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src/scss'</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now, we can go back to <code>src/components/Home.vue</code> and change the import statement to</p>
+<pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">"~$scss/variables"</span><span class="token punctuation">;</span></code></pre>
+<p>and guess what? The same path works for <code>src/components/admin/Dashboard.vue</code>. No long relative paths anymore.</p>
+<p>Hope this helps and thanks for reading!</p>
+
+    </div>
+  </body>
+</html>

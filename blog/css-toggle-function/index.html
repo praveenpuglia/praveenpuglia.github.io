@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>CSS `toggle()` Function - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="CSS `toggle()` Function - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/css-toggle-function/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/css-toggle-function/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>CSS `toggle()` Function</h1>
+<p>CSS has had <a href="https://drafts.csswg.org/indexes/#functions">functions</a> for a long time now. We use them everyday in colors( e.g <code>rgb()/hsl()</code>), backgrounds( e.g. <code>linear-gradient()</code>), animations(e.g. <code>cubic-bezier()</code>) etc. CSS Values and Units Module Level 4 defines the <a href="https://drafts.csswg.org/css-values-4/#funcdef-toggle"><code>toggle()</code></a> function. Let's take a look.</p>
+<p>Say we have the following markup.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><br>  Level 1<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><br>    Level 2<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Level 3><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<p>Now what we want is different text colors for those divs at different levels. What can we do?</p>
+<p>We can probably do something like this.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">div > div</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">div > div > div</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This is already bad because of increasing specificity and getting messier. We could make it a little better by adding classes to the divs indicating the nesting level and then style accordingly.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>level-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Level 1<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>level-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    Level 2<br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>level-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Level 3><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.level-1</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.level-2</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> green<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.level-3</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This gets our job done but we are writing a lot of code. We can see how we would have to write more rules as soon as we added more levels.</p>
+<h3>What if we want to repeat those same colors, in that order, for further nested elements?</h3>
+<p>What that means is that</p>
+<ul>
+<li><code>.level-4</code> would have the color <code>red</code>.</li>
+<li><code>.level-5</code> would have <code>green</code>.</li>
+<li><code>.level-6</code> would be <code>blue</code>.</li>
+<li><code>.level-7</code> would be <code>red</code> again and so on.</li>
+</ul>
+<p>If we were to do this the way we did before, we would have to add too many rules.</p>
+<p>SCSS or LESS could make it easy for us to just run a loop and generated all those rules but still our final CSS would end up having too much of WET code. Also, one would have to know the number of levels beforehand.</p>
+<p>This way of solving the problem also breaks when we increase the level of nesting on the fly because we won't have a rule for the new level.</p>
+<h3>What do we do?</h3>
+<p>Welcome the CSS toggle() function.</p>
+<p>The <a href="https://drafts.csswg.org/css-values-4/#funcdef-toggle">spec</a> defines it as follows.</p>
+<blockquote>
+<p>The toggle() expression allows descendant elements to cycle over a list of values instead of inheriting the same value.</p>
+</blockquote>
+<p>With <code>toggle()</code>, we can solve our problem like this.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> green<span class="token punctuation">,</span> blue<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Neat! But...</p>
+<h3>Woah! What the hell just happened?</h3>
+<p>The <code>toggle()</code> function has the following syntax.</p>
+<pre class="language-css"><code class="language-css"><span class="token property">property</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>value1<span class="token punctuation">,</span> value2<span class="token punctuation">,</span> value3...<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Each argument passed to <code>toggle()</code> is first evaluated as if it was the <strong>only</strong> value applied to property. This gives CSS engine the respective computed values.</p>
+<pre><code>value1 --&gt; computedValue1
+value2 --&gt; computedValue2
+value3 --&gt; computedValue3
+</code></pre>
+<p>Next, the browser finds out which <code>computedValue</code> matches the <code>inherited</code> value of <code>property</code>.</p>
+<p>Say <code>computedValue1</code> matches the inherited value of <code>property</code> then, the next value (<code>computedValue2</code>) will be resolved as the value for <code>toggle()</code>.</p>
+<p>If the inherited value matches <code>computedValue3</code>, <code>computedValue1</code> gets resolved as the value to be applied.</p>
+<h3>What happens if a duplicate value is used?</h3>
+<p>Having duplicate values in a toggle function may short circuit it. Here's an example.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>10px<span class="token punctuation">,</span> 20px<span class="token punctuation">,</span> 10px<span class="token punctuation">,</span> 30px<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>In this case, 30px value is never reached because...</p>
+<ul>
+<li>When inherited value is 10px, 20px resolves as the value of toggle function.</li>
+<li>When inherited value is 20px, the next value, which is 10px get resolved.</li>
+<li>The next value in the list is 10px but that from 1 we know what it resolves to.</li>
+</ul>
+<p>So...</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>10px<span class="token punctuation">,</span> 20px<span class="token punctuation">,</span> 10px<span class="token punctuation">,</span> 30px<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/*becomes*/</span><br><br><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">margin-top</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>10px<span class="token punctuation">,</span> 20px<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h3>Real World Example</h3>
+<p>Say we want an unordered list with a specific order of bullets in mind, for different levels of the list. A square bullet at level 1, a disc at level 2 and a circle at level 3. Something like this...</p>
+<p><img src="/assets/images/2017/toggle-list.png" alt="List with custom bullet styles."></p>
+<p>Here's how we can do it.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Item 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Item 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Item 3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Item 3.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Item 3.3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">ul</span> <span class="token punctuation">{</span><br>  <span class="token property">list-style-type</span><span class="token punctuation">:</span> <span class="token function">toggle</span><span class="token punctuation">(</span>square<span class="token punctuation">,</span> disc<span class="token punctuation">,</span> circle<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Isn't that cool?</p>
+<p>The saddest part is, however, that it's not supported in any of the browsers and it also doesn't seem like a priority to browser vendors for implementation.</p>
+<h3>Resources</h3>
+<ul>
+<li><a href="https://drafts.csswg.org/css-values-4/#funcdef-toggle">https://drafts.csswg.org/css-values-4/#funcdef-toggle</a></li>
+<li><a href="https://bugs.chromium.org/p/chromium/issues/detail?id=715070">https://bugs.chromium.org/p/chromium/issues/detail?id=715070</a></li>
+</ul>
+
+    </div>
+  </body>
+</html>

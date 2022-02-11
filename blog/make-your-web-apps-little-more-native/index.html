@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>Make Your Web Apps Little More Native - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="Make Your Web Apps Little More Native - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/make-your-web-apps-little-more-native/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/make-your-web-apps-little-more-native/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>Make Your Web Apps Little More Native</h1>
+<p>Everybody loves Medium and there is just something about it that attracts people. The more I used it, the more I realized there was something wonderful it was doing to give it's users, the native feeling. I personally love apps when they adapt to different systems &amp; devices. It shows that they care for their users and what sort of system they use. The user doesn't need to adapt to the app but the app adapts for the user's environment. Making elements adapt to native design system also creates a sense of trust.</p>
+<p>The secret lies in the font stack used by Medium. The stack tries to cover up majority of the operating systems and provides decent fallbacks when needed. This approach is different than what I have seen for long time. Most modern web apps try to maintain their uniqueness and try to load a typeface their designers might have agreed upon for all browsers and systems.</p>
+<p>The following is what Medium does.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span><br>  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> <span class="token string">"Segoe UI"</span><span class="token punctuation">,</span> Roboto<span class="token punctuation">,</span> Oxygen<span class="token punctuation">,</span><br>    Ubuntu<span class="token punctuation">,</span> Cantarell<span class="token punctuation">,</span> <span class="token string">"Open Sans"</span><span class="token punctuation">,</span> <span class="token string">"Helvetica Neue"</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>This declaration takes care of the font for critical common elements you will come across on Medium. As we can see, it covers up for Mac, Windows, Ubuntu, Android etc.</p>
+<p>So the next time you are looking to build something that needs to provide a native look, try this out.</p>
+
+    </div>
+  </body>
+</html>

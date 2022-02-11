@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>How to Import Markdown Files in Vue CLI + TypeScript Projects - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="How to Import Markdown Files in Vue CLI + TypeScript Projects - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/how-to-import-markdown-files-in-vue-cli-typescript-project/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/how-to-import-markdown-files-in-vue-cli-typescript-project/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>How to Import Markdown Files in Vue CLI + TypeScript Projects</h1>
+<p>Recently, I came across the need to import a markdown file in a Vue component and realized that the internet is full of confusing solutions. Fiddled around for a few hours and found out that it's really quite simple.</p>
+<p>Here's a little bit about the setup I have.</p>
+<ul>
+<li>Vue CLI</li>
+<li>TypeScript</li>
+</ul>
+<p>I am also using the <a href="https://www.npmjs.com/package/vue-markdown">Vue Markdown</a> component. What I wanted to do is</p>
+<ul>
+<li>Write the content in a <code>.md</code> file.</li>
+<li>Import it in my component.</li>
+<li>Pass it to Vue Markdown as the <code>source</code> prop.</li>
+</ul>
+<p>So I imported the markdown file in my component and the first thing I saw is the squiggly telling me this.</p>
+<pre class="language-text"><code class="language-text">TS2307: Cannot find module './query-guide.md'.</code></pre>
+<p>That's because TypeScript doesn't know where to find this module or <em>is it even a module</em>. To fix this, I went to <code>shims-vue.d.ts</code> and declared any markdown file as a module.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">declare</span> <span class="token keyword">module</span> <span class="token string">"*.md"</span><span class="token punctuation">;</span></code></pre>
+<p>...and the squiggly was gone.</p>
+<blockquote>
+<p><strong>NOTE</strong>: You can do this do any kind of file. In my project I also declare all <code>scss</code> files to be module so I can import them directly in my component. <a href="https://praveenpuglia.com/how-to-use-sass-variables-in-javascript-in-a-webpack-project/">Read more on why I do that</a>.</p>
+</blockquote>
+<p>Once that's sorted, I came across this.</p>
+<pre class="language-text"><code class="language-text">Module parse failed: Unexpected character '#' (1:0)<br><br>You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders</code></pre>
+<p>Which means that Webpack has no idea about how to load a markdown file as a module. Quick googling pointed out that I need to use <a href="https://github.com/webpack-contrib/raw-loader">raw-loader</a> to get the content of the file as is.</p>
+<blockquote>
+<p><em>A loader for webpack that allows importing files as a String.</em></p>
+</blockquote>
+<p>I installed <code>raw-loader</code> as dev dependency.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> -D raw-loader</code></pre>
+<p>Next I needed to direct webpack to use it via <code>vue.config.js</code>. Here's what that configuration looks like.</p>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">configureWebpack</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>      <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">{</span><br>          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.md$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">,</span><br>          <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">"raw-loader"</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>      <span class="token punctuation">]</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>That did it for me. I was able to import markdown file in my component just like any other module and use it.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> guideContent <span class="token keyword">from</span> <span class="token string">"./query-guide.md"</span><span class="token punctuation">;</span></code></pre>
+<p>Hope this helps you save a lot of time fiddling around.</p>
+
+    </div>
+  </body>
+</html>

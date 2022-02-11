@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>Managing Mixins &amp; Utilities in VueJS - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="Managing Mixins &amp; Utilities in VueJS - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/managing-mixins-and-utils-in-vue/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/managing-mixins-and-utils-in-vue/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>Managing Mixins &amp; Utilities in VueJS</h1>
+<blockquote>
+<p>The code examples are in TypeScript but the idea works just as well in JavaScript.</p>
+</blockquote>
+<p>I have been working quite a bit with <a href="https://vuejs.org/">Vue.js</a> and I have sort of found a sweet spot for how to manage utilities in a Vue project.</p>
+<p>I often use mixins to share utility methods and constants related to those utilities across components. Example:</p>
+<ul>
+<li>filters</li>
+<li>data processing functions</li>
+<li>common event handlers etc.</li>
+</ul>
+<p>Filters are slightly special because they can be used in both the script part and the template part of a component.</p>
+<p>I often end up requiring filters not only in templates, but also in the script part of my components. Sometimes exclusively in the script without any usage in the templates. In those cases, it does not feel right to bring in the utility functions as an entire mixin.</p>
+<p>So... I write the functions separately and then export a mixin that references those functions.</p>
+<p>Here's an example:</p>
+<pre class="language-ts"><code class="language-ts"><span class="token comment">// src/utils/datetime.ts</span><br><br><span class="token comment">// Export individual function</span><br><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">getDurationByMillis</span><span class="token punctuation">(</span>millis<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">if</span> <span class="token punctuation">(</span>millis <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    millis <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">let</span> seconds<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>millis <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">let</span> minutes<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token punctuation">(</span>millis <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">let</span> hours<span class="token operator">:</span> <span class="token builtin">any</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>millis <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1000</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  hours <span class="token operator">=</span> hours <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">"0"</span> <span class="token operator">+</span> hours <span class="token operator">:</span> hours<span class="token punctuation">;</span><br>  minutes <span class="token operator">=</span> minutes <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">"0"</span> <span class="token operator">+</span> minutes <span class="token operator">:</span> minutes<span class="token punctuation">;</span><br>  seconds <span class="token operator">=</span> seconds <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">"0"</span> <span class="token operator">+</span> seconds <span class="token operator">:</span> seconds<span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>hours<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>minutes<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>seconds<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// Export Mixin</span><br><span class="token decorator"><span class="token at operator">@</span><span class="token function">Component</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  filters<span class="token operator">:</span> <span class="token punctuation">{</span><br>    duration<span class="token operator">:</span> getDurationByMillis<span class="token punctuation">,</span><br>    anotherFilter<span class="token operator">:</span> anotherFunction<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><br><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">TimeUtils</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>
+<p>If you remember the <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Revealing Module Pattern</a> this should look similar.</p>
+<p>In the JS world, the mixin export looks simpler.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">filters</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">duration</span><span class="token operator">:</span> getDurationByMillis<span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>In components where I need to convert millis to duration, only in the script, I just import the <code>getDurationByMillis</code> function instead of the entire mixin.</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> getDurationByMillis <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@/utils/datetime.ts"</span><span class="token punctuation">;</span></code></pre>
+<p>I also put any constants that I need for my datetime utilities in that same utility file as well. Example -</p>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">DATE_FORMAT_LONG</span> <span class="token operator">=</span> <span class="token string">"DD/MM/YYYY HH:mm:ss"</span><span class="token punctuation">;</span><br><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">DATE_FORMAT_SHORT</span> <span class="token operator">=</span> <span class="token string">"DD/MM/YYYY"</span><span class="token punctuation">;</span></code></pre>
+<p>I can even export multiple small mixins from the same file. Example - one for just <strong>date</strong> related utilities and another for <strong>time</strong> utilities.</p>
+<p>I feel this has couple of benefits.</p>
+<ul>
+<li>All the utility functions / constants those functions use are colocated.</li>
+<li>Imports become explicit for script-only usages.</li>
+<li>Filter functions become much more reusable.</li>
+<li>Maintenance becomes much easier and these filters / functions consumable in other projects too.</li>
+</ul>
+<p>Hope this helps you out. Let me know if you have a better approach in the comments!</p>
+
+    </div>
+  </body>
+</html>

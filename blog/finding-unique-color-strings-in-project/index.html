@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>Finding Unique Color Strings In Project - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="Finding Unique Color Strings In Project - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/finding-unique-color-strings-in-project/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/finding-unique-color-strings-in-project/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>Finding Unique Color Strings In Project</h1>
+<p>One of my recent projects is messy with it's color theory. Partly because it's brand new and there are things which will take different directions <em>soon</em>!</p>
+<p>To demo, I have to create multiple versions of a component. This results in quite a lot of colors directly put into code in the form of <strong>hex codes</strong> or <strong>rgb/rgba</strong> definitions. But! these are demos! Got to get our hands dirty and get them done quick.</p>
+<p>Then comes the hard part. Finding all the colors we used throughout the project and see how we screwed it up( kind of! ). That finding part is tricky if you plan to open up each stylesheet and look into it. A good part of the problem is to recognize different types of color definitions you have.</p>
+<blockquote>
+<p><strong>Sublime Text to the rescue!</strong></p>
+</blockquote>
+<p>We all know how powerful Sublime's search is. We can use regular expressions to match up specific strings in our projects. All we need are the regex for different color formats.</p>
+<p><strong>HEX COLOR :</strong> <code>#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})</code><br>
+<strong>RGB/RGBA COLOR :</strong> <code>(rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*(\d*(?:\.\d+)?)\))</code><br>
+<strong>HSL/HSLA COLOR :</strong> <code>(hsla?\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,?\s*(\d*(?:\.\d+)?)\))</code></p>
+<p>Now, we have to use it in the find tool. This is easy. We combine all the above expressions using the <code>|</code> ( OR ) operator and search for it.</p>
+<ul>
+<li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> to open up the find and replace tool.</li>
+<li><kbd>Alt</kbd> + <kbd>R</kbd> to enable regular expressions search.</li>
+<li>Enter <code>&lt;project&gt;</code> as <strong>Where</strong>.</li>
+<li>Combile the expressions above using the <code>|</code> operator.</li>
+<li><kbd>Find</kbd></li>
+</ul>
+<p>We'll see something magical! In the <strong>Find Results</strong> tab, all colors are highlighted. But not selected. Here's how to do that.</p>
+<ul>
+<li>Open up the find tool. <kbd>Ctrl</kbd> + <kbd>F</kbd>. This time we just want to search the <strong>Find Results</strong> tab content.</li>
+<li>Search using the same regex combination.</li>
+<li><kbd>Ctrl</kbd> + <kbd>Enter</kbd> or click <strong>Find All</strong>.</li>
+<li>Copy and paste the selected occurrences in a new tab.</li>
+</ul>
+<iframe style="width:100%; height:350px" src="https://www.youtube.com/embed/9ZpdpmWjZck" frameborder="0" allowfullscreen></iframe>
+<p>Nice! So we have all the colors but wait! we have also copied duplicate colors. By that I mean the occurrence of same string that represents a color. We can now take some JavaScript help( <strong>Set</strong> ).</p>
+<blockquote>
+<p>A <strong>Set</strong> is a collection of <em>distinct</em> objects.</p>
+</blockquote>
+<p>What we are doing here is...</p>
+<ul>
+<li>Making an array of all colors, including the duplicate ones.</li>
+<li>Making a set out of that array of colors.</li>
+<li>Converting that set back to array and putting each color in a new line.</li>
+</ul>
+<pre class="language-javascript"><code class="language-javascript">Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token comment">/*ARRAY_OF_COLORS*/</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<iframe style="width:100%; height:350px" src="https://www.youtube.com/embed/ERx2J3lfHlw" frameborder="0" allowfullscreen></iframe>
+<p>Voila! We have got all the unique color strings in our project. Good thing is, if there are multiple strings representing the same color, we can now identify them easily.</p>
+<p>Example - <code>#fff Vs. #ffffff Vs. rgb(255,255,255)</code>.</p>
+<p>My initial thought ended here and I was happy but that didn't last long. The problem that remainned was that I still couldn't see those colors. Sure we have all the values but in the field of colors, seeing them makes more sense.</p>
+<p>So... I built this tool - <a href="http://praveenpuglia.com/chamarel">chamarel</a>( couldn't find a 'cool' name :( ). You can input the list of all colors, including the duplicate ones, in this tool and it shows you, <strong>visually</strong>, the unique<sup>#</sup> colors! It's far from perfect but try it out! I have plans to make it easier to use so you don't have to do the heavy lifting. If you want to jump in in making it better, I am sure you'll get a free beer! ;)</p>
+<p><img src="/assets/images/2015/11/show-me-my-colors.png" alt="Chamarel - Project"></p>
+
+    </div>
+  </body>
+</html>

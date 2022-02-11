@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico" type="image/png"/>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  
+  
+
+
+
+
+
+
+
+
+
+<title>Reusing Areas In CSS Grid - Praveen Puglia</title>
+
+
+
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="Reusing Areas In CSS Grid - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/blog/reusing-areas-in-css-grid/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/blog/reusing-areas-in-css-grid/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta name="twitter:creator" content="@praveenpuglia"/>
+
+
+<meta name="description" content="Praveen Puglia"/>
+<meta name="twitter:description" content="Praveen Puglia"/>
+<meta property="og:description" content="Praveen Puglia"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/home-banner.webp"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/home-banner.webp"/>
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+  <a href="/">
+    <h3 class="main-header-logo">Hi! I am Praveen</h3>
+  </a>
+  <nav aria-role="navigation" class="main-navigation">
+    <ul class="navigation-links">
+      <li class="navigation-link-item">
+        <a class="navigation-link" href="/blog">Blog</a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/linkedin-icon.svg" alt="CodePen Logo">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="CodePen Logo">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/codepen-icon.svg" alt="CodePen Logo">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          <img src="https://cdn.svgporn.com/logos/twitter.svg" alt="CodePen Logo">
+          Twitter
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+      <h1>Reusing Areas In CSS Grid</h1>
+<p>I have been playing around with CSS Grids for some time now and it has been an extremely delightful experience. So much so that I have submitted a talk proposal at <a href="https://metarefresh.talkfunnel.com/2017/2-grid-is-fun">MetaRefresh 2017</a>. If it gets selected, it's gonna be my first time ever speaking at a conference. I am nervous. If you are gonna be at MetaRefresh and wanna know about Grids, go vote! 😊</p>
+<p>Back to the topic...</p>
+<p>Grid has areas. We can define the entire layout with area names and ASCII art. For example -</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span><br>        <span class="token string">"header header"</span><br>        <span class="token string">"main  sidebar"</span><br>        <span class="token string">"footer footer"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* Assign areas...*/</span><br><span class="token selector">.page-header</span> <span class="token punctuation">{</span><br>    <span class="token property">grid-area</span><span class="token punctuation">:</span> header<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>...</code></pre>
+<p>This is going to generate a standard two column layout grid. Something like this...
+<img src="../assets/images/2017/grid-reuse-1.png" alt="Two column layout using CSS Grid areas"></p>
+<p>What's great about area names is that we can reuse them. Confusing? Let me give an example.</p>
+<p>Say we are creating a comments section for a blog which has to look like this.
+<img src="../assets/images/2017/grid-reuse-2.png" alt="Comments section from a typical blog"></p>
+<p>And if we add a little bit of borders, we see how the grid should be constructed.
+<img src="../assets/images/2017/grid-reuse-3.png" alt="Comments layout with grid lines"></p>
+<p>It's clear that the avatar and the comment(input/text) is used exactly the same way in both the places. So, we should be able to create two grids, both of which can dedicate a place for avatar and the comment.
+Here's what I mean.
+<img src="../assets/images/2017/grid-reuse-4.png" alt="Depicting areas."></p>
+<p>Here's how that might look in code.</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Comment Area --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- in real world, there'll be a text area in here! --></span><br>    Your comments here...<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Comment List --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Praveen Puglia<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br>    <span class="token comment">&lt;!-- Nested Thread --></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Someone Else<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- Nested Thread Ends --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<p>... &amp; relevant CSS.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.avatar</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> avatar<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* Comment Input */</span><br><span class="token selector">.comment-input</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span><br>  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span> <span class="token string">"avatar comment"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.input</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* Comment List */</span><br><span class="token selector">.comment-list</span> <span class="token punctuation">{</span><br>  <span class="token comment">/* To make sure that nested threads take up the entire width of the grid. */</span><br>  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> span 2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.comment-item</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span><br>  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span><br>    <span class="token string">"avatar comment"</span><br>    <span class="token string">"meta meta"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.comment</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.meta</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> meta<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Things to notice,</p>
+<ul>
+<li>We declared two grids which greatly describe the relation among different elements.</li>
+<li>We totally reused the area names <code>avatar</code> and <code>comment</code> among the grids.</li>
+<li>We reused the <code>.avatar</code> element in both the places.</li>
+<li>We created two different elements <code>.input</code> &amp; <code>.comment</code> which belong to the same area in both the grids but we still can style them individually.</li>
+</ul>
+<p>To me, grid, in this case and many more like it, is doing a great job at establishing relationships among elements used on page and making it easy to understand for humans.</p>
+<p>Here's the final demo!</p>
+<p data-height="324" data-theme-id="4977" data-slug-hash="PJPMOJ" data-default-tab="html,result" data-user="praveenpuglia" data-embed-version="2" data-pen-title="A Generic Comments Section - Using CSS Grids" class="codepen">See the Pen <a href="https://codepen.io/praveenpuglia/pen/PJPMOJ/">A Generic Comments Section - Using CSS Grids</a> by Praveen Puglia (<a href="https://codepen.io/praveenpuglia">@praveenpuglia</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+    </div>
+  </body>
+</html>
