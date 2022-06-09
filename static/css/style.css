@@ -143,6 +143,9 @@ blockquote {
     margin-left: auto;
   }
 }
+.post img {
+  max-width: 100%;
+}
 /* Pages */
 .hero-banner img {
   display: block;

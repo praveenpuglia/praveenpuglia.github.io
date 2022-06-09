@@ -99,8 +99,9 @@
     </ul>
   </nav>
 </header>
-      <h1>Reusing Areas In CSS Grid</h1>
-<p>I have been playing around with CSS Grids for some time now and it has been an extremely delightful experience. So much so that I have submitted a talk proposal at <a href="https://metarefresh.talkfunnel.com/2017/2-grid-is-fun">MetaRefresh 2017</a>. If it gets selected, it's gonna be my first time ever speaking at a conference. I am nervous. If you are gonna be at MetaRefresh and wanna know about Grids, go vote! 😊</p>
+      <article class="post">
+  <h1>Reusing Areas In CSS Grid</h1>
+  <p>I have been playing around with CSS Grids for some time now and it has been an extremely delightful experience. So much so that I have submitted a talk proposal at <a href="https://metarefresh.talkfunnel.com/2017/2-grid-is-fun">MetaRefresh 2017</a>. If it gets selected, it's gonna be my first time ever speaking at a conference. I am nervous. If you are gonna be at MetaRefresh and wanna know about Grids, go vote! 😊</p>
 <p>Back to the topic...</p>
 <p>Grid has areas. We can define the entire layout with area names and ASCII art. For example -</p>
 <pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span><br>        <span class="token string">"header header"</span><br>        <span class="token string">"main  sidebar"</span><br>        <span class="token string">"footer footer"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* Assign areas...*/</span><br><span class="token selector">.page-header</span> <span class="token punctuation">{</span><br>    <span class="token property">grid-area</span><span class="token punctuation">:</span> header<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>...</code></pre>
@@ -130,6 +131,7 @@ Here's what I mean.
 <p data-height="324" data-theme-id="4977" data-slug-hash="PJPMOJ" data-default-tab="html,result" data-user="praveenpuglia" data-embed-version="2" data-pen-title="A Generic Comments Section - Using CSS Grids" class="codepen">See the Pen <a href="https://codepen.io/praveenpuglia/pen/PJPMOJ/">A Generic Comments Section - Using CSS Grids</a> by Praveen Puglia (<a href="https://codepen.io/praveenpuglia">@praveenpuglia</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+</article>
     </div>
   </body>
 </html>

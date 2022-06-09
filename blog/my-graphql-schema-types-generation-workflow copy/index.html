@@ -99,8 +99,9 @@
     </ul>
   </nav>
 </header>
-      <h1>My GraphQL Schema &amp; Types Generation Workflow</h1>
-<p>At <a href="https://voicezen.ai">Voicezen</a>, we use multiple GraphQL endpoints. We also use Vue with TypeScript. Naturally, we need type definitions for everything the endpoints expose.</p>
+      <article class="post">
+  <h1>My GraphQL Schema &amp; Types Generation Workflow</h1>
+  <p>At <a href="https://voicezen.ai">Voicezen</a>, we use multiple GraphQL endpoints. We also use Vue with TypeScript. Naturally, we need type definitions for everything the endpoints expose.</p>
 <p>We end up needing both the schema from an <a href="https://graphql.org/learn/introspection/">Introspection Query</a> and the types to use in TypeScript land. The schema is used to build a tool that dynamically builds a UI for running queries / mutations from the UI itself based on the parameters they accept. More on the tool may be in a later post.</p>
 <p>We have an opinionated setup and like to have our types generated in a certain way. Examples -</p>
 <ul>
@@ -121,6 +122,7 @@
 <p>We also use some <a href="https://www.npmjs.com/package/chalk">chalk</a> magic for colorful logging in console.</p>
 <p>Hope this helps and if it does, do let me know in the comments.</p>
 
+</article>
     </div>
   </body>
 </html>
