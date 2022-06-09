@@ -15,7 +15,7 @@ I am Praveen & that's not a cut off hand floating in the air.
 
 ## Current
 
-- On a break.
+- Architect @ [smallcase](https://smallcase.com)
 
 ## Past
 
