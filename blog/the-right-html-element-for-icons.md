@@ -4,7 +4,7 @@ title: The Right HTML Element For Icons
 date: 2015-02-17
 ---
 
-[![ VS ](/assets/images/2015/02/span_vs_i.png)](/assets/images/2015/02/span_vs_i.png)
+[![ VS ](../assets/images/2015/02/span_vs_i.png)](../assets/images/2015/02/span_vs_i.png)
 
 Do you use `<span>` or `<i>` for icons? Whatever your answer is, keep that at the back of your mind. I am sure you have reasons! Let me tell you what I use. It's `<i>`.
 

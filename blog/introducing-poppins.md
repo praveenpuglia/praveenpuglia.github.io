@@ -12,5 +12,5 @@ I love Sublime Text too and always wanted to make a color scheme for it. It's be
 
 It's available on [GitHub](https://github.com/praveenpuglia/color_scheme_poppins) & via [Package Control](https://packagecontrol.io/packages/Poppins%20-%20Color%20Scheme). The font used is [Ahamono](https://www.behance.net/gallery/19532783/AhamonoMonospaced)
 
-![CSS](/assets/images/2015/12/poppins-shot-css.png)  
-![JS](/assets/images/2015/12/poppins-shot-js.png)
+![CSS](../assets/images/2015/12/poppins-shot-css.png)  
+![JS](../assets/images/2015/12/poppins-shot-js.png)
