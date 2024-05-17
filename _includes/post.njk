@@ -1,7 +1,22 @@
 ---
 layout: base
 ---
+
 <article class="post">
-  <h1>{{ title }}</h1>
-  {{content | safe}}
+  <h1 class="post__title">{{ title }}</h1>
+  <div class="post__metadata">
+    <time datetime="{{ page.date | htmlDateString }}">{{
+      page.date | readableDate
+    }}</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+      {%- for tag in tags | filterTagList %}
+      <li class="post__metadata__tag">
+        {{ tag }}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+
+  {{ content | safe }}
 </article>

@@ -150,7 +150,7 @@ Here's a quick challenge. How fast can you create a reduced test case demo for a
 
 Say, in your template, you used a property that doesn't exist on the `data` section of your VM. If you are using Vue in development mode, you'll see great error message along with a link to the documentation to read more about that.
 
-![Vue human & debugging friendly error message](../assets/images/2018/vue-error.png)
+![Vue human & debugging friendly error message](../assets/images/2018/vue-error.avif)
 
 Vue is full of examples like that and except for a few, I haven't found an error message that adds to my confusion.
 

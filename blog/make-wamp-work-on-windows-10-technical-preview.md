@@ -28,7 +28,7 @@ Now restart WAMP and you should be good to go.
 
 _**UPDATE - **In the newer versions of Windows 10, you may not find the World Wide Web Publishing Service. If WAMP isn't working even then, try the next approach._
 
-![Wamp on Windows 10 - Services](../assets/images/2015/02/wamp.png)
+![Wamp on Windows 10 - Services](../assets/images/2015/02/wamp.avif)
 
 If you don't want to do it that way though, you can _change the port WAMP listens to_.  Here's how to do that.
 

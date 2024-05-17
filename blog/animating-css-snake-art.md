@@ -97,7 +97,7 @@ Notice, there's no `width` and `height` property set to the blobs. I'll make the
 ```
 
 At this point, all you'll see is this.
-<img style="display: block; margin: auto" width="50%" src="../assets/images/2017/snake-1.png" />
+<img style="display: block; margin: auto" width="50%" src="../assets/images/2017/snake-1.avif" />
 
 ### The Animation
 

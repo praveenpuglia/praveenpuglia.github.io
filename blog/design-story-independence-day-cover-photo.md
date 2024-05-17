@@ -6,7 +6,7 @@ date: 2014-08-15
 
 Let's have a look at it first.
 
-[![Independence Day - Cover Photo](../assets/images/2014/08/india.jpg)](../assets/images/2014/08/india.jpg)
+[![Independence Day - Cover Photo](../assets/images/2014/08/india.avif)](../assets/images/2014/08/india.avif)
 
 Yeah! This is what I came up with when I had to put together myself, India and the Independence Day.
 
@@ -33,4 +33,4 @@ There it was. I got what I needed. Minimal - Unique - Indian. :)
 
 Show your love by making it your cover photo or use the cropped version below for instagram. Let me know what you thought in the comments below. **Jai Hind!**
 
-[![Indian Independence Day](../assets/images/2014/08/india_square.jpg)](../assets/images/2014/08/india_square.jpg)
+[![Indian Independence Day](../assets/images/2014/08/india_square.avif)](../assets/images/2014/08/india_square.avif)
