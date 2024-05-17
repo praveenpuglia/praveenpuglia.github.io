@@ -39,7 +39,6 @@ Now that I had the global constants ready to use, I needed to find a way to get 
 
 ```ts
 // vite.config.ts
-
 import packageConfig from "./package.json";
 
 packageConfig.version; // "1.0.0"
