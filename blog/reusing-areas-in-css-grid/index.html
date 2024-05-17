@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,26 +123,103 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Reusing Areas In CSS Grid</h1>
+      
+<article class="post">
+  <h1 class="post__title">Reusing Areas In CSS Grid</h1>
+  <div class="post__metadata">
+    <time datetime="2017-09-18">18 Sep 2017</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>I have been playing around with CSS Grids for some time now and it has been an extremely delightful experience. So much so that I have submitted a talk proposal at <a href="https://metarefresh.talkfunnel.com/2017/2-grid-is-fun">MetaRefresh 2017</a>. If it gets selected, it's gonna be my first time ever speaking at a conference. I am nervous. If you are gonna be at MetaRefresh and wanna know about Grids, go vote! 😊</p>
 <p>Back to the topic...</p>
 <p>Grid has areas. We can define the entire layout with area names and ASCII art. For example -</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span><br>        <span class="token string">"header header"</span><br>        <span class="token string">"main  sidebar"</span><br>        <span class="token string">"footer footer"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* Assign areas...*/</span><br><span class="token selector">.page-header</span> <span class="token punctuation">{</span><br>    <span class="token property">grid-area</span><span class="token punctuation">:</span> header<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>...</code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span>
+        <span class="token string">"header header"</span>
+        <span class="token string">"main  sidebar"</span>
+        <span class="token string">"footer footer"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Assign areas...*/</span>
+<span class="token selector">.page-header</span> <span class="token punctuation">{</span>
+    <span class="token property">grid-area</span><span class="token punctuation">:</span> header<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+...</code></pre>
 <p>This is going to generate a standard two column layout grid. Something like this...
-<img src="../assets/images/2017/grid-reuse-1.png" alt="Two column layout using CSS Grid areas"></p>
+<img src="../assets/images/2017/grid-reuse-1.avif" alt="Two column layout using CSS Grid areas"></p>
 <p>What's great about area names is that we can reuse them. Confusing? Let me give an example.</p>
 <p>Say we are creating a comments section for a blog which has to look like this.
-<img src="../assets/images/2017/grid-reuse-2.png" alt="Comments section from a typical blog"></p>
+<img src="../assets/images/2017/grid-reuse-2.avif" alt="Comments section from a typical blog"></p>
 <p>And if we add a little bit of borders, we see how the grid should be constructed.
-<img src="../assets/images/2017/grid-reuse-3.png" alt="Comments layout with grid lines"></p>
+<img src="../assets/images/2017/grid-reuse-3.avif" alt="Comments layout with grid lines"></p>
 <p>It's clear that the avatar and the comment(input/text) is used exactly the same way in both the places. So, we should be able to create two grids, both of which can dedicate a place for avatar and the comment.
 Here's what I mean.
-<img src="../assets/images/2017/grid-reuse-4.png" alt="Depicting areas."></p>
+<img src="../assets/images/2017/grid-reuse-4.avif" alt="Depicting areas."></p>
 <p>Here's how that might look in code.</p>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Comment Area --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- in real world, there'll be a text area in here! --></span><br>    Your comments here...<br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Comment List --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Praveen Puglia<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br>    <span class="token comment">&lt;!-- Nested Thread --></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Someone Else<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span><br>    <span class="token comment">&lt;!-- Nested Thread Ends --></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Comment Area --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- in real world, there'll be a text area in here! --></span>
+    Your comments here...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- Comment List --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Praveen Puglia<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- Nested Thread --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>avatar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Your comment...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>meta<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>few minutes ago... by Someone Else<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- Nested Thread Ends --></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span></code></pre>
 <p>... &amp; relevant CSS.</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">.avatar</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> avatar<span class="token punctuation">;</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* Comment Input */</span><br><span class="token selector">.comment-input</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span><br>  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span> <span class="token string">"avatar comment"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.input</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* Comment List */</span><br><span class="token selector">.comment-list</span> <span class="token punctuation">{</span><br>  <span class="token comment">/* To make sure that nested threads take up the entire width of the grid. */</span><br>  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> span 2<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.comment-item</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span><br>  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span><br>  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span><br>    <span class="token string">"avatar comment"</span><br>    <span class="token string">"meta meta"</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.comment</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">.meta</span> <span class="token punctuation">{</span><br>  <span class="token property">grid-area</span><span class="token punctuation">:</span> meta<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">.avatar</span> <span class="token punctuation">{</span>
+  <span class="token property">grid-area</span><span class="token punctuation">:</span> avatar<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 64px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* Comment Input */</span>
+<span class="token selector">.comment-input</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span>
+  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span> <span class="token string">"avatar comment"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.input</span> <span class="token punctuation">{</span>
+  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Comment List */</span>
+<span class="token selector">.comment-list</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* To make sure that nested threads take up the entire width of the grid. */</span>
+  <span class="token property">grid-column-end</span><span class="token punctuation">:</span> span 2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.comment-item</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 64px 1fr<span class="token punctuation">;</span>
+  <span class="token property">grid-template-areas</span><span class="token punctuation">:</span>
+    <span class="token string">"avatar comment"</span>
+    <span class="token string">"meta meta"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.comment</span> <span class="token punctuation">{</span>
+  <span class="token property">grid-area</span><span class="token punctuation">:</span> comment<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.meta</span> <span class="token punctuation">{</span>
+  <span class="token property">grid-area</span><span class="token punctuation">:</span> meta<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Things to notice,</p>
 <ul>
 <li>We declared two grids which greatly describe the relation among different elements.</li>
@@ -152,6 +233,7 @@ Here's what I mean.
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 </article>
+
     </div>
   </body>
 </html>

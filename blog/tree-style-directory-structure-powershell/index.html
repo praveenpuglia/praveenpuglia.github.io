@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,16 +123,52 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Tree Like Directory Structure In PowerShell</h1>
+      
+<article class="post">
+  <h1 class="post__title">Tree Like Directory Structure In PowerShell</h1>
+  <div class="post__metadata">
+    <time datetime="2015-03-17">17 Mar 2015</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.</p>
 <p>In PowerShell, you can use the <code>tree</code> command to print a tree structure, starting from the current directory to it's descendants at deepest levels.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> <span class="token builtin class-name">cd</span> <span class="token string">'C:\Python27\tcl\tcl8.5'</span><br><span class="token operator">></span> tree<br>├───encoding<br>├───http1.0<br>├───msgs<br>├───opt0.4<br>└───tzdata<br>├───Africa<br>├───America<br>│ ├───Argentina<br>│ ├───Indiana<br>│ ├───Kentucky<br>│ └───North_Dakota<br>├───Antarctica<br>├───Arctic<br>├───Asia<br>├───Atlantic<br>├───Australia<br>├───Brazil<br>├───Canada<br>├───Chile<br>├───Etc<br>├───Europe<br>├───Indian<br>├───Mexico<br>├───Pacific<br>├───SystemV<br>└───US</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> <span class="token builtin class-name">cd</span> <span class="token string">'C:\Python27\tcl\tcl8.5'</span>
+<span class="token operator">></span> tree
+├───encoding
+├───http1.0
+├───msgs
+├───opt0.4
+└───tzdata
+├───Africa
+├───America
+│ ├───Argentina
+│ ├───Indiana
+│ ├───Kentucky
+│ └───North_Dakota
+├───Antarctica
+├───Arctic
+├───Asia
+├───Atlantic
+├───Australia
+├───Brazil
+├───Canada
+├───Chile
+├───Etc
+├───Europe
+├───Indian
+├───Mexico
+├───Pacific
+├───SystemV
+└───US</code></pre>
 <p>You can also specify a custom path as an argument.</p>
 <pre class="language-bash"><code class="language-bash"><span class="token operator">></span> tree <span class="token string">'C:\Program Files'</span></code></pre>
 <p>Make sure you use a font that supports lot of glyphs to see the lines.</p>
 
 </article>
+
     </div>
   </body>
 </html>

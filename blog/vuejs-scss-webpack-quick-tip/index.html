@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,8 +123,16 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>VueJS + Webpack + SCSS - Quick Tip</h1>
+      
+<article class="post">
+  <h1 class="post__title">VueJS + Webpack + SCSS - Quick Tip</h1>
+  <div class="post__metadata">
+    <time datetime="2017-10-26">26 Oct 2017</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <h2>The Setup</h2>
 <ul>
 <li>Initializd with Vue CLI + Webpack template.</li>
@@ -129,7 +141,12 @@
 <h2>The Problem</h2>
 <p>As a project grows, we'll create many many components at different levels. Say we have a global set of SCSS variables that we might need to reference in our <code>.vue</code> single file components.</p>
 <p>Lets say, those variables are located at <code>src/_variables.scss</code> and the file looks like this.</p>
-<pre class="language-scss"><code class="language-scss"><span class="token comment">//_variables.scss</span><br><br><span class="token comment">// COLORS</span><br>--------------------------<br><span class="token property"><span class="token variable">$brand-primary</span></span>  <span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$brand-secondary</span></span><span class="token punctuation">:</span> #666666<span class="token punctuation">;</span></code></pre>
+<pre class="language-scss"><code class="language-scss"><span class="token comment">//_variables.scss</span>
+
+<span class="token comment">// COLORS</span>
+--------------------------
+<span class="token property"><span class="token variable">$brand-primary</span></span>  <span class="token punctuation">:</span> #bada55<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$brand-secondary</span></span><span class="token punctuation">:</span> #666666<span class="token punctuation">;</span></code></pre>
 <h2>The Basic Solution</h2>
 <p>Since we are great at relative paths, we would go to say <code>src/components/Hello.vue</code> and import the variables like so.</p>
 <pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">"../scss/variables"</span><span class="token punctuation">;</span></code></pre>
@@ -145,13 +162,17 @@
 </ul>
 <p>We can easily fix this by using <a href="https://webpack.js.org/configuration/resolve/">Webpack Aliases</a>. What we are essentially doing there is that we are creating a special word for webpack to recognize and resolve that to a path of our choice.</p>
 <p>So we go to <code>webpack.base.conf.js</code> and look for <code>alias</code>. We add an entry for our <code>src/scss</code> directory as follows.</p>
-<pre class="language-js"><code class="language-js"><span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token operator">...</span><span class="token punctuation">,</span><br>    <span class="token string-property property">'$scss'</span><span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src/scss'</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token literal-property property">alias</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'$scss'</span><span class="token operator">:</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">'src/scss'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Now, we can go back to <code>src/components/Home.vue</code> and change the import statement to</p>
 <pre class="language-scss"><code class="language-scss"><span class="token keyword">@import</span> <span class="token string">"~$scss/variables"</span><span class="token punctuation">;</span></code></pre>
 <p>and guess what? The same path works for <code>src/components/admin/Dashboard.vue</code>. No long relative paths anymore.</p>
 <p>Hope this helps and thanks for reading!</p>
 
 </article>
+
     </div>
   </body>
 </html>

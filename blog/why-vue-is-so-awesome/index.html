@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,8 +123,16 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Why Vue Is So Awesome 😍</h1>
+      
+<article class="post">
+  <h1 class="post__title">Why Vue Is So Awesome 😍</h1>
+  <div class="post__metadata">
+    <time datetime="2018-04-06">06 Apr 2018</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>...and Angular is not.</p>
 <p><strong>Disclaimer</strong> - These are my personal thoughts AFTER using both of them to solve real world use cases. Nothing too fancy but nothing too simple.</p>
 <p>I have been using Angular 2( or 4, 5 ...), now called just Angular, for more than a year now. I don't hate it but I don't like it at all. Not my thing. At work, I am still required to use it but that's about it. If I am asked to choose a framework to build something new, it won't be my choice.</p>
@@ -138,7 +150,20 @@
 <p>In Angular, the eco system is built around( primarily ) TypeScript. The API surface is just too big for anyone who wants to start. You gotta know what an <code>NgModule</code> is. Oh it's different from the ES Modules. You gotta know Decorators. Classes etc. Even before you get to that <em>Hello World</em>, there's lot you need to understand, even if at a surface level. It has steep learning curve which I am going to discuss in a minute.</p>
 <p>In Vue, a plain ol' <code>&lt;script&gt;</code> tag, a function and an object can get you to that Hello World. Unlike Angular it doesn't ask you to already know a ton of stuff. The <strong>barrier to entry</strong> is negligible.</p>
 <p>Example -</p>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- From the official Vue Guide --></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/vue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><br><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>    <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span><br>    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">"Hello Vue!"</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- From the official Vue Guide --></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://unpkg.com/vue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">message</span><span class="token operator">:</span> <span class="token string">"Hello Vue!"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
 <h3>On Point Documentation</h3>
 <p>I think we all agree on one thing. A great documentation makes the developers feel right at home. What's better than a great documentation is a documentation that focuses on examples, on point, with code and that's it. It knows when to move to the next topic. Your examples shouldn't need to depend on metaphors.</p>
 <p>If you have ever watched Lynda.com tutorials and Laracasts or Egghead videos you would know that the latter two are great choices. Why? Their videos are short, on point and less demanding.</p>
@@ -148,9 +173,33 @@
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>Vue totally nails it. It's intuitive. It describes what it does easily and has delightful tiny things that make you love it. Here are some examples.</p>
 <h4>Creating A Vue Instance</h4>
-<pre class="language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Data goes here.</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token comment">// Methods go here.</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token comment">// Need some computed properties? Yeah you guessed it right.</span><br>  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token comment">// What about filters?</span><br>  <span class="token literal-property property">filters</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token comment">// You want to watch a property?</span><br>  <span class="token literal-property property">watch</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// you see where I am going with this?</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Data goes here.</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Methods go here.</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// Need some computed properties? Yeah you guessed it right.</span>
+  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// What about filters?</span>
+  <span class="token literal-property property">filters</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// You want to watch a property?</span>
+  <span class="token literal-property property">watch</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// you see where I am going with this?</span></code></pre>
 <p>Now that you know this, you already know most of the components API. Here's an example</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> MyComponent <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token punctuation">{</span><br>  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"my-component"</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h1> Hello World! &lt;/h1></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><br>  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token literal-property property">filters</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">let</span> MyComponent <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"my-component"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">template</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h1> Hello World! &lt;/h1></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">computed</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">filters</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>The only things that you need to know are...</p>
 <ul>
 <li>A component requires a <code>name</code> so you can use the component like <code>&lt;my-component&gt;&lt;/my-component&gt;</code></li>
@@ -159,8 +208,23 @@
 </ul>
 <p>That's it. Rest of the things work exactly how we have seen while creating a Vue instance.</p>
 <p>I also like how Vue team has gone ahead and added little things that may seem unimportant at first but over time, help you to be productive. Here are some examples.</p>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Delightful event modifiers. --></span><br><br><span class="token comment">&lt;!-- Wanna prevent default when the event fires? --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onSubmit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- How about stopping the propagation? --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onButtonClick<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- Binding an event just once? --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">@click.once</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>doThis<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br><br><span class="token comment">&lt;!-- How about something should happen when you press Enter? --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">@keyup.enter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
-<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Want the number input to give you a real number? --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">v-model.number</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Your Age<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><br><br><span class="token comment">&lt;!-- The `age` property in `data` will be a number instead of the default string --></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Delightful event modifiers. --></span>
+
+<span class="token comment">&lt;!-- Wanna prevent default when the event fires? --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onSubmit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- How about stopping the propagation? --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>onButtonClick<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- Binding an event just once? --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">@click.once</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>doThis<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- How about something should happen when you press Enter? --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">@keyup.enter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Want the number input to give you a real number? --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>number<span class="token punctuation">"</span></span> <span class="token attr-name">v-model.number</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>age<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Your Age<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+<span class="token comment">&lt;!-- The `age` property in `data` will be a number instead of the default string --></span></code></pre>
 <p>Read throughout the <a href="https://vuejs.org/v2/guide/syntax.html">template syntax</a> and you'll see that the API is written to be extremely intuitive and readable.</p>
 <p>I personally feel that any APIs should be made so simple that they stop you from your recurring visit to the documentation. You shouldn't need to think too hard to figure this out. Vue checks the right boxes there.</p>
 <h3>Progressive Nature</h3>
@@ -168,7 +232,7 @@
 <p>Here's a quick challenge. How fast can you create a reduced test case demo for a problem in Angular and share it via JSBin or JSFiddle or CodePen? Try that!</p>
 <h3>Error Messages</h3>
 <p>Say, in your template, you used a property that doesn't exist on the <code>data</code> section of your VM. If you are using Vue in development mode, you'll see great error message along with a link to the documentation to read more about that.</p>
-<p><img src="../assets/images/2018/vue-error.png" alt="Vue human &amp; debugging friendly error message"></p>
+<p><img src="../assets/images/2018/vue-error.avif" alt="Vue human &amp; debugging friendly error message"></p>
 <p>Vue is full of examples like that and except for a few, I haven't found an error message that adds to my confusion.</p>
 <p>If you remember Angular JS(1.x), it used to include link to docs too. In Vue, it's just way better.</p>
 <p>Try finding your way though the shiny new Angular with the entire stack trace and 30 of them being traced at <code>zone.js</code>.</p>
@@ -201,6 +265,7 @@
 <p>Give it a try and I am sure you won't be let down. 🖖</p>
 
 </article>
+
     </div>
   </body>
 </html>

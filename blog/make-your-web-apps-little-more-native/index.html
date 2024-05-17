@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,16 +123,28 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Make Your Web Apps Little More Native</h1>
+      
+<article class="post">
+  <h1 class="post__title">Make Your Web Apps Little More Native</h1>
+  <div class="post__metadata">
+    <time datetime="2016-05-18">18 May 2016</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>Everybody loves Medium and there is just something about it that attracts people. The more I used it, the more I realized there was something wonderful it was doing to give it's users, the native feeling. I personally love apps when they adapt to different systems &amp; devices. It shows that they care for their users and what sort of system they use. The user doesn't need to adapt to the app but the app adapts for the user's environment. Making elements adapt to native design system also creates a sense of trust.</p>
 <p>The secret lies in the font stack used by Medium. The stack tries to cover up majority of the operating systems and provides decent fallbacks when needed. This approach is different than what I have seen for long time. Most modern web apps try to maintain their uniqueness and try to load a typeface their designers might have agreed upon for all browsers and systems.</p>
 <p>The following is what Medium does.</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span><br>  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> <span class="token string">"Segoe UI"</span><span class="token punctuation">,</span> Roboto<span class="token punctuation">,</span> Oxygen<span class="token punctuation">,</span><br>    Ubuntu<span class="token punctuation">,</span> Cantarell<span class="token punctuation">,</span> <span class="token string">"Open Sans"</span><span class="token punctuation">,</span> <span class="token string">"Helvetica Neue"</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> <span class="token string">"Segoe UI"</span><span class="token punctuation">,</span> Roboto<span class="token punctuation">,</span> Oxygen<span class="token punctuation">,</span>
+    Ubuntu<span class="token punctuation">,</span> Cantarell<span class="token punctuation">,</span> <span class="token string">"Open Sans"</span><span class="token punctuation">,</span> <span class="token string">"Helvetica Neue"</span><span class="token punctuation">,</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>This declaration takes care of the font for critical common elements you will come across on Medium. As we can see, it covers up for Mac, Windows, Ubuntu, Android etc.</p>
 <p>So the next time you are looking to build something that needs to provide a native look, try this out.</p>
 
 </article>
+
     </div>
   </body>
 </html>

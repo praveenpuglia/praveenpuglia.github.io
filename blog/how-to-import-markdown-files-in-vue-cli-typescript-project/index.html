@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,8 +123,28 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>How to Import Markdown Files in Vue CLI + TypeScript Projects</h1>
+      
+<article class="post">
+  <h1 class="post__title">How to Import Markdown Files in Vue CLI + TypeScript Projects</h1>
+  <div class="post__metadata">
+    <time datetime="2021-02-17">17 Feb 2021</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+      <li class="post__metadata__tag">
+        markdown
+      </li>
+      <li class="post__metadata__tag">
+        typescript
+      </li>
+      <li class="post__metadata__tag">
+        vue-cli
+      </li>
+      <li class="post__metadata__tag">
+        vue
+      </li>
+    </ul>
+  </div>
+
   <p>Recently, I came across the need to import a markdown file in a Vue component and realized that the internet is full of confusing solutions. Fiddled around for a few hours and found out that it's really quite simple.</p>
 <p>Here's a little bit about the setup I have.</p>
 <ul>
@@ -142,20 +166,34 @@
 <p><strong>NOTE</strong>: You can do this do any kind of file. In my project I also declare all <code>scss</code> files to be module so I can import them directly in my component. <a href="https://praveenpuglia.com/how-to-use-sass-variables-in-javascript-in-a-webpack-project/">Read more on why I do that</a>.</p>
 </blockquote>
 <p>Once that's sorted, I came across this.</p>
-<pre class="language-text"><code class="language-text">Module parse failed: Unexpected character '#' (1:0)<br><br>You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders</code></pre>
+<pre class="language-text"><code class="language-text">Module parse failed: Unexpected character '#' (1:0)
+
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders</code></pre>
 <p>Which means that Webpack has no idea about how to load a markdown file as a module. Quick googling pointed out that I need to use <a href="https://github.com/webpack-contrib/raw-loader">raw-loader</a> to get the content of the file as is.</p>
 <blockquote>
 <p><em>A loader for webpack that allows importing files as a String.</em></p>
 </blockquote>
 <p>I installed <code>raw-loader</code> as dev dependency.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> -D raw-loader</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">yarn</span> <span class="token function">add</span> <span class="token parameter variable">-D</span> raw-loader</code></pre>
 <p>Next I needed to direct webpack to use it via <code>vue.config.js</code>. Here's what that configuration looks like.</p>
-<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span><br>  <span class="token literal-property property">configureWebpack</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>      <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span><br>        <span class="token punctuation">{</span><br>          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.md$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">,</span><br>          <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">"raw-loader"</span><span class="token punctuation">,</span><br>        <span class="token punctuation">}</span><span class="token punctuation">,</span><br>      <span class="token punctuation">]</span><span class="token punctuation">,</span><br>    <span class="token punctuation">}</span><span class="token punctuation">,</span><br>  <span class="token punctuation">}</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">configureWebpack</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">module</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">rules</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\.md$</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">loader</span><span class="token operator">:</span> <span class="token string">"raw-loader"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p>That did it for me. I was able to import markdown file in my component just like any other module and use it.</p>
 <pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> guideContent <span class="token keyword">from</span> <span class="token string">"./query-guide.md"</span><span class="token punctuation">;</span></code></pre>
 <p>Hope this helps you save a lot of time fiddling around.</p>
 
 </article>
+
     </div>
   </body>
 </html>

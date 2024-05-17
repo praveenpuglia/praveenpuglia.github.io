@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,49 +123,86 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Ready Steady Gulp!</h1>
+      
+<article class="post">
+  <h1 class="post__title">Ready Steady Gulp!</h1>
+  <div class="post__metadata">
+    <time datetime="2015-06-28">28 Jun 2015</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>Lately, if something has totally changed the way I work, it's <a href="http://gulpjs.com/">Gulp</a> - <em>the streaming build system</em> . There are lot of cool things you can do with gulp with great flexibility. Let's get started!</p>
 <h2>Installation</h2>
 <p><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">NodeJS and NPM must be installed.</a></p>
 <p>Gulp needs to be installed both <strong>globally</strong> ( for command line usage ) and <strong>locally</strong> into our project( for creating project tasks )</p>
 <h4>Global Installation</h4>
-<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> -g gulp</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> <span class="token parameter variable">-g</span> gulp</code></pre>
 <h4>Local Installation</h4>
-<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> path/to/your/project/root<br><span class="token function">npm</span> <span class="token function">install</span> gulp --save-dev</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> path/to/your/project/root
+<span class="token function">npm</span> <span class="token function">install</span> gulp --save-dev</code></pre>
 <h2>Hello World!</h2>
 <p>Assuming our project directory is <code>my-project</code>, create a <code>gulpfile.js</code> file in it. All gulp tasks reside in this file.
 Now, we create our first task that prints <em>Hello</em> .</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// require gulp. this is why we install gulp locally.</span><br><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gulp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token comment">// say hello</span><br>gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"sayHello"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// require gulp. this is why we install gulp locally.</span>
+<span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gulp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// say hello</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"sayHello"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>First, we require <code>gulp</code> so we can use gulp's API for creating tasks.</li>
 <li>Next, we create a task using <code>gulp.task</code> method with the task name being <code>sayHello</code> and an anonymous function that defines what <code>sayHello</code> does. In this case, we just print Hello.</li>
 </ul>
 <h2>Executing a Task</h2>
 <p>Most of the work with gulp happens on the command line. To run a task, we navigate to our project directory( or the directory containing <code>gulpfile.js</code> ) and ask gulp to run a specific task.</p>
-<pre class="language-text"><code class="language-text">my-project<br>    /gulpfile.js  <- YOU GOTTA BE WHERE THIS FILE IS</code></pre>
-<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> my-project<br>gulp sayHello</code></pre>
+<pre class="language-text"><code class="language-text">my-project
+    /gulpfile.js  <- YOU GOTTA BE WHERE THIS FILE IS</code></pre>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> my-project
+gulp sayHello</code></pre>
 <p>Did you see what happened? It might look something like this...</p>
-<pre class="language-bash"><code class="language-bash">$ gulp sayHello<br><span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Using gulpfile ~/code/my-project/gulpfile.js<br><span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Starting <span class="token string">'sayHello'</span><span class="token punctuation">..</span>.<br>Hello<br><span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Finished <span class="token string">'sayHello'</span> after <span class="token number">83</span> μs</code></pre>
+<pre class="language-bash"><code class="language-bash">$ gulp sayHello
+<span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Using gulpfile ~/code/my-project/gulpfile.js
+<span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Starting <span class="token string">'sayHello'</span><span class="token punctuation">..</span>.
+Hello
+<span class="token punctuation">[</span><span class="token number">15</span>:30:28<span class="token punctuation">]</span> Finished <span class="token string">'sayHello'</span> after <span class="token number">83</span> μs</code></pre>
 <p>Following along? Great!</p>
 <h2>Dependent Tasks</h2>
 <p>It's easy to make one task wait for another to finish. This is done by passing an array of tasks as the second parameter to <code>gulp.task</code> method.</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// say world after saying hello is done</span><br>gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"sayWorld"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"sayHello"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// say world after saying hello is done</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"sayWorld"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"sayHello"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Move over to terminal and execute <code>gulp world</code>.</p>
 <h2>The Default Task</h2>
 <p>If we move over to terminal and execute <code>gulp</code>, without specifying a task name, it looks for a task named <code>default</code>. Go ahead! give it a try.</p>
-<pre class="language-js"><code class="language-js">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"default"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"La la la!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"default"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"La la la!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <h2>Exploring Gulp's API</h2>
 <p>Gulp has 3 other methods <code>.src</code>,<code>.dest</code> &amp; <code>.watch</code> apart from <code>.task</code>. We'll look into those by trying to minify CSS, a real world use case for gulp.</p>
 <p>Before we go ahead, we need to know a little more about how gulp works. Gulp generates a stream from the files we pass in via <code>gulp.src</code>  method. We then <code>pipe</code> the stream through various processors like minify, uglify, sass, sourcemaps etc. Remember, all the processing done, is still on the generated stream and not written to disk. To do that, we use <code>gulp.dest</code> .</p>
 <h3>Minify CSS</h3>
 <p>Create a style.css in css directory and put the following content.</p>
-<pre class="language-css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span><br>  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br>  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token selector">body,<br>html</span> <span class="token punctuation">{</span><br>  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">body,
+html</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>We will install <a href="https://www.npmjs.com/package/gulp-minify-css">gulp-minify-css</a> plugin to do the minification.</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> gulp-minify-css --save-dev</code></pre>
 <p>In gulpfile.js, we require this module just like we did it for gulp.</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">var</span> minify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"gulp-minify-css"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class="language-js"><code class="language-js"><span class="token comment">// minify css</span><br>gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"css:minify"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">"css/style.css"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">"min"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// minify css</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"css:minify"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">"css/style.css"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">"min"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>So what did we do?</p>
 <ul>
 <li>We create a new task named <code>css:minify</code>  (namespacing is good).</li>
@@ -170,11 +211,15 @@ Now, we create our first task that prints <em>Hello</em> .</p>
 <li>Finally, we pipe the processed stream through <code>gulp.dest</code> which then writes the new, minified <code>style.css</code> inside <code>min</code> directory.</li>
 </ul>
 <p>The last thing I want to mention is how to watch files for changes. In our example, we'll setup a <code>watch</code> task and look for changes in <code>.css</code> files. Whenever that happens, we would want the <code>css:minify</code> task to run automatically. Here's how.</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// watch for changes in source</span><br>gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"watch"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">"css/style.css"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"css:minify"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// watch for changes in source</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"watch"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">"css/style.css"</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"css:minify"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>On terminal execute <code>gulp watch</code>. It may look like the the prompt has hanged but it's actually watching for file changes. Let's go ahead and add some new rules in <strong>style.css</strong>, save it and see what happens!</p>
 <p>In the next post, I'll write about file include patterns, various recipes for doing things like sass compilation, generating sourcemaps, cleaning directories before running tasks and more. Stay tuned!</p>
 
 </article>
+
     </div>
   </body>
 </html>

@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,17 +123,55 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>How to use Sass variables in JavaScript in a Webpack project</h1>
+      
+<article class="post">
+  <h1 class="post__title">How to use Sass variables in JavaScript in a Webpack project</h1>
+  <div class="post__metadata">
+    <time datetime="2021-01-24">24 Jan 2021</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>Wouldn't that be great?</p>
 <p>We can define the entire theme in Sass files and then when we need to have them in our JavaScript, we can use them without having to redeclare them in a JSON?</p>
 <p>First, let's create a Sass file with a bunch of variables. Generally it would ideally be the file where we define all our variables related to the project.</p>
 <p>For simplicity, let's say we are dealing with colors and want all the theme colors to be made available in JavaScript.</p>
-<pre class="language-scss"><code class="language-scss"><span class="token comment">// colors.scss</span><br><br><span class="token comment">/*=============================================<br>=            Black, White, Grays            =<br>=============================================*/</span><br><br><span class="token property"><span class="token variable">$--color-black</span></span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-charcoal</span></span><span class="token punctuation">:</span> #212121<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-abstract</span></span><span class="token punctuation">:</span> #5c5c5c<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-slate</span></span><span class="token punctuation">:</span> #737373<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-earth</span></span><span class="token punctuation">:</span> #ababab<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-edge</span></span><span class="token punctuation">:</span> #e7e7e7<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-mercury</span></span><span class="token punctuation">:</span> #f0f0f0<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-seashell</span></span><span class="token punctuation">:</span> #f7f6f5<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-fairy</span></span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span><br><span class="token property"><span class="token variable">$--color-white</span></span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span><br><br><span class="token comment">/*=====  End of Black, White, Grays  ======*/</span></code></pre>
+<pre class="language-scss"><code class="language-scss"><span class="token comment">// colors.scss</span>
+
+<span class="token comment">/*=============================================
+=            Black, White, Grays            =
+=============================================*/</span>
+
+<span class="token property"><span class="token variable">$--color-black</span></span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-charcoal</span></span><span class="token punctuation">:</span> #212121<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-abstract</span></span><span class="token punctuation">:</span> #5c5c5c<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-slate</span></span><span class="token punctuation">:</span> #737373<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-earth</span></span><span class="token punctuation">:</span> #ababab<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-edge</span></span><span class="token punctuation">:</span> #e7e7e7<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-mercury</span></span><span class="token punctuation">:</span> #f0f0f0<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-seashell</span></span><span class="token punctuation">:</span> #f7f6f5<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-fairy</span></span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-white</span></span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+
+<span class="token comment">/*=====  End of Black, White, Grays  ======*/</span></code></pre>
 <p>Now, to have the exact same thing exported we are going to use Webpack's magic export from the Sass file itself, which looks like this.</p>
-<pre class="language-scss"><code class="language-scss"><span class="token selector">:export </span><span class="token punctuation">{</span><br>  <span class="token property">black</span><span class="token punctuation">:</span> <span class="token variable">$--color-black</span><span class="token punctuation">;</span><br>  <span class="token property">charcoal</span><span class="token punctuation">:</span> <span class="token variable">$--color-charcoal</span><span class="token punctuation">;</span><br>  <span class="token property">abstract</span><span class="token punctuation">:</span> <span class="token variable">$--color-abstract</span><span class="token punctuation">;</span><br>  <span class="token property">slate</span><span class="token punctuation">:</span> <span class="token variable">$--color-slate</span><span class="token punctuation">;</span><br>  <span class="token property">earth</span><span class="token punctuation">:</span> <span class="token variable">$--color-earth</span><span class="token punctuation">;</span><br>  <span class="token property">edge</span><span class="token punctuation">:</span> <span class="token variable">$--color-edge</span><span class="token punctuation">;</span><br>  <span class="token property">mercury</span><span class="token punctuation">:</span> <span class="token variable">$--color-mercury</span><span class="token punctuation">;</span><br>  <span class="token property">seashell</span><span class="token punctuation">:</span> <span class="token variable">$--color-seashell</span><span class="token punctuation">;</span><br>  <span class="token property">fairy</span><span class="token punctuation">:</span> <span class="token variable">$--color-fairy</span><span class="token punctuation">;</span><br>  <span class="token property">white</span><span class="token punctuation">:</span> <span class="token variable">$--color-white</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-scss"><code class="language-scss"><span class="token selector">:export </span><span class="token punctuation">{</span>
+  <span class="token property">black</span><span class="token punctuation">:</span> <span class="token variable">$--color-black</span><span class="token punctuation">;</span>
+  <span class="token property">charcoal</span><span class="token punctuation">:</span> <span class="token variable">$--color-charcoal</span><span class="token punctuation">;</span>
+  <span class="token property">abstract</span><span class="token punctuation">:</span> <span class="token variable">$--color-abstract</span><span class="token punctuation">;</span>
+  <span class="token property">slate</span><span class="token punctuation">:</span> <span class="token variable">$--color-slate</span><span class="token punctuation">;</span>
+  <span class="token property">earth</span><span class="token punctuation">:</span> <span class="token variable">$--color-earth</span><span class="token punctuation">;</span>
+  <span class="token property">edge</span><span class="token punctuation">:</span> <span class="token variable">$--color-edge</span><span class="token punctuation">;</span>
+  <span class="token property">mercury</span><span class="token punctuation">:</span> <span class="token variable">$--color-mercury</span><span class="token punctuation">;</span>
+  <span class="token property">seashell</span><span class="token punctuation">:</span> <span class="token variable">$--color-seashell</span><span class="token punctuation">;</span>
+  <span class="token property">fairy</span><span class="token punctuation">:</span> <span class="token variable">$--color-fairy</span><span class="token punctuation">;</span>
+  <span class="token property">white</span><span class="token punctuation">:</span> <span class="token variable">$--color-white</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Lastly, we can simply import the colors.scss file in JavaScript and use the colors.</p>
-<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> colors <span class="token keyword">from</span> <span class="token string">"colors.scss"</span><span class="token punctuation">;</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colors<span class="token punctuation">.</span>black<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// #000000</span></code></pre>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> colors <span class="token keyword">from</span> <span class="token string">"colors.scss"</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colors<span class="token punctuation">.</span>black<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// #000000</span></code></pre>
 <p>That's it! Ain't that great?</p>
 <ul>
 <li>You don't need to repeat hex values in both styles and script</li>
@@ -139,6 +181,7 @@
 <p>Hope that helps!</p>
 
 </article>
+
     </div>
   </body>
 </html>

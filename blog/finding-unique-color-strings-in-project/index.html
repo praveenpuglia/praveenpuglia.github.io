@@ -44,7 +44,13 @@
     href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
     rel="stylesheet"
   />
-  <link href="/css/style.css?v=aa5002caa516b2109061a4201ff69aab" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=024b513b839461d9220a48442f587039" rel="stylesheet">
    
 
 
@@ -80,9 +86,7 @@
 
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
   <body>
@@ -119,8 +123,16 @@
     </ul>
   </nav>
 </header>
-      <article class="post">
-  <h1>Finding Unique Color Strings In Project</h1>
+      
+<article class="post">
+  <h1 class="post__title">Finding Unique Color Strings In Project</h1>
+  <div class="post__metadata">
+    <time datetime="2015-11-01">01 Nov 2015</time>
+    <ul class="post__metadata__tags">
+      <li></li>
+    </ul>
+  </div>
+
   <p>One of my recent projects is messy with it's color theory. Partly because it's brand new and there are things which will take different directions <em>soon</em>!</p>
 <p>To demo, I have to create multiple versions of a component. This results in quite a lot of colors directly put into code in the form of <strong>hex codes</strong> or <strong>rgb/rgba</strong> definitions. But! these are demos! Got to get our hands dirty and get them done quick.</p>
 <p>Then comes the hard part. Finding all the colors we used throughout the project and see how we screwed it up( kind of! ). That finding part is tricky if you plan to open up each stylesheet and look into it. A good part of the problem is to recognize different types of color definitions you have.</p>
@@ -163,9 +175,10 @@
 <p>Example - <code>#fff Vs. #ffffff Vs. rgb(255,255,255)</code>.</p>
 <p>My initial thought ended here and I was happy but that didn't last long. The problem that remainned was that I still couldn't see those colors. Sure we have all the values but in the field of colors, seeing them makes more sense.</p>
 <p>So... I built this tool - <a href="http://praveenpuglia.com/chamarel">chamarel</a>( couldn't find a 'cool' name :( ). You can input the list of all colors, including the duplicate ones, in this tool and it shows you, <strong>visually</strong>, the unique<sup>#</sup> colors! It's far from perfect but try it out! I have plans to make it easier to use so you don't have to do the heavy lifting. If you want to jump in in making it better, I am sure you'll get a free beer! ;)</p>
-<p><img src="../assets/images/2015/11/show-me-my-colors.png" alt="Chamarel - Project"></p>
+<p><img src="../assets/images/2015/11/show-me-my-colors.avif" alt="Chamarel - Project"></p>
 
 </article>
+
     </div>
   </body>
 </html>

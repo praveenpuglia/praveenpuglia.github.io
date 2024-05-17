@@ -1,3 +1,27 @@
 .post img {
   max-width: 100%;
 }
+.post__title {
+  font-weight: bold;
+}
+.post__metadata {
+  border-bottom: 1px solid #eaecef;
+  border-top: 1px solid #eaecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+.post__metadata__tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+.post__metadata__tag {
+  background-color: #f1f8ff;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
