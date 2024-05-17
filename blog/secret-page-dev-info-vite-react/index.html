@@ -41,9 +41,16 @@
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
   <link
-    href="https://unpkg.com/prism-themes@1.6.0/themes/prism-dracula.css"
-    rel="stylesheet"
+    rel="preload"
+    href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
   />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+  /></noscript>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -166,7 +173,6 @@
 <h2>Getting App Version</h2>
 <p>Now that I had the global constants ready to use, I needed to find a way to get the app's current version. Usually, this comes from the <code>version</code> field in <code>package.json</code> so I picked it up from there.</p>
 <pre class="language-ts"><code class="language-ts"><span class="token comment">// vite.config.ts</span>
-
 <span class="token keyword">import</span> packageConfig <span class="token keyword">from</span> <span class="token string">"./package.json"</span><span class="token punctuation">;</span>
 
 packageConfig<span class="token punctuation">.</span>version<span class="token punctuation">;</span> <span class="token comment">// "1.0.0"</span></code></pre>
