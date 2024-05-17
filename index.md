@@ -3,11 +3,7 @@ layout: base
 title: Home
 ---
 
-<picture class="hero-banner">
-  <source srcSet="home-banner.avif" type="image/avif"/>
-  <source srcSet="home-banner.webp" type="image/webp"/>
-  <img decoding="async" loading="lazy" src="home-banner.webp" alt="Praveen at VueDay, 2019" fetchpriority="high"/>
-</picture>
+<img class="hero-banner" decoding="async" loading="lazy" src="home-banner.avif" alt="Praveen at VueDay, 2019" fetchpriority="high"/>
 
 ## Hello!
 
