@@ -43,7 +43,7 @@ code:not([class*="language-"]) {
   font-size: 0.85rem;
 }
 a {
-  color: var(--color-link);
+  color: var(--accent-color);
   text-decoration: none;
 }
 a:hover,
@@ -57,4 +57,21 @@ blockquote {
   border: 1px solid;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
+}
+p {
+  font-size: 112.5%;
+}
+.title {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 3.5rem;
+}
+
+ul li, ol li {
+  line-height: 1.7;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+li::marker {
+  color: var(--accent-color);
 }

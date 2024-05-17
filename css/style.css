@@ -3,9 +3,14 @@
 @import url(layout.css);
 @import url(header.css);
 @import url(post.css);
+@import url(blog.css);
 
 /* Pages */
 @import url(home.css);
+
+:root {
+  --accent-color: #002999;
+}
 
 body {
   font-family: "Rethink Sans", sans-serif;
@@ -14,3 +19,4 @@ body {
   margin: 0;
   font-weight: 300;
 }
+

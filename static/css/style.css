@@ -45,7 +45,7 @@ code:not([class*="language-"]) {
   font-size: 0.85rem;
 }
 a {
-  color: var(--color-link);
+  color: var(--accent-color);
   text-decoration: none;
 }
 a:hover,
@@ -59,6 +59,22 @@ blockquote {
   border: 1px solid;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-style: italic;
+}
+p {
+  font-size: 112.5%;
+}
+.title {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 3.5rem;
+}
+ul li, ol li {
+  line-height: 1.7;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+li::marker {
+  color: var(--accent-color);
 }
 * {
   box-sizing: border-box;
@@ -127,11 +143,8 @@ blockquote {
     margin-left: auto;
   }
 }
-.post img {
+.single-post img {
   max-width: 100%;
-}
-.post__title {
-  font-weight: bold;
 }
 .post__metadata {
   border-bottom: 1px solid #eaecef;
@@ -153,6 +166,21 @@ blockquote {
   background-color: #f1f8ff;
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
+  margin: 0;
+}
+.single-post h1,
+.single-post h2,
+.single-post h3,
+.single-post h4,
+.single-post h5,
+.single-post h6 {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+.posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 /* Pages */
 .hero-banner img {
@@ -163,6 +191,9 @@ blockquote {
   transform: translateX(-1rem);
   box-shadow: 1rem 1rem rgba(0, 0, 0, 0.1), 2rem 2rem rgba(0, 0, 0, 0.1);
 }
+:root {
+  --accent-color: #002999;
+}
 body {
   font-family: "Rethink Sans", sans-serif;
   color: #333;
@@ -170,3 +201,4 @@ body {
   margin: 0;
   font-weight: 300;
 }
+
