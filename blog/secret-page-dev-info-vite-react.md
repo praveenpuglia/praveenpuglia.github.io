@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adding a secret page for developers with app version & commit hash in a Vite.js / React app
+title: A secret, system version page for Web Developers
 tags: [typescript, react, vite, git, tips]
 date: 2023-01-06
 ---
