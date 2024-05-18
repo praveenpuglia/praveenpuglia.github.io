@@ -1,13 +1,13 @@
-@import url(variables.css);
-@import url(typography.css);
-@import url(layout.css);
-@import url(header.css);
-@import url(post.css);
-@import url(blog.css);
-@import url(footer.css);
+@import url(./variables.css);
+@import url(./typography.css);
+@import url(./layout.css);
+@import url(./header.css);
+@import url(./post.css);
+@import url(./blog.css);
+@import url(./footer.css);
 
 /* Pages */
-@import url(home.css);
+@import url(./home.css);
 
 body {
   font-family: "Rethink Sans", sans-serif;
@@ -22,4 +22,3 @@ body {
     font-size: 14px;
   }
 }
-
