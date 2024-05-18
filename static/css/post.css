@@ -2,13 +2,13 @@
   max-width: 100%;
 }
 .post__metadata {
-  border-bottom: 1px solid #eaecef;
-  border-top: 1px solid #eaecef;
+  border-bottom: 1px solid var(--color-border-light);
+  border-top: 1px solid var(--color-border-light);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
+  flex-direction: column;
 }
 .post__metadata__tags {
   list-style: none;
@@ -16,6 +16,7 @@
   padding: 0;
   display: flex;
   gap: 1rem;
+  margin-top: 0.5rem;
 }
 .post__metadata__tag {
   background-color: #f1f8ff;
@@ -31,4 +32,17 @@
 .single-post h6 {
   color: var(--accent-color);
   font-weight: bold;
+}
+
+.postlist-link .post-title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .post__metadata {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

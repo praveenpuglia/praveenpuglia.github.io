@@ -1,0 +1,27 @@
+---
+layout: base
+title: Posts
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+
+<h1 class="title">Posts</h1>
+{% set postslistCounter = collections.posts | length %}
+<ol reversed class="posts-list">
+  {% for post in collections.posts | reverse %}
+  <li class="post">
+    <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{
+      post.date | readableDate
+    }}</time>
+    <a href="{{ post.url | url }}" class="postlist-link">
+      <h3 class="post-title">
+        {% if post.data.title %}{{ post.data.title }}
+        {% else %}
+        <code>{{ post.url }}</code>
+        {% endif %}
+      </h3>
+    </a>
+  </li>
+  {% endfor %}
+</ol>

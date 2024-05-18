@@ -5,7 +5,7 @@ tags: [typescript, react, vite, git, tips]
 date: 2023-01-06
 ---
 
-![Adding a secret page for developers with app version & commit hash in a Vite.js / React app](../assets/images/2023/app-version-git-hash.avif)
+![Adding a secret page for developers with app version & commit hash in a Vite.js / React app](/assets/images/2023/app-version-git-hash.avif)
 
 I love bare bones health pages / system info pages which give you critical information about your application in the fastest possible way. The app version & the hash of the currently deployed code are two of those critical things.
 

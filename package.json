@@ -4,7 +4,7 @@
   "description": "source for praveenpuglia.com",
   "main": "index.js",
   "scripts": {
-    "serve": "eleventy --serve",
+    "serve": "rm -rf _site && eleventy --serve",
     "build": "eleventy"
   },
   "repository": {

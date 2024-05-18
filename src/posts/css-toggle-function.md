@@ -149,7 +149,7 @@ p {
 
 Say we want an unordered list with a specific order of bullets in mind, for different levels of the list. A square bullet at level 1, a disc at level 2 and a circle at level 3. Something like this...
 
-![List with custom bullet styles.](../assets/images/2017/toggle-list.avif)
+![List with custom bullet styles.](/assets/images/2017/toggle-list.avif)
 
 Here's how we can do it.
 

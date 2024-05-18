@@ -12,7 +12,7 @@ I have been doing these things for some time now but never wrote an article expl
 
 Here's the final output.
 
-<video width="50%" style="display: block; margin: auto;" controls src="../assets/videos/2017/snake-final.webm"></video>
+<video width="50%" style="display: block; margin: auto;" controls src="/assets/videos/2017/snake-final.webm"></video>
 
 ## How did I arrive here?
 
@@ -97,7 +97,7 @@ Notice, there's no `width` and `height` property set to the blobs. I'll make the
 ```
 
 At this point, all you'll see is this.
-<img style="display: block; margin: auto" width="50%" src="../assets/images/2017/snake-1.avif" />
+<img style="display: block; margin: auto" width="50%" src="/assets/images/2017/snake-1.avif" />
 
 ### The Animation
 
@@ -109,7 +109,7 @@ You see, it's easy to trick human eyes. If we move each blob horizontally the sa
 
 Don't believe me? Here's the video again. Keep your cusor on one of the blobs and you'll see that it only moves horizontally.
 
-<video width="50%" style="display: block; margin: auto;" controls src="../assets/videos/2017/snake-final.webm"></video>
+<video width="50%" style="display: block; margin: auto;" controls src="/assets/videos/2017/snake-final.webm"></video>
 
 So let's do that.
 

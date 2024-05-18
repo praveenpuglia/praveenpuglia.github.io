@@ -4,7 +4,7 @@ title: Introducing Poppins - An Eye Popping, Light Sublime Text 3 Syntax Theme
 date: 2015-12-20
 ---
 
-<img class="human-photo" src="../assets/images/2015/12/poppins.avif">
+<img class="human-photo" src="/assets/images/2015/12/poppins.avif">
 
 This was the candy I loved as a kid. It was lucrative and distinct because of the eye popping colors. Totally loved it.
 
@@ -12,5 +12,5 @@ I love Sublime Text too and always wanted to make a color scheme for it. It's be
 
 It's available on [GitHub](https://github.com/praveenpuglia/color_scheme_poppins) & via [Package Control](https://packagecontrol.io/packages/Poppins%20-%20Color%20Scheme). The font used is [Ahamono](https://www.behance.net/gallery/19532783/AhamonoMonospaced)
 
-![CSS](../assets/images/2015/12/poppins-shot-css.avif)  
-![JS](../assets/images/2015/12/poppins-shot-js.avif)
+![CSS](/assets/images/2015/12/poppins-shot-css.avif)  
+![JS](/assets/images/2015/12/poppins-shot-js.avif)

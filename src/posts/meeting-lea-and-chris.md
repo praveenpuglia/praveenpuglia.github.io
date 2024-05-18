@@ -34,5 +34,5 @@ Last but not the least, I got a copy of CSS Secrets autographed! Yay!
 
 I definitely look forward to another opportunity like this. Meeting them made my year and has inspired me to do more. A wonderful day! :)
 
-<img class="human-photo" src="../assets/images/2015/12/meetup-1.avif">
-<img class="human-photo" src="../assets/images/2015/12/meetup-2.avif">
+<img class="human-photo" src="/assets/images/2015/12/meetup-1.avif">
+<img class="human-photo" src="/assets/images/2015/12/meetup-2.avif">

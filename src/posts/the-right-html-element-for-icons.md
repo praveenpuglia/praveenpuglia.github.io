@@ -4,7 +4,7 @@ title: The Right HTML Element For Icons
 date: 2015-02-17
 ---
 
-[![ VS ](../assets/images/2015/02/span_vs_i.avif)](../assets/images/2015/02/span_vs_i.avif)
+[![ VS ](/assets/images/2015/02/span_vs_i.avif)](/assets/images/2015/02/span_vs_i.avif)
 
 Do you use `<span>` or `<i>` for icons? Whatever your answer is, keep that at the back of your mind. I am sure you have reasons! Let me tell you what I use. It's `<i>`.
 
@@ -20,7 +20,7 @@ Wait... what? That's right. It's the "_meaningless_" element. This allows you to
 
 > The i element represents a span of text **in an alternate voice or mood**, or otherwise offset from the normal prose in a manner indicating a different quality of text, such as a taxonomic designation, a technical term, an idiomatic phrase from another language, transliteration, **a thought**, or a ship name in Western texts.
 
-This makes more sense to me. Think about it, an icon is essentially a way to depict a piece of text otherwise. Graphically to be precise. It is a thought, a _metaphor_. This specification in fact forces us to be more creative and thoughtful about what "graphical metaphor" we should use. In an ideal world, we would be using an `<img>`  element to do this but even that has it's own problems; [an empty src makes a server request.](http://www.nczonline.net/blog/2009/11/30/empty-image-src-can-destroy-your-site/)
+This makes more sense to me. Think about it, an icon is essentially a way to depict a piece of text otherwise. Graphically to be precise. It is a thought, a _metaphor_. This specification in fact forces us to be more creative and thoughtful about what "graphical metaphor" we should use. In an ideal world, we would be using an `<img>`  element to do this but even that has it's own problems; [an empty src makes a server request.](http://www.nczonline.net/posts/2009/11/30/empty-image-src-can-destroy-your-site/)
 
 On the brighter side, both **icon** and `<i>`  have "**i**" to start with. To a human, "it fits the data" instinctively.
 

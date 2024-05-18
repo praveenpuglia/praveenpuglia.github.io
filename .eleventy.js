@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./static": ".",
   });
+  eleventyConfig.addPassthroughCopy("./src/assets");
 
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -14,7 +15,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
+      "dd LLL, yyyy"
     );
   });
 
@@ -57,12 +58,16 @@ module.exports = function (eleventyConfig) {
   const now = new Date();
   const livePosts = (post) => post.date <= now && !post.data.draft;
   eleventyConfig.addCollection("posts", (collection) => {
-    return [...collection.getFilteredByGlob(`./blog/**/*`).filter(livePosts)];
+    return [
+      ...collection.getFilteredByGlob(`./src/posts/*.md`).filter(livePosts),
+    ];
   });
 
   return {
     dir: {
+      input: "src",
       data: "data",
     },
+    passthroughFileCopy: true,
   };
 };

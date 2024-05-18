@@ -9,7 +9,7 @@ h6 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
-  color: #666;
+  color: var(--color-primary);
 }
 h1 {
   font-size: 2.986rem;
@@ -65,6 +65,7 @@ p {
   font-weight: bold;
   color: var(--accent-color);
   font-size: 3.5rem;
+  margin-top: 0;
 }
 
 ul li, ol li {

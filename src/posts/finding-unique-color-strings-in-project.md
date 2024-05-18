@@ -59,4 +59,4 @@ My initial thought ended here and I was happy but that didn't last long. The pro
 
 So... I built this tool - [chamarel](http://praveenpuglia.com/chamarel)( couldn't find a 'cool' name :( ). You can input the list of all colors, including the duplicate ones, in this tool and it shows you, **visually**, the unique<sup>#</sup> colors! It's far from perfect but try it out! I have plans to make it easier to use so you don't have to do the heavy lifting. If you want to jump in in making it better, I am sure you'll get a free beer! ;)
 
-![Chamarel - Project](../assets/images/2015/11/show-me-my-colors.avif)
+![Chamarel - Project](/assets/images/2015/11/show-me-my-colors.avif)

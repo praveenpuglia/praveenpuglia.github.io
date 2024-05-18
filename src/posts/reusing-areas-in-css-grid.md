@@ -26,19 +26,19 @@ Grid has areas. We can define the entire layout with area names and ASCII art. F
 ```
 
 This is going to generate a standard two column layout grid. Something like this...
-![Two column layout using CSS Grid areas](../assets/images/2017/grid-reuse-1.avif)
+![Two column layout using CSS Grid areas](/assets/images/2017/grid-reuse-1.avif)
 
 What's great about area names is that we can reuse them. Confusing? Let me give an example.
 
 Say we are creating a comments section for a blog which has to look like this.
-![Comments section from a typical blog](../assets/images/2017/grid-reuse-2.avif)
+![Comments section from a typical blog](/assets/images/2017/grid-reuse-2.avif)
 
 And if we add a little bit of borders, we see how the grid should be constructed.
-![Comments layout with grid lines](../assets/images/2017/grid-reuse-3.avif)
+![Comments layout with grid lines](/assets/images/2017/grid-reuse-3.avif)
 
 It's clear that the avatar and the comment(input/text) is used exactly the same way in both the places. So, we should be able to create two grids, both of which can dedicate a place for avatar and the comment.
 Here's what I mean.
-![Depicting areas.](../assets/images/2017/grid-reuse-4.avif)
+![Depicting areas.](/assets/images/2017/grid-reuse-4.avif)
 
 Here's how that might look in code.
 
