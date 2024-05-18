@@ -68,15 +68,15 @@
 
 
 
-<title>Home - undefined</title>
+<title>Tree Like Directory Structure In PowerShell - undefined</title>
 
 
 
 <meta property="og:site_name" content=""/>
-<meta property="og:title" content="Home - undefined"/>
+<meta property="og:title" content="Tree Like Directory Structure In PowerShell - undefined"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="undefined/"/>
-<meta property="twitter:url" content="undefined/"/>
+<meta property="og:url" content="undefined/posts/tree-style-directory-structure-powershell/"/>
+<meta property="twitter:url" content="undefined/posts/tree-style-directory-structure-powershell/"/>
 <meta property="twitter:site" content=""/>
 
 
@@ -111,21 +111,50 @@
 </div>
 
     <div class="container">
-      <img class="hero-banner" decoding="async" loading="lazy" src="home-banner.avif" alt="Praveen at VueDay, 2019" fetchpriority="high"/>
-<h2>Hello!</h2>
-<p>I am Praveen &amp; that's not a cut off hand floating in the air.</p>
-<h2>Current</h2>
-<ul>
-<li>Frontend Architect @ <a href="https://smallcase.com">smallcase</a></li>
-</ul>
-<h2>Past</h2>
-<ul>
-<li><a href="https://sprinklr.com">Sprinklr</a></li>
-<li><a href="https://voicezen.ai">Voicezen</a></li>
-<li><a href="https://joveo.com">Joveo</a></li>
-<li><a href="https://pramati.com">Pramati</a></li>
-<li><a href="https://tcs.com">TCS</a></li>
-</ul>
+      
+<article class="single-post">
+  <h1 class="title">Tree Like Directory Structure In PowerShell</h1>
+  <div class="post__metadata">
+    <time datetime="2015-03-17">17 Mar, 2015</time>
+    <ul class="post__metadata__tags">
+    </ul>
+  </div>
+
+  <p>One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.</p>
+<p>In PowerShell, you can use the <code>tree</code> command to print a tree structure, starting from the current directory to it's descendants at deepest levels.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> <span class="token builtin class-name">cd</span> <span class="token string">'C:\Python27\tcl\tcl8.5'</span>
+<span class="token operator">></span> tree
+├───encoding
+├───http1.0
+├───msgs
+├───opt0.4
+└───tzdata
+├───Africa
+├───America
+│ ├───Argentina
+│ ├───Indiana
+│ ├───Kentucky
+│ └───North_Dakota
+├───Antarctica
+├───Arctic
+├───Asia
+├───Atlantic
+├───Australia
+├───Brazil
+├───Canada
+├───Chile
+├───Etc
+├───Europe
+├───Indian
+├───Mexico
+├───Pacific
+├───SystemV
+└───US</code></pre>
+<p>You can also specify a custom path as an argument.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> tree <span class="token string">'C:\Program Files'</span></code></pre>
+<p>Make sure you use a font that supports lot of glyphs to see the lines.</p>
+
+</article>
 
     </div>
     <div class="site-footer">

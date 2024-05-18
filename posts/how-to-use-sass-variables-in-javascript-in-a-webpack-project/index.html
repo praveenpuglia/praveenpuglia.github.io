@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-22054303-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-22054303-1");
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico?v=d41d8cd98f00b204e9800998ecf8427e" type="image/png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="manifest" href="/manifest.webmanifest?v=d41d8cd98f00b204e9800998ecf8427e">
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <link
+    rel="preload"
+    href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+  /></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=d41d8cd98f00b204e9800998ecf8427e" rel="stylesheet">
+   
+
+
+
+
+
+
+
+
+
+<title>How to use Sass variables in JavaScript in a Webpack project - undefined</title>
+
+
+
+<meta property="og:site_name" content=""/>
+<meta property="og:title" content="How to use Sass variables in JavaScript in a Webpack project - undefined"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="undefined/posts/how-to-use-sass-variables-in-javascript-in-a-webpack-project/"/>
+<meta property="twitter:url" content="undefined/posts/how-to-use-sass-variables-in-javascript-in-a-webpack-project/"/>
+<meta property="twitter:site" content=""/>
+
+
+
+<meta name="description" content=""/>
+<meta name="twitter:description" content=""/>
+<meta property="og:description" content=""/>
+
+
+  <meta property="og:image" content="/home-banner.webp"/>
+  <meta name="twitter:image" content="/home-banner.webp"/>
+
+
+
+
+</head>
+
+  <body>
+    <div class="site-header">
+  <header class="main-header">
+    <a href="/">
+      <h3 class="main-header-logo bold">Praveen Puglia</h3>
+    </a>
+    <nav role="navigation" class="main-navigation" aria-label="Main Navigation">
+      <ul class="navigation-links">
+        <li class="navigation-link-item">
+          <a class="navigation-link" href="/posts">Posts</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+    <div class="container">
+      
+<article class="single-post">
+  <h1 class="title">How to use Sass variables in JavaScript in a Webpack project</h1>
+  <div class="post__metadata">
+    <time datetime="2021-01-24">24 Jan, 2021</time>
+    <ul class="post__metadata__tags">
+    </ul>
+  </div>
+
+  <p>Wouldn't that be great?</p>
+<p>We can define the entire theme in Sass files and then when we need to have them in our JavaScript, we can use them without having to redeclare them in a JSON?</p>
+<p>First, let's create a Sass file with a bunch of variables. Generally it would ideally be the file where we define all our variables related to the project.</p>
+<p>For simplicity, let's say we are dealing with colors and want all the theme colors to be made available in JavaScript.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token comment">// colors.scss</span>
+
+<span class="token comment">/*=============================================
+=            Black, White, Grays            =
+=============================================*/</span>
+
+<span class="token property"><span class="token variable">$--color-black</span></span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-charcoal</span></span><span class="token punctuation">:</span> #212121<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-abstract</span></span><span class="token punctuation">:</span> #5c5c5c<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-slate</span></span><span class="token punctuation">:</span> #737373<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-earth</span></span><span class="token punctuation">:</span> #ababab<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-edge</span></span><span class="token punctuation">:</span> #e7e7e7<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-mercury</span></span><span class="token punctuation">:</span> #f0f0f0<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-seashell</span></span><span class="token punctuation">:</span> #f7f6f5<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-fairy</span></span><span class="token punctuation">:</span> #f7f7f7<span class="token punctuation">;</span>
+<span class="token property"><span class="token variable">$--color-white</span></span><span class="token punctuation">:</span> #ffffff<span class="token punctuation">;</span>
+
+<span class="token comment">/*=====  End of Black, White, Grays  ======*/</span></code></pre>
+<p>Now, to have the exact same thing exported we are going to use Webpack's magic export from the Sass file itself, which looks like this.</p>
+<pre class="language-scss"><code class="language-scss"><span class="token selector">:export </span><span class="token punctuation">{</span>
+  <span class="token property">black</span><span class="token punctuation">:</span> <span class="token variable">$--color-black</span><span class="token punctuation">;</span>
+  <span class="token property">charcoal</span><span class="token punctuation">:</span> <span class="token variable">$--color-charcoal</span><span class="token punctuation">;</span>
+  <span class="token property">abstract</span><span class="token punctuation">:</span> <span class="token variable">$--color-abstract</span><span class="token punctuation">;</span>
+  <span class="token property">slate</span><span class="token punctuation">:</span> <span class="token variable">$--color-slate</span><span class="token punctuation">;</span>
+  <span class="token property">earth</span><span class="token punctuation">:</span> <span class="token variable">$--color-earth</span><span class="token punctuation">;</span>
+  <span class="token property">edge</span><span class="token punctuation">:</span> <span class="token variable">$--color-edge</span><span class="token punctuation">;</span>
+  <span class="token property">mercury</span><span class="token punctuation">:</span> <span class="token variable">$--color-mercury</span><span class="token punctuation">;</span>
+  <span class="token property">seashell</span><span class="token punctuation">:</span> <span class="token variable">$--color-seashell</span><span class="token punctuation">;</span>
+  <span class="token property">fairy</span><span class="token punctuation">:</span> <span class="token variable">$--color-fairy</span><span class="token punctuation">;</span>
+  <span class="token property">white</span><span class="token punctuation">:</span> <span class="token variable">$--color-white</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Lastly, we can simply import the colors.scss file in JavaScript and use the colors.</p>
+<pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> colors <span class="token keyword">from</span> <span class="token string">"colors.scss"</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colors<span class="token punctuation">.</span>black<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// #000000</span></code></pre>
+<p>That's it! Ain't that great?</p>
+<ul>
+<li>You don't need to repeat hex values in both styles and script</li>
+<li>You can choose which variables to expose.</li>
+<li>You don't need a complicated system / process to get the results.</li>
+</ul>
+<p>Hope that helps!</p>
+
+</article>
+
+    </div>
+    <div class="site-footer">
+  <footer class="footer-content">
+  <p>With ❤️ from  Praveen Puglia</p>
+  <ul class="social-links">
+    <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          Twitter
+        </a>
+      </li>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>

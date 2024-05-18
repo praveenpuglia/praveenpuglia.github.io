@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-22054303-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-22054303-1");
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>Praveen Puglia</title>
+  <link rel="icon" href="/favicon.ico?v=d41d8cd98f00b204e9800998ecf8427e" type="image/png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="manifest" href="/manifest.webmanifest?v=d41d8cd98f00b204e9800998ecf8427e">
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+  <meta name="theme-color" content="#ffffff" />
+  <link
+    rel="preload"
+    href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+  /></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+  />
+  <link href="/css/style.css?v=d41d8cd98f00b204e9800998ecf8427e" rel="stylesheet">
+   
+
+
+
+
+
+
+
+
+
+<title>My GraphQL Schema &amp; Types Generation Workflow - undefined</title>
+
+
+
+<meta property="og:site_name" content=""/>
+<meta property="og:title" content="My GraphQL Schema &amp; Types Generation Workflow - undefined"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="undefined/posts/my-graphql-schema-types-generation-workflow copy/"/>
+<meta property="twitter:url" content="undefined/posts/my-graphql-schema-types-generation-workflow copy/"/>
+<meta property="twitter:site" content=""/>
+
+
+
+<meta name="description" content=""/>
+<meta name="twitter:description" content=""/>
+<meta property="og:description" content=""/>
+
+
+  <meta property="og:image" content="/home-banner.webp"/>
+  <meta name="twitter:image" content="/home-banner.webp"/>
+
+
+
+
+</head>
+
+  <body>
+    <div class="site-header">
+  <header class="main-header">
+    <a href="/">
+      <h3 class="main-header-logo bold">Praveen Puglia</h3>
+    </a>
+    <nav role="navigation" class="main-navigation" aria-label="Main Navigation">
+      <ul class="navigation-links">
+        <li class="navigation-link-item">
+          <a class="navigation-link" href="/posts">Posts</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+    <div class="container">
+      
+<article class="single-post">
+  <h1 class="title">My GraphQL Schema &amp; Types Generation Workflow</h1>
+  <div class="post__metadata">
+    <time datetime="2021-01-26">26 Jan, 2021</time>
+    <ul class="post__metadata__tags">
+    </ul>
+  </div>
+
+  <p>At <a href="https://voicezen.ai">Voicezen</a>, we use multiple GraphQL endpoints. We also use Vue with TypeScript. Naturally, we need type definitions for everything the endpoints expose.</p>
+<p>We end up needing both the schema from an <a href="https://graphql.org/learn/introspection/">Introspection Query</a> and the types to use in TypeScript land. The schema is used to build a tool that dynamically builds a UI for running queries / mutations from the UI itself based on the parameters they accept. More on the tool may be in a later post.</p>
+<p>We have an opinionated setup and like to have our types generated in a certain way. Examples -</p>
+<ul>
+<li>Enums should be UPPERCASE and separated by underscores.</li>
+<li>We prefer interfaces over types.</li>
+</ul>
+<p>We keep the generated types &amp; schema at <strong>/src/graphql/types</strong> directory.</p>
+<p>We use <strong>.env</strong> file to store the endpoint details in environment variables. This not only helps us with schema generation but also with the <a href="https://apollo.vuejs.org/">Vue Apollo</a> setup.</p>
+<p><a href="https://graphql-code-generator.com/">GraphQL Code Generator</a> helps us with all of this. Here are the packages we use &amp; for convenience we have a script to run the generator.</p>
+<pre class="language-json"><code class="language-json"><span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"@graphql-codegen/cli"</span><span class="token operator">:</span> <span class="token string">"^1.7.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"@graphql-codegen/introspection"</span><span class="token operator">:</span> <span class="token string">"^1.18.0"</span><span class="token punctuation">,</span>
+  <span class="token property">"@graphql-codegen/typescript"</span><span class="token operator">:</span> <span class="token string">"1.7.0"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">"gql:setup"</span><span class="token operator">:</span> <span class="token string">"node ./scripts/gen-gql-types.js"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+<p>The actual generator is the <strong>gen-gql-types.js</strong>. You can keep it anywhere but we prefer to keep it in the project root inside <strong>scripts</strong> directory.</p>
+<p>Here's what the <strong>.env</strong> file looks like.</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">VUE_APP_GRAPHQL_SAMURAI</span><span class="token operator">=</span>http://localhost:8001/samurai
+<span class="token assign-left variable">VUE_APP_GRAPHQL_NINJA</span><span class="token operator">=</span>http://localhost:8001/ninja
+<span class="token assign-left variable">VUE_APP_GRAPHQL_DORAEMON</span><span class="token operator">=</span>http://localhost:8001/doraemon</code></pre>
+<p>Finally, the generator script.</p>
+<pre class="language-js"><code class="language-js"><span class="token comment">// Imports</span>
+<span class="token keyword">const</span> generate <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@graphql-codegen/cli"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>generate<span class="token punctuation">;</span>
+<span class="token keyword">const</span> dotenv <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"dotenv-flow"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> chalk <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"chalk"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// We use dotenv to get access to the current environment variables.</span>
+<span class="token keyword">const</span> envVars <span class="token operator">=</span> dotenv<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parsed<span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>envVars<span class="token punctuation">.</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">throw</span> envVars<span class="token punctuation">.</span>error<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// From the variables, we pick all the variables that start with</span>
+<span class="token comment">// VUE_APP_GRAPHQL</span>
+<span class="token keyword">const</span> gqlEndpoints <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>envVars<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+  key<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"VUE_APP_GRAPHQL"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">generateTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> dir <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/src/graphql/types</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+    chalk<span class="token punctuation">.</span><span class="token function">bgBlueBright</span><span class="token punctuation">(</span>chalk<span class="token punctuation">.</span><span class="token function">black</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Output directory set to : </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dir<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  gqlEndpoints<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entry</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> endpoint <span class="token operator">=</span> entry<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> typesPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dir<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>endpoint<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.ts</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> schemaPath <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>dir<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>endpoint<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Generating GraphQL Types for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>endpoint<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> in - </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>chalk<span class="token punctuation">.</span>bold<span class="token punctuation">.</span><span class="token function">blue</span><span class="token punctuation">(</span>
+        endpoint
+      <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.ts</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Generating GraphQL Schema for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>endpoint<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> in - </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>chalk<span class="token punctuation">.</span>bold<span class="token punctuation">.</span><span class="token function">blue</span><span class="token punctuation">(</span>
+        endpoint
+      <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.json</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">generate</span><span class="token punctuation">(</span>
+      <span class="token comment">// GraphQL Codegen Configuration</span>
+      <span class="token punctuation">{</span>
+        <span class="token literal-property property">overwrite</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">schema</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>envVars<span class="token punctuation">[</span>entry<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/graphql</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        <span class="token literal-property property">config</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">declarationKind</span><span class="token operator">:</span> <span class="token string">"interface"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">skipTypename</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">namingConvention</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">typeNames</span><span class="token operator">:</span> <span class="token string">"change-case#pascalCase"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">enumValues</span><span class="token operator">:</span> <span class="token string">"upper-case#upperCase"</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">transformUnderscore</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">generates</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token punctuation">[</span>typesPath<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"typescript"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">[</span>schemaPath<span class="token punctuation">]</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"introspection"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token boolean">true</span>
+    <span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+          chalk<span class="token punctuation">.</span><span class="token function">green</span><span class="token punctuation">(</span>
+            <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Finished types &amp; schema generation for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>chalk<span class="token punctuation">.</span>bold<span class="token punctuation">.</span><span class="token function">greenBright</span><span class="token punctuation">(</span>
+              endpoint
+            <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> endpoint.</span><span class="token template-punctuation string">`</span></span>
+          <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+          chalk<span class="token punctuation">.</span><span class="token function">red</span><span class="token punctuation">(</span>
+            <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Types &amp; schema generation failed for </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>chalk<span class="token punctuation">.</span>bold<span class="token punctuation">.</span><span class="token function">redBright</span><span class="token punctuation">(</span>
+              endpoint
+            <span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> endpoint.</span><span class="token template-punctuation string">`</span></span>
+          <span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">generateTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Every time we build the project, we run the <strong>gql:setup</strong> script as a prerequisite and it fetches the latest schema and types for us to work with.</p>
+<p>This setup gives us good control over what sort of code we want to generate. It plays nice with multiple graphql endpoints as well since all we have to do to is add an entry in <strong>.env</strong> file and re-run the script.</p>
+<p>We also use some <a href="https://www.npmjs.com/package/chalk">chalk</a> magic for colorful logging in console.</p>
+<p>Hope this helps and if it does, do let me know in the comments.</p>
+
+</article>
+
+    </div>
+    <div class="site-footer">
+  <footer class="footer-content">
+  <p>With ❤️ from  Praveen Puglia</p>
+  <ul class="social-links">
+    <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          Twitter
+        </a>
+      </li>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>

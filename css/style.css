@@ -4,19 +4,22 @@
 @import url(header.css);
 @import url(post.css);
 @import url(blog.css);
+@import url(footer.css);
 
 /* Pages */
 @import url(home.css);
 
-:root {
-  --accent-color: #002999;
-}
-
 body {
   font-family: "Rethink Sans", sans-serif;
-  color: #333;
+  color: var(--color-primary);
   line-height: 1.5;
   margin: 0;
   font-weight: 300;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
 }
 
