@@ -2,6 +2,7 @@
 layout: post
 title: My GraphQL Schema & Types Generation Workflow
 date: 2021-01-26
+tags: [graphql, typescript]
 ---
 
 At [Voicezen](https://voicezen.ai), we use multiple GraphQL endpoints. We also use Vue with TypeScript. Naturally, we need type definitions for everything the endpoints expose.

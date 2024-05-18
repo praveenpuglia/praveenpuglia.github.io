@@ -3,6 +3,7 @@ layout: post
 title: Managing Mixins & Utilities in VueJS
 published: true
 date: 2019-04-09
+tags: [vue.js, javascript]
 ---
 
 > The code examples are in TypeScript but the idea works just as well in JavaScript.

@@ -2,6 +2,7 @@
 layout: post
 title: Tree Like Directory Structure In PowerShell
 date: 2015-03-17
+tags: [tools, shell]
 ---
 
 One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.

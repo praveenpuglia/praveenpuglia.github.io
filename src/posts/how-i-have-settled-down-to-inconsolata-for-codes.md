@@ -1,7 +1,8 @@
 ---
 layout: post
-title: How I Have Settle Down To Inconsolata For Code
+title: I Have Settle Down To Inconsolata For Code
 date: 2014-07-29
+tags: [typography, font]
 ---
 
 Choosing the coding font that suits your style is a difficult job. It has to impress you with it's curves, spaces and visual aesthetics. For me, there are these specific things that mattered the most.

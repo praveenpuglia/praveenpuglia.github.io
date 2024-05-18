@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Import Markdown Files in Vue CLI + TypeScript Projects
+title: Import Markdown Files in Vue CLI + TypeScript Projects
 tags: [markdown, typescript, vue-cli, vue]
 date: 2021-02-17
 ---

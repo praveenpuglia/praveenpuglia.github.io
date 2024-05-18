@@ -3,6 +3,7 @@ layout: post
 title: Why Vue Is So Awesome 😍
 published: true
 date: 2018-04-06
+tags: [vue.js, thoughts, javascript]
 ---
 
 ...and Angular is not.

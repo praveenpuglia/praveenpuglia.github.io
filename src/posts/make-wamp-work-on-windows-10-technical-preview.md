@@ -2,6 +2,7 @@
 layout: post
 title: Make WAMP Work On Windows 10
 date: 2015-02-12
+tags: [windows, wamp]
 ---
 
 ### Edit For Windows 10 Clean Install

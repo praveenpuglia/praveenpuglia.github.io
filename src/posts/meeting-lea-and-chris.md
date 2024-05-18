@@ -2,6 +2,7 @@
 layout: post
 title: Meeting Lea & Chris
 date: 2015-12-11
+tags: [life]
 ---
 
 **Reporting From Boston**

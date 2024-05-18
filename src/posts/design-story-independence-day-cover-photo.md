@@ -2,6 +2,7 @@
 layout: post
 title: Design Story - Independence Day Cover Photo
 date: 2014-08-15
+tags: [design, india]
 ---
 
 Let's have a look at it first.

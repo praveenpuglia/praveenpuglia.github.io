@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Make Your Web Apps Little More Native
+title: Make your web apps look a little more native
 date: 2016-05-18
+tags: [typography, font]
 ---
 
 Everybody loves Medium and there is just something about it that attracts people. The more I used it, the more I realized there was something wonderful it was doing to give it's users, the native feeling. I personally love apps when they adapt to different systems & devices. It shows that they care for their users and what sort of system they use. The user doesn't need to adapt to the app but the app adapts for the user's environment. Making elements adapt to native design system also creates a sense of trust.

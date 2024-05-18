@@ -2,6 +2,7 @@
 layout: post
 title: Introducing Poppins - An Eye Popping, Light Sublime Text 3 Syntax Theme
 date: 2015-12-20
+tags: [sublime-text, theme, tools]
 ---
 
 <img class="human-photo" src="/assets/images/2015/12/poppins.avif">

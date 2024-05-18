@@ -1,7 +1,8 @@
 ---
 layout: post
-title: How to use Sass variables in JavaScript in a Webpack project
+title: Use Sass variables in JavaScript in a Webpack project
 date: 2021-01-24
+tags: [sass, webpack]
 ---
 
 Wouldn't that be great?

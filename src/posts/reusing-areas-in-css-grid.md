@@ -2,6 +2,7 @@
 layout: post
 title: Reusing Areas In CSS Grid
 date: 2017-09-18
+tags: [css, grid]
 ---
 
 I have been playing around with CSS Grids for some time now and it has been an extremely delightful experience. So much so that I have submitted a talk proposal at [MetaRefresh 2017](https://metarefresh.talkfunnel.com/2017/2-grid-is-fun). If it gets selected, it's gonna be my first time ever speaking at a conference. I am nervous. If you are gonna be at MetaRefresh and wanna know about Grids, go vote! 😊

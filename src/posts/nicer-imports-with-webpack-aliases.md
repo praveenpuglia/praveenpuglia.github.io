@@ -1,12 +1,13 @@
 ---
 layout: post
-title: VueJS + Webpack + SCSS - Quick Tip
+title: Nicer imports with webpack aliases
 date: 2017-10-26
+tags: [vue.js, webpack, scss]
 ---
 
 ## The Setup
 
-- Initializd with Vue CLI + Webpack template.
+- Initialized with Vue CLI + Webpack template.
 - [Sass loader installed so we can use SCSS in our components](https://www.youtube.com/watch?v=jrxalQdn64k).
 
 ## The Problem
