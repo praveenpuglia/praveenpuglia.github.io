@@ -3,7 +3,11 @@ layout: base
 title: Home
 ---
 
-<img class="hero-banner" decoding="async" loading="lazy" src="home-banner.avif" alt="Praveen at VueDay, 2019" fetchpriority="high"/>
+<picture class="hero-banner">
+  <source media="(max-width: 480px)" srcset="/assets/images/home-banner-mobile.avif" />
+  <source media="(max-width: 767px)" srcset="/assets/images/home-banner-tablet.avif" />
+  <img src="/assets/images/home-banner-desktop.avif" alt="Speaking at VueDay, Bengaluru, 2019" fetchpriority="high" />
+</picture>
 
 ## Hello!
 
