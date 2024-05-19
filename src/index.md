@@ -13,11 +13,13 @@ title: Home
 
 I am Praveen & that's not a cut off hand floating in the air.
 
-## Current
+## Work
+
+### Current
 
 - Frontend Architect @ [smallcase](https://smallcase.com)
 
-## Past
+### Past
 
 - [Sprinklr](https://sprinklr.com)
 - [Voicezen](https://voicezen.ai)
