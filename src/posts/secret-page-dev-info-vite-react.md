@@ -3,6 +3,7 @@ layout: post
 title: A secret, deployment version page for developers
 tags: [typescript, react, vite, git]
 date: 2023-01-06
+socialImage: "/assets/images/2023/app-version-git-hash.avif"
 ---
 
 ![Adding a secret page for developers with app version & commit hash in a Vite.js / React app](/assets/images/2023/app-version-git-hash.avif)
