@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A secret, deployment version page for developers
-tags: [typescript, react, vite, git, tips]
+tags: [typescript, react, vite, git]
 date: 2023-01-06
 ---
 
