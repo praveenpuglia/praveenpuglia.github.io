@@ -121,24 +121,20 @@
         vue.js
       </li>
       <li class="post__metadata__tag">
-        javascript
+        typescript
       </li>
     </ul>
   </div>
 
-  <blockquote>
-<p>The code examples are in TypeScript but the idea works just as well in JavaScript.</p>
-</blockquote>
-<p>I have been working quite a bit with <a href="https://vuejs.org/">Vue.js</a> and I have sort of found a sweet spot for how to manage utilities in a Vue project.</p>
-<p>I often use mixins to share utility methods and constants related to those utilities across components. Example:</p>
+  <p>I have been working quite a bit with <a href="https://vuejs.org/">Vue.js</a> and I have sort of found a sweet spot for how to manage utilities in a Vue project.</p>
+<p>I often use mixins to share utility functions and constants related to those utilities across components. Example:</p>
 <ul>
 <li>filters</li>
 <li>data processing functions</li>
 <li>common event handlers etc.</li>
 </ul>
-<p>Filters are slightly special because they can be used in both the script part and the template part of a component.</p>
-<p>I often end up requiring filters not only in templates, but also in the script part of my components. Sometimes exclusively in the script without any usage in the templates. In those cases, it does not feel right to bring in the utility functions as an entire mixin.</p>
-<p>So... I write the functions separately and then export a mixin that references those functions.</p>
+<p>Filters are slightly special because they can be used in both the component definition in script and the corresponding template. Sometimes exclusively in the script without any usage in the templates. In those cases, it does not feel right to bring in the utility functions as an entire mixin.</p>
+<p>So, I write the functions separately and then export a mixin that references those functions.</p>
 <p>Here's an example:</p>
 <pre class="language-ts"><code class="language-ts"><span class="token comment">// src/utils/datetime.ts</span>
 
@@ -179,12 +175,12 @@
 <p>I can even export multiple small mixins from the same file. Example - one for just <strong>date</strong> related utilities and another for <strong>time</strong> utilities.</p>
 <p>I feel this has couple of benefits.</p>
 <ul>
-<li>All the utility functions / constants those functions use are colocated.</li>
+<li>All the utility functions / constants those functions use are co-located.</li>
 <li>Imports become explicit for script-only usages.</li>
 <li>Filter functions become much more reusable.</li>
-<li>Maintenance becomes much easier and these filters / functions consumable in other projects too.</li>
+<li>Maintenance becomes much easier and with little bit of work these utility functions become consumable in other projects too.</li>
 </ul>
-<p>Hope this helps you out. Let me know if you have a better approach in the comments!</p>
+<p>Hope this helps you out.</p>
 
 </article>
 
