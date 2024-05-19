@@ -1,7 +1,8 @@
 ---
 layout: post
-title: A secret, deployment version page for developers
-tags: [typescript, react, vite, git]
+title: Don't struggle figuring out the deployed version and commit hash
+description: You should never have to ask your team what version is on prod with a dedicated dev info page.
+tags: [tools, vite, git]
 date: 2023-01-06
 socialImage: "/assets/images/2023/app-version-git-hash.avif"
 ---
@@ -85,6 +86,7 @@ export default defineConfig({
 ```
 
 ## Creating the Secret Page
+
 This was as simple as creating a route entry for a path like `__dev__` and rendering a simple component with the global constants.
 
 ```tsx
@@ -104,6 +106,3 @@ export default function DevInfo() {
 ```
 
 That's all. Now I can go to `/__dev__` route and access this information for any deployment of my app.
-
-
-

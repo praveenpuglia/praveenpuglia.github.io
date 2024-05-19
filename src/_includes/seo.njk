@@ -1,8 +1,13 @@
-{% set pageTitle = title + ' - ' + siteMeta.name %}
-{% set pageDesc = siteMeta.shortDesc %}
+{% if title %}
+  {% set pageTitle = title + ' - ' + siteMeta.name %}
+{% else %}
+  {% set pageTitle = siteTitle %}
+{% endif %}
+{% set pageDesc = description or siteMeta.shortDesc %}
 {% set siteTitle = siteMeta.name %}
 {% set description = siteMeta.metaDesc %}
 {% set currentUrl = siteMeta.url + page.url %}
+
 {% if metaTitle %}
   {% set pageTitle = metaTitle %}
 {% endif %}
@@ -10,16 +15,11 @@
   {% set pageDesc = metaDesc %}
 {% endif %}
 
-{% if title %}
-  <title>{{ pageTitle }}</title>
-{% else %}
-  <title>{{ siteTitle }}</title>
-{% endif %}
-
 {% if canonical %}
   <link rel="canonical" href="{{ canonical }}"/>
 {% endif %}
 
+<title>{{ pageTitle }}</title>
 <meta property="og:site_name" content="{{ siteTitle }}"/>
 <meta property="og:title" content="{{ pageTitle }}"/>
 <meta property="og:type" content="website"/>

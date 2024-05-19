@@ -1,20 +1,20 @@
 ---
 layout: base
 ---
-
 <article class="single-post">
-  <h1 class="title">{{ title }}</h1>
-  <div class="post__metadata">
-    <time datetime="{{ page.date | htmlDateString }}">{{
-      page.date | readableDate
-    }}</time>
-    <ul class="post__metadata__tags">
-      {%- for tag in tags | filterTagList %}
-      <li class="post__metadata__tag">
-        {{ tag }}
-      </li>
-      {%- endfor %}
-    </ul>
+  <div class="single-post__header">
+    <h1 class="title" style="view-transition-name: post-{{ page.url.split('/')[2] }}">{{ title }}</h1>
+    <h4 class="subtitle">{{ description }}</h4>
+    <div class="post__metadata">
+      <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      <ul class="post__metadata__tags">
+        {%- for tag in tags | filterTagList %}
+          <li class="post__metadata__tag">
+            {{ tag }}
+          </li>
+        {%- endfor %}
+      </ul>
+    </div>
   </div>
 
   {{ content | safe }}

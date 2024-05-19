@@ -5,23 +5,22 @@ eleventyNavigation:
   key: Home
   order: 1
 ---
-
 <h1 class="title">Posts</h1>
 {% set postslistCounter = collections.posts | length %}
 <ol reversed class="posts-list">
   {% for post in collections.posts | reverse %}
-  <li class="post">
-    <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{
+    <li class="post">
+      <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{
       post.date | readableDate
     }}</time>
-    <a href="{{ post.url | url }}" class="postlist-link">
-      <h3 class="post-title">
-        {% if post.data.title %}{{ post.data.title }}
-        {% else %}
-        <code>{{ post.url }}</code>
-        {% endif %}
-      </h3>
-    </a>
-  </li>
+      <a href="{{ post.url | url }}" class="postlist-link">
+        <h4 class="post-title" style="view-transition-name: post-{{post.url.split('/')[2]}}">
+          {% if post.data.title %}{{ post.data.title }}
+          {% else %}
+            <code>{{ post.url }}</code>
+          {% endif %}
+        </h4>
+      </a>
+    </li>
   {% endfor %}
 </ol>
