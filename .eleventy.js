@@ -2,6 +2,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 const pluginCSS = require("eleventy-postcss-extension");
 const { DateTime } = require("luxon");
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./static": ".",
@@ -66,7 +67,6 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      data: "data",
     },
     passthroughFileCopy: true,
   };

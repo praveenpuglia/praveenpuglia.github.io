@@ -1,18 +1,20 @@
-{% set pageTitle = title + ' - ' + config.name %}
-{% set pageDesc = config.shortDesc %}
-{% set siteTitle = config.name %}
-{% set description = config.metaDesc %}
-{% set currentUrl = config.url + page.url %}
-
+{% set pageTitle = title + ' - ' + siteMeta.name %}
+{% set pageDesc = siteMeta.shortDesc %}
+{% set siteTitle = siteMeta.name %}
+{% set description = siteMeta.metaDesc %}
+{% set currentUrl = siteMeta.url + page.url %}
 {% if metaTitle %}
   {% set pageTitle = metaTitle %}
 {% endif %}
-
 {% if metaDesc %}
   {% set pageDesc = metaDesc %}
 {% endif %}
 
-<title>{{ pageTitle }}</title>
+{% if title %}
+  <title>{{ pageTitle }}</title>
+{% else %}
+  <title>{{ siteTitle }}</title>
+{% endif %}
 
 {% if canonical %}
   <link rel="canonical" href="{{ canonical }}"/>
@@ -25,8 +27,11 @@
 <meta property="twitter:url" content="{{ currentUrl }}"/>
 <meta property="twitter:site" content="{{ siteTitle }}"/>
 
-{% if config.authorHandle %}
-  <meta name="twitter:creator" content="@{{ config.authorHandle | replace('@', '') }}"/>
+{% if siteMeta.authorHandle %}
+  <meta
+  name="twitter:creator"
+  content="@{{ siteMeta.authorHandle | replace('@', '') }}"
+/>
 {% endif %}
 
 <meta name="description" content="{{ pageDesc }}"/>
@@ -40,10 +45,9 @@
   <meta property="og:image:alt" content="Page image for {{ pageTitle }}"/>
   <meta name="twitter:image:alt" content="Page image for {{ pageTitle }}"/>
 {% else %}
-  <meta property="og:image" content="{{ config.url }}/home-banner.webp"/>
-  <meta name="twitter:image" content="{{ config.url }}/home-banner.webp"/>
+  <meta property="og:image" content="{{ siteMeta.url }}/assets/images/home-banner-mobile.avif"/>
+  <meta name="twitter:image" content="{{ siteMeta.url }}/assets/images/home-banner-mobile.avif"/>
 {% endif %}
-
-{% if config.paymentPointer %}
-  <meta name="monetization" content="{{ config.paymentPointer }}"/>
+{% if siteMeta.paymentPointer %}
+  <meta name="monetization" content="{{ siteMeta.paymentPointer }}"/>
 {% endif %}

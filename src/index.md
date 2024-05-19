@@ -1,6 +1,5 @@
 ---
 layout: base
-title: Home
 ---
 
 <picture class="hero-banner">
