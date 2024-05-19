@@ -2,7 +2,7 @@
 layout: post
 title: White Labeling, Vue CLI & PWA
 description: "Using Vue CLI PWA plugin to dynamically generate service worker assets for different clients"
-tags: [vue, vue-cli, pwa, service worker, plugin, white-labeling]
+tags: [vue.js, pwa, javascript, white-labeling]
 date: 2021-07-17
 ---
 

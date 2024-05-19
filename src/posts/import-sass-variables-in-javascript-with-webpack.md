@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Use Sass variables in JavaScript in a Webpack project
+title: Import Sass variables in JavaScript with Webpack
 date: 2021-01-24
 tags: [sass, webpack]
 ---
