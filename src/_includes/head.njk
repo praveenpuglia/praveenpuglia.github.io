@@ -39,7 +39,6 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="manifest" href="/manifest.webmanifest"/>
-  <meta name="view-transition" content="same-origin"/>
   <meta name="msapplication-TileColor" content="#ffffff"/>
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
   <meta name="theme-color" content="#ffffff"/>
@@ -65,14 +64,26 @@
   {% include "seo.njk" %}
 
   <style>
-    {% for post in collections.posts | reverse %}::view-transition-old(post-{{post.url.split('/')[2]}}) {
-      animation: fade 0.2s linear forwards;
+    {% for post in collections.posts | reverse %} ::view-transition-old(post-{{post.url.split('/')[2]}}) {
+      animation: fade 0.2s ease-in-out forwards;
     }
 
     ::view-transition-new(post-{{post.url.split('/')[2]}}) {
-      animation: fade 0.3s linear reverse;
+      animation: fade 0.2s ease-in-out reverse;
     }
 
   {% endfor %}
   </style>
+  <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+  </script>
 </head>

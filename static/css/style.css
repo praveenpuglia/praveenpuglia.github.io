@@ -31,3 +31,8 @@ body {
     opacity: 0;
   }
 }
+
+/* in the CSS of both the source and the target: */
+@view-transition {
+  navigation: auto;
+}
