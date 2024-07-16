@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.praveenpuglia.twa",
+      "sha256_cert_fingerprints": [
+        "AD:C9:FC:4C:8E:03:6B:2C:F0:8C:6A:1C:74:19:06:A6:5A:75:C6:47:E4:A7:7B:95:8B:32:B1:1D:DB:50:0D:CC"
+      ]
+    }
+  }
+]
