@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-22054303-1"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "UA-22054303-1");
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+  <link rel="icon" href="/favicon.ico?v=d41d8cd98f00b204e9800998ecf8427e" type="image/png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=d41d8cd98f00b204e9800998ecf8427e">
+  <link rel="manifest" href="/manifest.webmanifest?v=d41d8cd98f00b204e9800998ecf8427e">
+  <meta name="msapplication-TileColor" content="#ffffff"/>
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <link
+    rel="preload"
+    href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+/>
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+/></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap"
+    rel="stylesheet"
+/>
+  <link href="/css/style.css?v=d41d8cd98f00b204e9800998ecf8427e" rel="stylesheet">
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<title>The Case for StrictPascalCase - Praveen Puglia</title>
+<meta property="og:site_name" content="Praveen Puglia"/>
+<meta property="og:title" content="The Case for StrictPascalCase - Praveen Puglia"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://praveenpuglia.com/posts/case-for-strict-pascal-case/"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/posts/case-for-strict-pascal-case/"/>
+<meta property="twitter:site" content="Praveen Puglia"/>
+
+
+  <meta
+  name="twitter:creator"
+  content="@praveenpuglia"
+/>
+
+
+<meta name="description" content="Web Developer since the days of Internet Explorer. Frontend Architect @smallcase"/>
+<meta name="twitter:description" content="Web Developer since the days of Internet Explorer. Frontend Architect @smallcase"/>
+<meta property="og:description" content="Web Developer since the days of Internet Explorer. Frontend Architect @smallcase"/>
+
+
+  <meta property="og:image" content="https://praveenpuglia.com/assets/images/home-banner-mobile.avif"/>
+  <meta name="twitter:image" content="https://praveenpuglia.com/assets/images/home-banner-mobile.avif"/>
+
+
+
+  <style>
+     ::view-transition-old(post-secret-page-dev-info-vite-react) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-secret-page-dev-info-vite-react) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-white-labeling-vue-cli-pwa) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-white-labeling-vue-cli-pwa) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-how-to-use-avif-today) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-how-to-use-avif-today) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-how-to-import-markdown-files-in-vue-cli-typescript-project) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-how-to-import-markdown-files-in-vue-cli-typescript-project) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-my-graphql-schema-types-generation-workflow copy) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-my-graphql-schema-types-generation-workflow copy) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-import-sass-variables-in-javascript-with-webpack) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-import-sass-variables-in-javascript-with-webpack) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-managing-mixins-and-utils-in-vue) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-managing-mixins-and-utils-in-vue) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-why-vue-is-so-awesome) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-why-vue-is-so-awesome) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-nicer-imports-with-webpack-aliases) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-nicer-imports-with-webpack-aliases) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-reusing-areas-in-css-grid) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-reusing-areas-in-css-grid) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-animating-css-snake-art) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-animating-css-snake-art) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-css-toggle-function) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-css-toggle-function) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-make-your-web-apps-little-more-native) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-make-your-web-apps-little-more-native) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-people-i-learn-from) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-people-i-learn-from) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-introducing-poppins) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-introducing-poppins) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-meeting-lea-and-chris) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-meeting-lea-and-chris) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-finding-unique-color-strings-in-project) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-finding-unique-color-strings-in-project) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-talks-that-impress) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-talks-that-impress) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-ready-steady-gulp) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-ready-steady-gulp) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-first-scss-experiment-a-blurry-world) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-first-scss-experiment-a-blurry-world) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-tree-style-directory-structure-powershell) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-tree-style-directory-structure-powershell) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-the-right-html-element-for-icons) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-the-right-html-element-for-icons) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-make-wamp-work-on-windows-10-technical-preview) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-make-wamp-work-on-windows-10-technical-preview) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-xiaomi-redmi-1s-is-a-powerful-product-with-bad-design) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-xiaomi-redmi-1s-is-a-powerful-product-with-bad-design) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-so-you-love-in-ternational-brands) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-so-you-love-in-ternational-brands) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-design-story-independence-day-cover-photo) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-design-story-independence-day-cover-photo) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-how-i-have-settled-down-to-inconsolata-for-codes) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-how-i-have-settled-down-to-inconsolata-for-codes) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+  
+  </style>
+  <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "document",
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+  </script>
+</head>
+  <body>
+    <div class="site-header">
+  <header class="main-header">
+    <a href="/">
+      <h3 class="main-header-logo bold">Praveen Puglia</h3>
+    </a>
+    <nav role="navigation" class="main-navigation" aria-label="Main Navigation">
+      <ul class="navigation-links">
+        <li class="navigation-link-item">
+          <a class="navigation-link" href="/posts">Posts</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+    <div class="container">
+      <article class="single-post">
+  <div class="single-post__header">
+    <h1 class="title" style="view-transition-name: post-case-for-strict-pascal-case">The Case for StrictPascalCase</h1>
+    <h4 class="subtitle"></h4>
+    <div class="post__metadata">
+      <time datetime="2024-08-07">07 Aug, 2024</time>
+      <ul class="post__metadata__tags">
+          <li class="post__metadata__tag">
+            code
+          </li>
+          <li class="post__metadata__tag">
+            philosophy
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>Introduction</h1>
+<p>There has been countless pull requests where I have been asked to do the following and I have systematically denied the request.</p>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> ImpsData
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> IMPSData
+</span></span></code></pre>
+<p>or</p>
+<pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> UserApiResponse
+</span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> UserAPIResponse
+</span></span></code></pre>
+<p>I personally prefer <code>ImpsData</code> over <code>IMPSData</code> and similarly <code>UserApiResponse</code>. Purists do come in and tell me - “Why? Why can’t you write a known abbreviation as an abbreviation in things you name?”</p>
+<p>Because I am a frontend engineer, people also send me examples of the browser native classes / constructors like <code>HTMLDivElement</code> and ask me why, as a web engineer, don’t I follow the same in the code I write.</p>
+<h1>Why I don’t like abbreviations while naming symbols</h1>
+<h2>The assumption that abbreviations are a known thing in a team is false</h2>
+<p>If you are a web developer, you would probably know about <strong>HTML</strong> or <strong>CSS</strong> as known abbreviations but beyond that, it’s not guaranteed that you would know the <em>business abbreviations</em> that your code is going to be more tied with.</p>
+<p>I work at smallcase(at the time of this writing), a fintech company. Any new member that joins the team probably wouldn’t have ever made their journey into investing yet. Should I expect them to know that when someone says <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> they actually mean CAGR(Compound Annual Growth Rate) or Nav could be navigation or NAV which is Net Asset Value. There’s more…</p>
+<ul>
+<li>GST( Goods and Services Tax )</li>
+<li>AMC( Asset Management Company )</li>
+<li>LAS( Loan Against Securities )</li>
+<li>MFC ( MF Central )</li>
+</ul>
+<p>…and so on.</p>
+<p>The list of business specific abbreviations are huge and while you should work your way up understanding business terms, they don’t need to confuse you while you code.</p>
+<h2>It isn’t always as readable as it might seem on paper</h2>
+<p>When looking at the <code>HTMLDivElement</code> example, a purist might tell that that’s more readable because the <code>HTML</code> part is immediately noticeable. But it doesn’t always work out that way.</p>
+<p>If I take the purist point of view, <code>JSONAPIResponse</code> should be the one that’s used but is it really readable? <code>JsonApiResponse</code> reads much better!</p>
+<h2>The native APIs use it. Why not us?</h2>
+<p>Browsers are being built from a long long time. They have legacy reasons to write things the way they do and it matters that the APIs they provide are consistent. It also means that they can’t suddenly decide on shipping APIs that follow <strong>StrictPascalCase.</strong></p>
+<p>But <strong>we</strong> don’t have to do that! The interfaces that we interact with from the libs land can remain as is on the libs land but our own types, interfaces, classes etc can follow StrictPascalCase and remain consistent across our codebase.</p>
+<h2>StrictPascalCase is free of mental overhead</h2>
+<p>What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. <a href="https://youtu.be/44abVtgmT1U?t=20">**cagr(**ˈkāgə-ˈr)</a> or C-A-G-R, in either case you end up writing <code>Cagr</code> . You don’t have to worry about multiple abbreviations fusing together, like <code>DOMAPI</code>, and confuse it with uppercase constants / enums you may write.</p>
+<p>It liberates you from all of that and helps everyone in the team be consistent with naming without putting too much of brain into it.</p>
+<h1>Summary</h1>
+<p>It’s not a new thing but every now and then someone in your team might walk up to you and tell that you should just use the abbreviations in your symbols. They have their reasons but tell them how using StrictPascalCase makes lives easier for everyone.</p>
+<p>There has been online <a href="https://www.reddit.com/r/csharp/comments/ge0yo5/is_it_still_recommended_to_pascalcase_acronyms/">debates and discussions</a> on this <a href="https://github.com/mediamonks/frontend-coding-standards/issues/9">time and again</a> but it’s hard to deny the simplicity afforded by StrictPascalCase.</p>
+<p>So go make StrictPascalCase your friend.</p>
+
+</article>
+
+    </div>
+    <div class="site-footer">
+  <footer class="footer-content">
+  <p>With ❤️ from  Praveen Puglia</p>
+  <ul class="social-links">
+    <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://linkedin.com/in/praveenpuglia">
+          LinkedIn
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://github.com/praveenpuglia">
+          GitHub
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://codepen.io/praveenpuglia">
+          CodePen
+        </a>
+      </li>
+      <li class="navigation-link-item navigation-link-item--social">
+        <a target="_blank" class="navigation-link" href="https://twitter.com/praveenpuglia">
+          Twitter
+        </a>
+      </li>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>
