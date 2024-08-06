@@ -97,7 +97,15 @@
 
 
   <style>
-     ::view-transition-old(post-secret-page-dev-info-vite-react) {
+     ::view-transition-old(post-case-for-strict-pascal-case) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-case-for-strict-pascal-case) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-secret-page-dev-info-vite-react) {
       animation: fade 0.2s ease-in-out forwards;
     }
 
@@ -351,7 +359,7 @@
     <h1 class="title" style="view-transition-name: post-case-for-strict-pascal-case">The Case for StrictPascalCase</h1>
     <h4 class="subtitle"></h4>
     <div class="post__metadata">
-      <time datetime="2024-08-07">07 Aug, 2024</time>
+      <time datetime="2024-08-06">06 Aug, 2024</time>
       <ul class="post__metadata__tags">
           <li class="post__metadata__tag">
             code
@@ -393,7 +401,7 @@
 <p>Browsers are being built from a long long time. They have legacy reasons to write things the way they do and it matters that the APIs they provide are consistent. It also means that they can’t suddenly decide on shipping APIs that follow <strong>StrictPascalCase.</strong></p>
 <p>But <strong>we</strong> don’t have to do that! The interfaces that we interact with from the libs land can remain as is on the libs land but our own types, interfaces, classes etc can follow StrictPascalCase and remain consistent across our codebase.</p>
 <h2>StrictPascalCase is free of mental overhead</h2>
-<p>What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. <a href="https://youtu.be/44abVtgmT1U?t=20">**cagr(**ˈkāgə-ˈr)</a> or C-A-G-R, in either case you end up writing <code>Cagr</code> . You don’t have to worry about multiple abbreviations fusing together, like <code>DOMAPI</code>, and confuse it with uppercase constants / enums you may write.</p>
+<p>What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> or C-A-G-R, in either case you end up writing <code>Cagr</code> . You don’t have to worry about multiple abbreviations fusing together, like <code>DOMAPI</code>, and confuse it with uppercase constants / enums you may write.</p>
 <p>It liberates you from all of that and helps everyone in the team be consistent with naming without putting too much of brain into it.</p>
 <h1>Summary</h1>
 <p>It’s not a new thing but every now and then someone in your team might walk up to you and tell that you should just use the abbreviations in your symbols. They have their reasons but tell them how using StrictPascalCase makes lives easier for everyone.</p>

@@ -97,7 +97,15 @@
 
 
   <style>
-     ::view-transition-old(post-secret-page-dev-info-vite-react) {
+     ::view-transition-old(post-case-for-strict-pascal-case) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-case-for-strict-pascal-case) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-secret-page-dev-info-vite-react) {
       animation: fade 0.2s ease-in-out forwards;
     }
 
@@ -349,6 +357,16 @@
       <h1 class="title">Posts</h1>
 
 <ol reversed class="posts-list">
+  
+    <li class="post">
+      <time class="post-date" datetime="2024-08-06">06 Aug, 2024</time>
+      <a href="/posts/case-for-strict-pascal-case/" class="postlist-link">
+        <h4 class="post-title" style="view-transition-name: post-case-for-strict-pascal-case">
+          The Case for StrictPascalCase
+          
+        </h4>
+      </a>
+    </li>
   
     <li class="post">
       <time class="post-date" datetime="2023-01-06">06 Jan, 2023</time>
