@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Case for StrictPascalCase
-date: 2024-08-07
+date: 2024-08-06
 tags: [code, philosophy]
 ---
 
@@ -56,7 +56,7 @@ But **we** don’t have to do that! The interfaces that we interact with from th
 
 ## StrictPascalCase is free of mental overhead
 
-What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. [**cagr(**ˈkāgə-ˈr)](https://youtu.be/44abVtgmT1U?t=20) or C-A-G-R, in either case you end up writing `Cagr` . You don’t have to worry about multiple abbreviations fusing together, like `DOMAPI`, and confuse it with uppercase constants / enums you may write.
+What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. [**cagr**(ˈkāgə-ˈr)](https://youtu.be/44abVtgmT1U?t=20) or C-A-G-R, in either case you end up writing `Cagr` . You don’t have to worry about multiple abbreviations fusing together, like `DOMAPI`, and confuse it with uppercase constants / enums you may write.
 
 It liberates you from all of that and helps everyone in the team be consistent with naming without putting too much of brain into it.
 
@@ -66,4 +66,4 @@ It’s not a new thing but every now and then someone in your team might walk up
 
 There has been online [debates and discussions](https://www.reddit.com/r/csharp/comments/ge0yo5/is_it_still_recommended_to_pascalcase_acronyms/) on this [time and again](https://github.com/mediamonks/frontend-coding-standards/issues/9) but it’s hard to deny the simplicity afforded by StrictPascalCase.
 
-So go make StrictPascalCase your friend. 
+So go make StrictPascalCase your friend.
