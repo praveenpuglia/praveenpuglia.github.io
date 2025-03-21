@@ -3,6 +3,7 @@ layout: post
 title: Import Sass variables in JavaScript with Webpack
 date: 2021-01-24
 tags: [sass, webpack]
+permalink: /posts/import-sass-variables-in-javascript-with-webpack/
 ---
 
 Wouldn't that be great?

@@ -3,6 +3,7 @@ layout: post
 title: Ready Steady Gulp!
 date: 2015-06-28
 tags: [gulp, javascript, bundling]
+permalink: /posts/ready-steady-gulp/
 ---
 
 Lately, if something has totally changed the way I work, it's [Gulp](http://gulpjs.com/) - _the streaming build system_ . There are lot of cool things you can do with gulp with great flexibility. Let's get started!

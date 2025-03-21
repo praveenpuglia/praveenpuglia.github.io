@@ -3,6 +3,7 @@ layout: post
 title: I Have Settle Down To Inconsolata For Code
 date: 2014-07-29
 tags: [typography, font]
+permalink: /posts/how-i-have-settled-down-to-inconsolata-for-codes/
 ---
 
 Choosing the coding font that suits your style is a difficult job. It has to impress you with it's curves, spaces and visual aesthetics. For me, there are these specific things that mattered the most.
@@ -13,19 +14,19 @@ Choosing the coding font that suits your style is a difficult job. It has to imp
 
 I work on a Windows PC and on a medium resolution monitor( 1366 X 768 ). I use [Sublime Text 3](http://www.sublimetext.com/3).
 
-At this resolution text does not seem to look smooth. I have seen how "Arial" looks like on a mac and on my PC. I generally work with **11pt**. So I knew that whatever font I choose, it should look good on my monitor with the low resolution.
+At this resolution text does not seem to look smooth. I have seen how "Arial" looks like on a mac and on my PC. I generally work with **11pt**. So I knew that whatever font I choose, it should look good on my monitor with the low resolution.
 
 Now there are no ways to settle on a font unless you try them... and I tried a lot of them. Here goes my list.
 
-**[Andale Mono](https://github.com/uarun/dotfiles/blob/master/fonts/Andale-Mono.ttf) **
+**[Andale Mono](https://github.com/uarun/dotfiles/blob/master/fonts/Andale-Mono.ttf)**
 
-This was the first font I used after I was done with default "Consolas". I still like it. The problem was that it did not perform well in smaller font sizes with my monitor. I liked the sharpness though. It's also simple and minimal. Here's how it looks.
+This was the first font I used after I was done with default "Consolas". I still like it. The problem was that it did not perform well in smaller font sizes with my monitor. I liked the sharpness though. It's also simple and minimal. Here's how it looks.
 
 [![Andale Mono](/assets/images/2014/07/andale-mono.avif)](/assets/images/2014/07/andale-mono.avif)
 
 **[DejaVu Sans Mono](http://dejavu-fonts.org/wiki/Main_Page)**
 
-After using Andale Mono for long, I wanted to try something new. I settled down to this one for some time. The bad? it looked wider than I would expect it to be at lower font sizes. Also, it didn't just fit my eyes when tested with different programming languages. I used it primarily because of the sharpness factor.
+After using Andale Mono for long, I wanted to try something new. I settled down to this one for some time. The bad? it looked wider than I would expect it to be at lower font sizes. Also, it didn't just fit my eyes when tested with different programming languages. I used it primarily because of the sharpness factor.
 
 [![deja-vu-sans-mono](/assets/images/2014/07/deja-vu-sans-mono.avif)](/assets/images/2014/07/deja-vu-sans-mono.avif)
 
@@ -37,7 +38,7 @@ Then came this. It was crisp, a little less than DejaVu Sans Mono but acceptable
 
 **[Fira](http://www.carrois.com/fira-3-1/)**
 
-I was still using Droid Sans but I was getting bored. It was time when I heard about Fira coming out as [Firefox OS Typeface](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/). I was excited and gave it a try. Sadly, it never suited my style. It just didn't feel right. I fell back to Droid Sans Mono. Plus, the letters "r" or "j", they specifically looked too bad and congested in smaller font sizes.
+I was still using Droid Sans but I was getting bored. It was time when I heard about Fira coming out as [Firefox OS Typeface](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/). I was excited and gave it a try. Sadly, it never suited my style. It just didn't feel right. I fell back to Droid Sans Mono. Plus, the letters "r" or "j", they specifically looked too bad and congested in smaller font sizes.
 
 [![fira-mono](/assets/images/2014/07/fira-mono.avif)](/assets/images/2014/07/fira-mono.avif)
 

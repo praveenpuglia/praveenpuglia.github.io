@@ -3,6 +3,7 @@ layout: post
 title: Import Markdown Files in Vue CLI + TypeScript Projects
 tags: [markdown, typescript, vue.js]
 date: 2021-02-17
+permalink: /posts/how-to-import-markdown-files-in-vue-cli-typescript-project/
 ---
 
 Recently, I came across the need to import a markdown file in a Vue component and realized that the internet is full of confusing solutions. Fiddled around for a few hours and found out that it's really quite simple.

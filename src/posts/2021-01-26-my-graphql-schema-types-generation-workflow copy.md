@@ -1,8 +1,10 @@
 ---
 layout: post
-title: My GraphQL Schema & Types Generation Workflow
+title: My GraphQL Schema Types Generation Workflow
+description: How I generate TypeScript types from GraphQL schema using codegen
+tags: [graphql, typescript, codegen]
 date: 2021-01-26
-tags: [graphql, typescript]
+permalink: /posts/my-graphql-schema-types-generation-workflow/
 ---
 
 At [Voicezen](https://voicezen.ai), we use multiple GraphQL endpoints. We also use Vue with TypeScript. Naturally, we need type definitions for everything the endpoints expose.

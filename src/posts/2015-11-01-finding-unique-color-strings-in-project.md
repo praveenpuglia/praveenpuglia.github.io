@@ -3,6 +3,7 @@ layout: post
 title: Finding Unique Color Strings In Project
 date: 2015-11-01
 tags: [regex, javascript, colors]
+permalink: /posts/finding-unique-color-strings-in-project/
 ---
 
 One of my recent projects is messy with it's color theory. Partly because it's brand new and there are things which will take different directions _soon_!

@@ -5,6 +5,7 @@ description: You should never have to ask your team what version is on prod with
 tags: [tools, vite, git]
 date: 2023-01-06
 socialImage: "/assets/images/2023/app-version-git-hash.avif"
+permalink: /posts/secret-page-dev-info-vite-react/
 ---
 
 ![Adding a secret page for developers with app version & commit hash in a Vite.js / React app](/assets/images/2023/app-version-git-hash.avif)
