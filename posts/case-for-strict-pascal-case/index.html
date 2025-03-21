@@ -137,11 +137,11 @@
       animation: fade 0.2s ease-in-out reverse;
     }
 
-   ::view-transition-old(post-my-graphql-schema-types-generation-workflow copy) {
+   ::view-transition-old(post-my-graphql-schema-types-generation-workflow) {
       animation: fade 0.2s ease-in-out forwards;
     }
 
-    ::view-transition-new(post-my-graphql-schema-types-generation-workflow copy) {
+    ::view-transition-new(post-my-graphql-schema-types-generation-workflow) {
       animation: fade 0.2s ease-in-out reverse;
     }
 
@@ -380,12 +380,12 @@
 <pre class="language-diff"><code class="language-diff"><span class="token deleted-sign deleted"><span class="token prefix deleted">-</span><span class="token line"> UserApiResponse
 </span></span><span class="token inserted-sign inserted"><span class="token prefix inserted">+</span><span class="token line"> UserAPIResponse
 </span></span></code></pre>
-<p>I personally prefer <code>ImpsData</code> over <code>IMPSData</code> and similarly <code>UserApiResponse</code>. Purists do come in and tell me - “Why? Why can’t you write a known abbreviation as an abbreviation in things you name?”</p>
-<p>Because I am a frontend engineer, people also send me examples of the browser native classes / constructors like <code>HTMLDivElement</code> and ask me why, as a web engineer, don’t I follow the same in the code I write.</p>
-<h1>Why I don’t like abbreviations while naming symbols</h1>
+<p>I personally prefer <code>ImpsData</code> over <code>IMPSData</code> and similarly <code>UserApiResponse</code>. Purists do come in and tell me - &quot;Why? Why can't you write a known abbreviation as an abbreviation in things you name?&quot;</p>
+<p>Because I am a frontend engineer, people also send me examples of the browser native classes / constructors like <code>HTMLDivElement</code> and ask me why, as a web engineer, don't I follow the same in the code I write.</p>
+<h1>Why I don't like abbreviations while naming symbols</h1>
 <h2>The assumption that abbreviations are a known thing in a team is false</h2>
-<p>If you are a web developer, you would probably know about <strong>HTML</strong> or <strong>CSS</strong> as known abbreviations but beyond that, it’s not guaranteed that you would know the <em>business abbreviations</em> that your code is going to be more tied with.</p>
-<p>I work at smallcase(at the time of this writing), a fintech company. Any new member that joins the team probably wouldn’t have ever made their journey into investing yet. Should I expect them to know that when someone says <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> they actually mean CAGR(Compound Annual Growth Rate) or Nav could be navigation or NAV which is Net Asset Value. There’s more…</p>
+<p>If you are a web developer, you would probably know about <strong>HTML</strong> or <strong>CSS</strong> as known abbreviations but beyond that, it's not guaranteed that you would know the <em>business abbreviations</em> that your code is going to be more tied with.</p>
+<p>I work at smallcase(at the time of this writing), a fintech company. Any new member that joins the team probably wouldn't have ever made their journey into investing yet. Should I expect them to know that when someone says <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> they actually mean CAGR(Compound Annual Growth Rate) or Nav could be navigation or NAV which is Net Asset Value. There's more…</p>
 <ul>
 <li>GST( Goods and Services Tax )</li>
 <li>AMC( Asset Management Company )</li>
@@ -393,19 +393,19 @@
 <li>MFC ( MF Central )</li>
 </ul>
 <p>…and so on.</p>
-<p>The list of business specific abbreviations are huge and while you should work your way up understanding business terms, they don’t need to confuse you while you code.</p>
-<h2>It isn’t always as readable as it might seem on paper</h2>
-<p>When looking at the <code>HTMLDivElement</code> example, a purist might tell that that’s more readable because the <code>HTML</code> part is immediately noticeable. But it doesn’t always work out that way.</p>
-<p>If I take the purist point of view, <code>JSONAPIResponse</code> should be the one that’s used but is it really readable? <code>JsonApiResponse</code> reads much better!</p>
+<p>The list of business specific abbreviations are huge and while you should work your way up understanding business terms, they don't need to confuse you while you code.</p>
+<h2>It isn't always as readable as it might seem on paper</h2>
+<p>When looking at the <code>HTMLDivElement</code> example, a purist might tell that that's more readable because the <code>HTML</code> part is immediately noticeable. But it doesn't always work out that way.</p>
+<p>If I take the purist point of view, <code>JSONAPIResponse</code> should be the one that's used but is it really readable? <code>JsonApiResponse</code> reads much better!</p>
 <h2>The native APIs use it. Why not us?</h2>
-<p>Browsers are being built from a long long time. They have legacy reasons to write things the way they do and it matters that the APIs they provide are consistent. It also means that they can’t suddenly decide on shipping APIs that follow <strong>StrictPascalCase.</strong></p>
-<p>But <strong>we</strong> don’t have to do that! The interfaces that we interact with from the libs land can remain as is on the libs land but our own types, interfaces, classes etc can follow StrictPascalCase and remain consistent across our codebase.</p>
+<p>Browsers are being built from a long long time. They have legacy reasons to write things the way they do and it matters that the APIs they provide are consistent. It also means that they can't suddenly decide on shipping APIs that follow <strong>StrictPascalCase.</strong></p>
+<p>But <strong>we</strong> don't have to do that! The interfaces that we interact with from the libs land can remain as is on the libs land but our own types, interfaces, classes etc can follow StrictPascalCase and remain consistent across our codebase.</p>
 <h2>StrictPascalCase is free of mental overhead</h2>
-<p>What I really like about this is that I or my team members don’t have so pronounce things the same way to be able to write them in the same way. <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> or C-A-G-R, in either case you end up writing <code>Cagr</code> . You don’t have to worry about multiple abbreviations fusing together, like <code>DOMAPI</code>, and confuse it with uppercase constants / enums you may write.</p>
+<p>What I really like about this is that I or my team members don't have so pronounce things the same way to be able to write them in the same way. <a href="https://youtu.be/44abVtgmT1U?t=20"><strong>cagr</strong>(ˈkāgə-ˈr)</a> or C-A-G-R, in either case you end up writing <code>Cagr</code> . You don't have to worry about multiple abbreviations fusing together, like <code>DOMAPI</code>, and confuse it with uppercase constants / enums you may write.</p>
 <p>It liberates you from all of that and helps everyone in the team be consistent with naming without putting too much of brain into it.</p>
 <h1>Summary</h1>
-<p>It’s not a new thing but every now and then someone in your team might walk up to you and tell that you should just use the abbreviations in your symbols. They have their reasons but tell them how using StrictPascalCase makes lives easier for everyone.</p>
-<p>There has been online <a href="https://www.reddit.com/r/csharp/comments/ge0yo5/is_it_still_recommended_to_pascalcase_acronyms/">debates and discussions</a> on this <a href="https://github.com/mediamonks/frontend-coding-standards/issues/9">time and again</a> but it’s hard to deny the simplicity afforded by StrictPascalCase.</p>
+<p>It's not a new thing but every now and then someone in your team might walk up to you and tell that you should just use the abbreviations in your symbols. They have their reasons but tell them how using StrictPascalCase makes lives easier for everyone.</p>
+<p>There has been online <a href="https://www.reddit.com/r/csharp/comments/ge0yo5/is_it_still_recommended_to_pascalcase_acronyms/">debates and discussions</a> on this <a href="https://github.com/mediamonks/frontend-coding-standards/issues/9">time and again</a> but it's hard to deny the simplicity afforded by StrictPascalCase.</p>
 <p>So go make StrictPascalCase your friend.</p>
 
 </article>
