@@ -3,6 +3,7 @@ layout: post
 title: So You Love IN-ternational Brands?
 date: 2014-09-28
 tags: [india, brands]
+permalink: /posts/so-you-love-in-ternational-brands/
 ---
 
 I have never written anything about brands or branding before. I have never been bothered enough but as I realize, they do affect me and my surroundings. They bring in changes in how people interact with each other. They are used as tools to measure your mental and financial conditions. Having a good knowledge of brands make you appear sophisticated( ...or at least few people think so! )

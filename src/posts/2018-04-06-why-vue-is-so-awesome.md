@@ -4,6 +4,7 @@ title: Why Vue Is So Awesome 😍
 published: true
 date: 2018-04-06
 tags: [vue.js, thoughts, javascript]
+permalink: /posts/why-vue-is-so-awesome/
 ---
 
 ...and Angular is not.

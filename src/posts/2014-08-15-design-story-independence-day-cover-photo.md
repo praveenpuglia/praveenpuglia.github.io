@@ -3,6 +3,7 @@ layout: post
 title: Design Story - Independence Day Cover Photo
 date: 2014-08-15
 tags: [design, india]
+permalink: /posts/design-story-independence-day-cover-photo/
 ---
 
 Let's have a look at it first.
@@ -11,14 +12,14 @@ Let's have a look at it first.
 
 Yeah! This is what I came up with when I had to put together myself, India and the Independence Day.
 
-Essentially there were couple of thoughts going on when I fired up Photoshop and had a blank document of size **851 X 315. **I told myself - I am gonna make something today that...
+Essentially there were couple of thoughts going on when I fired up Photoshop and had a blank document of size **851 X 315.** I told myself - I am gonna make something today that...
 
 - ...is _Unique_. 'coz I did not want to put the same flat tri-colored flag image as cover photo.
 - ...should represent myself, what I love to do.( "_design_" ) and my philosophy ( "_minimalism_" )
 - ...should follow modern design trends where you use simple geometric objects to create the image.
 - ...finally keeps the feeling of Independence Day intact.
 
-I tried couple of things like **simple gradients, full-width solid colors **and even **simple square tiles **but none of them really made me happy.
+I tried couple of things like **simple gradients, full-width solid colors** and even **simple square tiles** but none of them really made me happy.
 
 After spending "_a lot_" of time on the shapes, I settled down to the one above. I wanted two squares and one circle to represent the Indian flag at it's bare minimum!
 

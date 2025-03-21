@@ -3,6 +3,7 @@ layout: post
 title: Nicer imports with webpack aliases
 date: 2017-10-26
 tags: [vue.js, webpack, scss]
+permalink: /posts/nicer-imports-with-webpack-aliases/
 ---
 
 ## The Setup

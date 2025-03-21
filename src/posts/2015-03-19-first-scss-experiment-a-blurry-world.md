@@ -3,6 +3,7 @@ layout: post
 title: First SCSS Experiment - A Blurry World
 date: 2015-03-19
 tags: [css, scss]
+permalink: /posts/first-scss-experiment-a-blurry-world/
 ---
 
 I know. I know. I am late into the business. All cool kids have nailed it completely and I took it up yesterday. But better late than never.

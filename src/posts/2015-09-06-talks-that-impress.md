@@ -3,6 +3,7 @@ layout: post
 title: Talks That Impress
 date: 2015-09-06
 tags: [thoughts]
+permalink: /posts/talks-that-impress/
 ---
 
 I am organizing a [CodePen Meetup in India](http://nvite.co/e114) for the first time ever and it's a big deal for me. Not just because CodePen is big and people know it for it's quality, but also because of the care I am required to take in all aspects of the event. Most importantly the talks.
