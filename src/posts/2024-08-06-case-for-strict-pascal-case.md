@@ -28,7 +28,7 @@ Because I am a frontend engineer, people also send me examples of the browser na
 
 # Reasons
 
-## Abbreviations Meanings are Known
+## Abbreviation are Known
 
 This assumption is false.
 

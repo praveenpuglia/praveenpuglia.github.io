@@ -21,7 +21,7 @@ I am Praveen & that's not a cut off hand floating in the air.
 ### Past
 
 - [Sprinklr](https://sprinklr.com)
-- [Voicezen](https://voicezen.ai)
+- [Voicezen](https://www.crunchbase.com/organization/voicezen)
 - [Joveo](https://joveo.com)
 - [Pramati](https://pramati.com)
 - [TCS](https://tcs.com)
