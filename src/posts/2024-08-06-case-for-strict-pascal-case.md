@@ -26,9 +26,11 @@ I personally prefer `ImpsData` over `IMPSData` and similarly `UserApiResponse`. 
 
 Because I am a frontend engineer, people also send me examples of the browser native classes / constructors like `HTMLDivElement` and ask me why, as a web engineer, don't I follow the same in the code I write.
 
-# Why I don't like abbreviations while naming symbols
+# Reasons
 
-## The assumption that abbreviations are a known thing in a team is false
+## Abbreviations Meanings are Known
+
+This assumption is false.
 
 If you are a web developer, you would probably know about **HTML** or **CSS** as known abbreviations but beyond that, it's not guaranteed that you would know the _business abbreviations_ that your code is going to be more tied with.
 
@@ -43,19 +45,21 @@ I work at smallcase(at the time of this writing), a fintech company. Any new mem
 
 The list of business specific abbreviations are huge and while you should work your way up understanding business terms, they don't need to confuse you while you code.
 
-## It isn't always as readable as it might seem on paper
+## It's Always More Readable
+
+Again, this is false too.
 
 When looking at the `HTMLDivElement` example, a purist might tell that that's more readable because the `HTML` part is immediately noticeable. But it doesn't always work out that way.
 
 If I take the purist point of view, `JSONAPIResponse` should be the one that's used but is it really readable? `JsonApiResponse` reads much better!
 
-## The native APIs use it. Why not us?
+## The Native APIs Use It. Why Not Us?
 
 Browsers are being built from a long long time. They have legacy reasons to write things the way they do and it matters that the APIs they provide are consistent. It also means that they can't suddenly decide on shipping APIs that follow **StrictPascalCase.**
 
 But **we** don't have to do that! The interfaces that we interact with from the libs land can remain as is on the libs land but our own types, interfaces, classes etc can follow StrictPascalCase and remain consistent across our codebase.
 
-## StrictPascalCase is free of mental overhead
+## StrictPascalCase is Free of Mental Overhead
 
 What I really like about this is that I or my team members don't have so pronounce things the same way to be able to write them in the same way. [**cagr**(ˈkāgə-ˈr)](https://youtu.be/44abVtgmT1U?t=20) or C-A-G-R, in either case you end up writing `Cagr` . You don't have to worry about multiple abbreviations fusing together, like `DOMAPI`, and confuse it with uppercase constants / enums you may write.
 
