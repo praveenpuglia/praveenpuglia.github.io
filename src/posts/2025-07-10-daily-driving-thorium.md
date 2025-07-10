@@ -3,7 +3,7 @@ layout: post
 title: Daily Driving Thorium
 date: 2025-07-10
 tags: [productivity, browser]
-permalink: /posts/daily-driving-thorium
+permalink: /posts/daily-driving-thorium/
 ---
 
 I was a Firefox user before I switched to Chrome. Then I switched to Edge because Chrome just couldn't stop eating memory and sipping on power juice. Edge is efficient. I never saw the dreaded macOS 'system is running out of memory' task manager prompt. 
