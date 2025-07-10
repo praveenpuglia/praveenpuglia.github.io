@@ -3,6 +3,7 @@ layout: post
 title: Daily Driving Thorium
 date: 2025-07-10
 tags: [productivity, browser]
+socialImage: "/assets/images/2025/thorium-logo.avif"
 permalink: /posts/daily-driving-thorium/
 ---
 
