@@ -379,29 +379,29 @@
     </div>
   </div>
 
-  <p>I have been a Firefox user before I switched to Chrome. Then I switched to Edge because Chrome just couldn't stop eating memory and sipping on power juice. Edge is efficient. I never saw the dreaded macOS system is running out of memory task manager prompt.</p>
+  <p>I was a Firefox user before I switched to Chrome. Then I switched to Edge because Chrome just couldn't stop eating memory and sipping on power juice. Edge is efficient. I never saw the dreaded macOS 'system is running out of memory' task manager prompt.</p>
 <p><img src="../assets/images/2025/macos-memory-full.avif" alt="macOS running out of application memory"></p>
-<p>I have been a happy Edge user for quite a long time before a super annoying issue starts happening. It just wouldn't detect my precise location after a certain update. I tried deleting every configuration and starting afresh but nothing worked.</p>
-<p>Around the same time, I came across <a href="https://thorium.rocks/">Thorium</a> on X. The proposition of a Chromium based browser with some performance gains and other customizations was lucrative. Their <a href="https://thorium.rocks/">website</a> also was kinda cool and gave old school vibes!</p>
-<p>Decided to give it a spin.</p>
+<p>I had been a happy Edge user for quite a long time until a super annoying issue started happening. It just wouldn't detect my precise location after a certain update. I tried deleting every configuration and starting afresh but nothing worked.</p>
+<p>Around the same time, I came across <a href="https://thorium.rocks/">Thorium</a> on X. The proposition of a Chromium based browser with some performance gains and other customizations was lucrative. Their <a href="https://thorium.rocks/">website</a> also was kinda cool and gave retro vibes!</p>
+<p>I decided to give it a spin.</p>
 <h2>Note on Installation</h2>
 <p>Didn't find it on Homebrew. Don't install whatever Thorium cask is available.</p>
 <p>Had to go here - <a href="https://github.com/Alex313031/Thorium-MacOS/releases">https://github.com/Alex313031/Thorium-MacOS/releases</a> and download the correct version to install it.</p>
-<p>The homepage does have straight forward instructions for Linux though.</p>
+<p>The homepage does have straightforward instructions for Linux though.</p>
 <h2>Performance</h2>
-<p>It's been around a week that I have been daily driving it with multiple profiles and tons of tabs and it does seem fast! I noticed that websites load faster on it compared to either Edge or even my Chrome Canary that has no extensions, no profiles etc.</p>
-<p>The best part was I was able to pull in all the data from my Google account and imported whatever I needed from Edge in a jiffy. That went well.</p>
+<p>I have been daily driving it with multiple profiles and tons of tabs and it does seem fast! I noticed that websites load faster on it compared to either Edge or even my Chrome Canary that has no extensions, no profiles etc.</p>
+<p>The best part was I was able to pull in all the data from my Google account and imported whatever I needed from Edge quickly. That went well.</p>
 <h2>Hiccups with Bitwarden</h2>
-<p>Bitwarden is my password manager of choice. It's been great across Chrome and Edge and I expected it to just work out of the box. Everything went smooth until I checked on the <strong>Unlock with biometrics</strong> setting. It just didn't work. It couldn't open the Bitwarden desktop app the first time and then on it remained disabled stating that it couldn't find the Bitwarden desktop app running. Weird since it <strong>was</strong> running.</p>
+<p>Bitwarden is my password manager of choice. It's been great across Chrome and Edge and I expected it to just work out of the box. Everything went smooth until I checked on the <strong>Unlock with biometrics</strong> setting. It simply didn't work. It couldn't open the Bitwarden desktop app the first time and then on it remained disabled stating that it couldn't find the Bitwarden desktop app running. Weird since the app <strong>was</strong> running.</p>
 <p>I tried switching off and on the <strong>Enable browser integrations</strong> options in Bitwarden desktop app's own settings. That didn't work either.</p>
-<p>I thought may be a restart would work - but that didn't work either.</p>
-<p>Googling led me to this <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/2">specific comment</a> which made a lot of sense. Bitwarden's source code possibly doesn't have an entry for Thorium in its list of browsers to create and copy the required manifest file for it's inter-process communication to work.</p>
-<p>Reading <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/4">further</a> revealed the location of the file and all I had to do is copy the file from an existing installation of Bitwarden on Edge to Thorium's <code>NativeMessagingHosts</code> directory. Here's how that worked.</p>
+<p>I thought maybe a restart would work - but that didn't work either.</p>
+<p>Googling led me to this <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/2">specific comment</a> which made a lot of sense. Bitwarden's source code possibly doesn't have an entry for Thorium in its list of browsers to create and copy the required manifest file for its inter-process communication to work.</p>
+<p>Reading <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/4">further</a> revealed the location of the file and all I had to do was copy the file from an existing installation of Bitwarden on Edge to Thorium's <code>NativeMessagingHosts</code> directory. Here's how that worked.</p>
 <pre class="language-sh"><code class="language-sh"><span class="token builtin class-name">cd</span> ~/Library/Application<span class="token punctuation">\</span> Support/Microsoft<span class="token punctuation">\</span> Edge/NativeMessageHosts
 <span class="token function">cp</span> com.8bit.bitwarden.json <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/Thorium/NativeMessagingHosts</code></pre>
 <p>After this, I had to restart Thorium and everything worked.</p>
-<p>If you don't use Edge, you can just download it or Chrome, install Bitwarden there, enable unlocking with biometrics and then copy the file to Thorium's <code>NativeMessagingHosts</code> directory.</p>
-<p>This instruction should also work on other Chromium based browsers like Iridium, Iron, etc.</p>
+<p>If you don't use Edge, you can just download either Edge or Chrome, install Bitwarden there, enable unlocking with biometrics and then copy the file to Thorium's <code>NativeMessagingHosts</code> directory.</p>
+<p>These instructions should also work on other Chromium based browsers like Iridium, Iron, etc.</p>
 
 </article>
 
