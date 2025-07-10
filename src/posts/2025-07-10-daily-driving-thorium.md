@@ -8,7 +8,7 @@ permalink: /posts/daily-driving-thorium/
 
 I was a Firefox user before I switched to Chrome. Then I switched to Edge because Chrome just couldn't stop eating memory and sipping on power juice. Edge is efficient. I never saw the dreaded macOS 'system is running out of memory' task manager prompt. 
 
-![macOS running out of application memory](../assets/images/2025/macos-memory-full.avif)
+![macOS running out of application memory](/assets/images/2025/macos-memory-full.avif)
 
 I had been a happy Edge user for quite a long time until a super annoying issue started happening. It just wouldn't detect my precise location after a certain update. I tried deleting every configuration and starting afresh but nothing worked. 
 
