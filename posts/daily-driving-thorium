@@ -71,12 +71,12 @@
 
 
 
-<title>Tree Like Directory Structure In PowerShell - Praveen Puglia</title>
+<title>Daily Driving Thorium - Praveen Puglia</title>
 <meta property="og:site_name" content="Praveen Puglia"/>
-<meta property="og:title" content="Tree Like Directory Structure In PowerShell - Praveen Puglia"/>
+<meta property="og:title" content="Daily Driving Thorium - Praveen Puglia"/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://praveenpuglia.com/posts/tree-style-directory-structure-powershell/"/>
-<meta property="twitter:url" content="https://praveenpuglia.com/posts/tree-style-directory-structure-powershell/"/>
+<meta property="og:url" content="https://praveenpuglia.com/posts/daily-driving-thorium"/>
+<meta property="twitter:url" content="https://praveenpuglia.com/posts/daily-driving-thorium"/>
 <meta property="twitter:site" content="Praveen Puglia"/>
 
 
@@ -364,54 +364,44 @@
     <div class="container">
       <article class="single-post">
   <div class="single-post__header">
-    <h1 class="title" style="view-transition-name: post-tree-style-directory-structure-powershell">Tree Like Directory Structure In PowerShell</h1>
+    <h1 class="title" style="view-transition-name: post-daily-driving-thorium">Daily Driving Thorium</h1>
     <h4 class="subtitle"></h4>
     <div class="post__metadata">
-      <time datetime="2015-03-17">17 Mar, 2015</time>
+      <time datetime="2025-07-10">10 Jul, 2025</time>
       <ul class="post__metadata__tags">
           <li class="post__metadata__tag">
-            tools
+            productivity
           </li>
           <li class="post__metadata__tag">
-            shell
+            browser
           </li>
       </ul>
     </div>
   </div>
 
-  <p>One of those things that I may not require too often but when I do, it has to be nicely formatted and give me precise results.</p>
-<p>In PowerShell, you can use the <code>tree</code> command to print a tree structure, starting from the current directory to it's descendants at deepest levels.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> <span class="token builtin class-name">cd</span> <span class="token string">'C:\Python27\tcl\tcl8.5'</span>
-<span class="token operator">></span> tree
-├───encoding
-├───http1.0
-├───msgs
-├───opt0.4
-└───tzdata
-├───Africa
-├───America
-│ ├───Argentina
-│ ├───Indiana
-│ ├───Kentucky
-│ └───North_Dakota
-├───Antarctica
-├───Arctic
-├───Asia
-├───Atlantic
-├───Australia
-├───Brazil
-├───Canada
-├───Chile
-├───Etc
-├───Europe
-├───Indian
-├───Mexico
-├───Pacific
-├───SystemV
-└───US</code></pre>
-<p>You can also specify a custom path as an argument.</p>
-<pre class="language-bash"><code class="language-bash"><span class="token operator">></span> tree <span class="token string">'C:\Program Files'</span></code></pre>
-<p>Make sure you use a font that supports lot of glyphs to see the lines.</p>
+  <p>I have been a Firefox user before I switched to Chrome. Then I switched to Edge because Chrome just couldn't stop eating memory and sipping on power juice. Edge is efficient. I never saw the dreaded macOS system is running out of memory task manager prompt.</p>
+<p><img src="../assets/images/2025/macos-memory-full.avif" alt="macOS running out of application memory"></p>
+<p>I have been a happy Edge user for quite a long time before a super annoying issue starts happening. It just wouldn't detect my precise location after a certain update. I tried deleting every configuration and starting afresh but nothing worked.</p>
+<p>Around the same time, I came across <a href="https://thorium.rocks/">Thorium</a> on X. The proposition of a Chromium based browser with some performance gains and other customizations was lucrative. Their <a href="https://thorium.rocks/">website</a> also was kinda cool and gave old school vibes!</p>
+<p>Decided to give it a spin.</p>
+<h2>Note on Installation</h2>
+<p>Didn't find it on Homebrew. Don't install whatever Thorium cask is available.</p>
+<p>Had to go here - <a href="https://github.com/Alex313031/Thorium-MacOS/releases">https://github.com/Alex313031/Thorium-MacOS/releases</a> and download the correct version to install it.</p>
+<p>The homepage does have straight forward instructions for Linux though.</p>
+<h2>Performance</h2>
+<p>It's been around a week that I have been daily driving it with multiple profiles and tons of tabs and it does seem fast! I noticed that websites load faster on it compared to either Edge or even my Chrome Canary that has no extensions, no profiles etc.</p>
+<p>The best part was I was able to pull in all the data from my Google account and imported whatever I needed from Edge in a jiffy. That went well.</p>
+<h2>Hiccups with Bitwarden</h2>
+<p>Bitwarden is my password manager of choice. It's been great across Chrome and Edge and I expected it to just work out of the box. Everything went smooth until I checked on the <strong>Unlock with biometrics</strong> setting. It just didn't work. It couldn't open the Bitwarden desktop app the first time and then on it remained disabled stating that it couldn't find the Bitwarden desktop app running. Weird since it <strong>was</strong> running.</p>
+<p>I tried switching off and on the <strong>Enable browser integrations</strong> options in Bitwarden desktop app's own settings. That didn't work either.</p>
+<p>I thought may be a restart would work - but that didn't work either.</p>
+<p>Googling led me to this <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/2">specific comment</a> which made a lot of sense. Bitwarden's source code possibly doesn't have an entry for Thorium in its list of browsers to create and copy the required manifest file for it's inter-process communication to work.</p>
+<p>Reading <a href="https://community.bitwarden.com/t/extension-biometrics-unlock-in-chromium-and-derivatives-thorium-iridium-iron-etc/52702/4">further</a> revealed the location of the file and all I had to do is copy the file from an existing installation of Bitwarden on Edge to Thorium's <code>NativeMessagingHosts</code> directory. Here's how that worked.</p>
+<pre class="language-sh"><code class="language-sh"><span class="token builtin class-name">cd</span> ~/Library/Application<span class="token punctuation">\</span> Support/Microsoft<span class="token punctuation">\</span> Edge/NativeMessageHosts
+<span class="token function">cp</span> com.8bit.bitwarden.json <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/Thorium/NativeMessagingHosts</code></pre>
+<p>After this, I had to restart Thorium and everything worked.</p>
+<p>If you don't use Edge, you can just download it or Chrome, install Bitwarden there, enable unlocking with biometrics and then copy the file to Thorium's <code>NativeMessagingHosts</code> directory.</p>
+<p>This instruction should also work on other Chromium based browsers like Iridium, Iron, etc.</p>
 
 </article>
 
