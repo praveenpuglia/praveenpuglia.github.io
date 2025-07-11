@@ -374,15 +374,15 @@
 <span class="token punctuation">}</span>
 ...</code></pre>
 <p>This is going to generate a standard two column layout grid. Something like this...
-<img src="/assets/images/2017/grid-reuse-1.avif" alt="Two column layout using CSS Grid areas"></p>
+<picture><source type="image/webp" srcset="/img/oleVW0bapA-1364.webp 1364w"><img src="/img/oleVW0bapA-1364.jpeg" alt="Two column layout using CSS Grid areas" width="1364" height="1120"></picture></p>
 <p>What's great about area names is that we can reuse them. Confusing? Let me give an example.</p>
 <p>Say we are creating a comments section for a blog which has to look like this.
-<img src="/assets/images/2017/grid-reuse-2.avif" alt="Comments section from a typical blog"></p>
+<picture><source type="image/webp" srcset="/img/sBCXUbOURA-1394.webp 1394w"><img src="/img/sBCXUbOURA-1394.jpeg" alt="Comments section from a typical blog" width="1394" height="880"></picture></p>
 <p>And if we add a little bit of borders, we see how the grid should be constructed.
-<img src="/assets/images/2017/grid-reuse-3.avif" alt="Comments layout with grid lines"></p>
+<picture><source type="image/webp" srcset="/img/fXJsiarYEd-1388.webp 1388w"><img src="/img/fXJsiarYEd-1388.jpeg" alt="Comments layout with grid lines" width="1388" height="886"></picture></p>
 <p>It's clear that the avatar and the comment(input/text) is used exactly the same way in both the places. So, we should be able to create two grids, both of which can dedicate a place for avatar and the comment.
 Here's what I mean.
-<img src="/assets/images/2017/grid-reuse-4.avif" alt="Depicting areas."></p>
+<picture><source type="image/webp" srcset="/img/WF1hZf7ifM-1388.webp 1388w"><img src="/img/WF1hZf7ifM-1388.jpeg" alt="Depicting areas." width="1388" height="886"></picture></p>
 <p>Here's how that might look in code.</p>
 <pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Comment Area --></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>comment-input<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
