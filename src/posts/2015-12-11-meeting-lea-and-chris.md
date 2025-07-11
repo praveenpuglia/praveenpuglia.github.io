@@ -14,9 +14,7 @@ That's exactly what happened when few weeks ago I got to know that I would be tr
 
 > Fingers Crossed! ( shit scared before I click the 'Send' button )
 
-I didn't expect a reply but when I did get one and it was a positive one, I jumped on bed. I was frustrated with all the moving and packing stuff but that email made my day. [This image from Tim Urban's Wait But Why](http://waitbutwhy.com/2015/05/elon-musk-the-worlds-raddest-man.html) totally fits in.
-
-![Courtesy - Wait But Why - Tim Urban](https://149909199.v2.pressablecdn.com/wp-content/uploads/2015/05/Call-2b-600x345.avif)
+I didn't expect a reply but when I did get one and it was a positive one, I jumped on bed. I was frustrated with all the moving and packing stuff but that email made my day.
 
 Quite a few emails back and forth and we were set on date, time and venue. It was funny though because we ended up waiting for each other in same cafe on different streets. Get it? A little late, but I finally met them. You know, Batman and Jesus together ;)
 
@@ -36,5 +34,5 @@ Last but not the least, I got a copy of CSS Secrets autographed! Yay!
 
 I definitely look forward to another opportunity like this. Meeting them made my year and has inspired me to do more. A wonderful day! :)
 
-<img class="human-photo" src="/assets/images/2015/12/meetup-1.avif">
-<img class="human-photo" src="/assets/images/2015/12/meetup-2.avif">
+<img class="human-photo" alt="Meeting Lea & Chris" src="/assets/images/2015/12/meetup-1.avif">
+<img class="human-photo" alt="Meeting Lea & Chris" src="/assets/images/2015/12/meetup-2.avif">

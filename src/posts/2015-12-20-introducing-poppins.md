@@ -6,7 +6,7 @@ tags: [sublime-text, theme, tools]
 permalink: /posts/introducing-poppins/
 ---
 
-<img class="human-photo" src="/assets/images/2015/12/poppins.avif">
+<img class="human-photo" alt="Poppins" src="/assets/images/2015/12/poppins.avif">
 
 This was the candy I loved as a kid. It was lucrative and distinct because of the eye popping colors. Totally loved it.
 

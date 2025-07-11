@@ -3,9 +3,11 @@ import cacheBuster from "@mightyplow/eleventy-plugin-cache-buster";
 import pluginCSS from "eleventy-postcss-extension";
 import { DateTime } from "luxon";
 import UpgradeHelper from "@11ty/eleventy-upgrade-help";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(UpgradeHelper);
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin);
   eleventyConfig.addPassthroughCopy({
     "./static": ".",
   });
