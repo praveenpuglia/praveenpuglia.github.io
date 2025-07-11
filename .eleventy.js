@@ -1,9 +1,11 @@
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
-const pluginCSS = require("eleventy-postcss-extension");
-const { DateTime } = require("luxon");
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import cacheBuster from "@mightyplow/eleventy-plugin-cache-buster";
+import pluginCSS from "eleventy-postcss-extension";
+import { DateTime } from "luxon";
+import UpgradeHelper from "@11ty/eleventy-upgrade-help";
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(UpgradeHelper);
   eleventyConfig.addPassthroughCopy({
     "./static": ".",
   });

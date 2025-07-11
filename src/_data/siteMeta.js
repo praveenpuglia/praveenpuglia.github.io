@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   name: "Praveen Puglia",
   shortDesc:
     "Web Developer since the days of Internet Explorer. Frontend Architect @smallcase",
