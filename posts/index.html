@@ -76,7 +76,15 @@
 
 
   <style>
-     ::view-transition-old(post-daily-driving-thorium) {
+     ::view-transition-old(post-system-setup-2025) {
+      animation: fade 0.2s ease-in-out forwards;
+    }
+
+    ::view-transition-new(post-system-setup-2025) {
+      animation: fade 0.2s ease-in-out reverse;
+    }
+
+   ::view-transition-old(post-daily-driving-thorium) {
       animation: fade 0.2s ease-in-out forwards;
     }
 
@@ -344,6 +352,16 @@
       <h1 class="title">Posts</h1>
 
 <ol reversed="" class="posts-list">
+  
+    <li class="post">
+      <time class="post-date" datetime="2025-07-12">12 Jul, 2025</time>
+      <a href="/posts/system-setup-2025/" class="postlist-link">
+        <h4 class="post-title" style="view-transition-name: post-system-setup-2025">
+          System Setup in 2025
+          
+        </h4>
+      </a>
+    </li>
   
     <li class="post">
       <time class="post-date" datetime="2025-07-10">10 Jul, 2025</time>
