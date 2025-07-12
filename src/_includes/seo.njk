@@ -37,13 +37,14 @@
 <meta name="description" content="{{ pageDesc }}"/>
 <meta name="twitter:description" content="{{ pageDesc }}"/>
 <meta property="og:description" content="{{ pageDesc }}"/>
+<meta name="og:logo" content="{{ siteMeta.url }}/android-icon-192x192.png"/>
 
 {% if socialImage %}
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="og:image" content="{{ socialImage }}"/>
-  <meta name="twitter:image" content="{{ socialImage }}"/>
-  <meta property="og:image:alt" content="Page image for {{ pageTitle }}"/>
-  <meta name="twitter:image:alt" content="Page image for {{ pageTitle }}"/>
+  <meta property="og:image" content="{{ siteMeta.url }}/{{ socialImage }}"/>
+  <meta name="twitter:image" content="{{ siteMeta.url }}/{{ socialImage }}"/>
+  <meta property="og:image:alt" content="{{ pageTitle }}"/>
+  <meta name="twitter:image:alt" content="{{ pageTitle }}"/>
 {% else %}
   <meta property="og:image" content="{{ siteMeta.url }}/assets/images/home-banner-mobile.avif"/>
   <meta name="twitter:image" content="{{ siteMeta.url }}/assets/images/home-banner-mobile.avif"/>
