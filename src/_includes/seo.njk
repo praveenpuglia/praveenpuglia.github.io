@@ -41,8 +41,8 @@
 
 {% if socialImage %}
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta property="og:image" content="{{ siteMeta.url }}/{{ socialImage }}"/>
-  <meta name="twitter:image" content="{{ siteMeta.url }}/{{ socialImage }}"/>
+  <meta property="og:image" content="{{ siteMeta.url }}{{ socialImage }}"/>
+  <meta name="twitter:image" content="{{ siteMeta.url }}{{ socialImage }}"/>
   <meta property="og:image:alt" content="{{ pageTitle }}"/>
   <meta name="twitter:image:alt" content="{{ pageTitle }}"/>
 {% else %}

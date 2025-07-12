@@ -4,6 +4,7 @@ title: Meeting Lea & Chris
 date: 2015-12-11
 tags: [life]
 permalink: /posts/meeting-lea-and-chris/
+socialImage: "/assets/images/2015/12/meetup-1.avif"
 ---
 
 **Reporting From Boston**
