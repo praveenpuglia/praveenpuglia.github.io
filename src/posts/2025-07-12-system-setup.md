@@ -99,13 +99,14 @@ alias k="fkill -v"
 # git additional 
 alias gdl="git delete-branch"
 
-# yt-dlp alias for downloading videos from YouTube
+# yt-dlp alias for downloading videos from YouTube in the best possible quality
+# along with all the subtitles
 alias ytd='yt-dlp --output "./%(title)s/%(title)s-[%(id)s].%(ext)s" --all-subs -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
 ```
 
 ## Apps
 
-- **[AppCleaner](https://freemacsoft.net/appcleaner/)** : It's an oldie but a goodie. Mac doesn't have a native uninstaller that can purge all the files & configurations when an app is uninstalled. AppCleaner is a great tool to do that. If you installed an app via Homebrew, use `brew uninstall` should do the job. If you are using AppCleaner, make sure you turn **Smart Delete** on. 
+- **[AppCleaner](https://freemacsoft.net/appcleaner/)** : It's an oldie but a goodie. Mac doesn't have a native uninstaller that can purge all the files & configurations when an app is uninstalled. AppCleaner is a great tool to do that. If you installed an app via Homebrew, `brew uninstall` should do the job. If you are using AppCleaner, make sure you turn **Smart Delete** on. 
 
 <img width="400" src="/assets/images/2025/appcleaner-smart-delete.png" alt="AppCleaner Smart Delete">
 
@@ -121,6 +122,8 @@ alias ytd='yt-dlp --output "./%(title)s/%(title)s-[%(id)s].%(ext)s" --all-subs -
 - **[Shottr](https://shottr.cc/)** : The best screenshot tool I have ever used and purchased a license. If you install it, make sure you change the default macOS screenshot shortcut to open Shottr instead. Here's a screenshot! ;)
 ![Shottr](/assets/images/2025/shottr-preferences.png)
 - **[Thorium](https://thorium.rocks/)** : I have been [daily driving Thorium](https://praveenpuglia.com/posts/daily-driving-thorium/) now. So far, it's been a great, fast, reliable Chromium fork. 
-
-
-
+- **[Squoosh](https://squoosh.app/)** : My go-to tool for converting images to web optimized formats, especially AVIF. 
+- **[SVGOMG](https://jakearchibald.github.io/svgomg/)** : The tool to optimize individual SVG files. 
+- **[edit.photo](https://edit.photo/)** : The simplest and cleanest browser based photo editor for most common use cases. 
+- **[Photopea](https://www.photopea.com/)** : Not paying for Photoshop. Photopea is the best free Photoshop alternative running on web tech. 
+- **[tldraw](https://www.tldraw.com/)** : Between [Excalidraw](https://excalidraw.com/) and this one, I like this one a tad bit more! Purely a personal taste thing. 
