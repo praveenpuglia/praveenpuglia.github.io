@@ -1,22 +1,19 @@
 <!--
 Sync Impact Report:
-Version change: 1.0.0 → 1.1.0
-Modified principles:
-- Modified: I. Simplicity First → I. Dependency Minimization (expanded scope)
-- Modified: III. Performance and Accessibility → III. Modern Web Standards (refocused)
-- Reordered: Performance and Accessibility moved to IV
-- Reordered: Deployment Simplicity moved to V
-- Reordered: Maintainability moved to VI
-Added sections: Code Standards (Semantic HTML, CSS Naming)
-Expanded sections: Technical Constraints (dependency policy, browser support)
+Version change: 1.1.0 → 1.2.0
+Modified principles: None
+Added sections: 
+- Code Standards: CSS Architecture (DRY, single source of truth, variables-only, avoid overrides)
+- Code Standards: Layout Approach (Flexbox vs Grid, spacing control, cohesive grouping)
+- Code Standards: State Management and Navigation (URL-based state, History API, progressive enhancement)
+- Code Standards: Performance Patterns (dynamic rendering, build-time data, CSS animations, minimal JS)
+- Code Standards: User Experience Principles (consistency, visual hierarchy, responsive, subtle animations)
+Expanded sections: Code Standards (from 2 subsections to 7 subsections)
 Removed sections: None
+Rationale: Captured architectural learnings from tag search page implementation (001-tag-search-page)
 Templates requiring updates:
-✅ Updated: .specify/templates/plan-template.md (Constitution Check updated with new principles)
-✅ Updated: .specify/templates/tasks-template.md (Foundation tasks updated for modern web standards)
-✅ Reviewed: .specify/templates/spec-template.md (no changes needed)
-✅ Reviewed: .specify/templates/agent-file-template.md (no changes needed)
-✅ Reviewed: .specify/templates/checklist-template.md (no changes needed)
-Follow-up TODOs: None - all templates aligned with new principles
+✅ No template updates needed - new sections are guidance for future features, not changes to existing principles
+Follow-up TODOs: None - constitution reflects learnings from real implementation experience
 -->
 
 # praveenpuglia.com Constitution
@@ -65,6 +62,36 @@ All HTML must use semantic elements appropriately (`<article>`, `<section>`, `<n
 ### CSS Naming
 CSS class names must be readable, short, and meaningful. Use kebab-case for multi-word names (e.g., `post-title`, `nav-link`). Avoid abbreviations unless universally understood. Names should describe purpose or content, not appearance (e.g., `primary-button` not `red-button`).
 
+### CSS Architecture
+- **DRY Principle**: Extract shared styles into separate CSS files when the same patterns appear across multiple pages
+- **Single Source of Truth**: Common UI patterns (like post lists) should have one canonical style definition
+- **CSS Variables Only**: Use only colors and values defined in `variables.css` to maintain design system consistency
+- **Avoid Overrides**: Check for conflicting styles across CSS files before adding new rules; refactor instead of override
+
+### Layout Approach
+- **Prefer Flexbox for Flow**: Use Flexbox for organic, flowing layouts where items should pack naturally (e.g., tag clouds, navigation)
+- **Grid for Structure**: Reserve CSS Grid for intentional structural layouts, not when natural wrapping is desired
+- **Spacing Control**: Let parent containers control spacing between items (`margin-bottom` on items), not internal elements
+- **Cohesive Grouping**: Related elements (title + metadata) should be grouped visually through tight spacing, with clear separation between distinct items
+
+### State Management and Navigation
+- **URL-Based State**: Use URL query parameters for application state that should persist across navigation and be shareable
+- **Browser History API**: Leverage `pushState` and `popstate` for natural back/forward button behavior without page reloads
+- **No Client-Side Storage for Navigation State**: LocalStorage/SessionStorage should not be used for navigation state that should be shareable via URLs
+- **Progressive Enhancement**: Core functionality should work without JavaScript; enhance with JS for better UX
+
+### Performance Patterns
+- **Dynamic Rendering Over Hiding**: Dynamically create DOM elements when needed rather than rendering everything and hiding with CSS
+- **Build-Time Data Preparation**: Process and structure data at build time (Eleventy collections) for optimal runtime performance
+- **CSS Animations**: Use CSS transforms and animations for smooth 60fps interactions; leverage `will-change` judiciously
+- **Minimal JavaScript**: Keep client-side JavaScript minimal; prefer server-side generation and CSS for functionality when possible
+
+### User Experience Principles
+- **Consistency Across Pages**: Similar content types (like post lists) should look and behave identically across different pages
+- **Visual Hierarchy**: Use spacing to create clear relationships—tight spacing for related items, generous spacing for separation
+- **Responsive by Default**: Designs should scale naturally; avoid fixed dimensions and use relative units
+- **Subtle Animations**: Enhance feel with subtle animations (shadows, transforms); respect `prefers-reduced-motion`
+
 ## Technical Constraints
 
 - **Node.js Version**: Managed via Volta (currently 24.4.0)
@@ -88,4 +115,4 @@ This constitution supersedes all other development practices. Changes to core pr
 
 **Compliance Review**: All changes must be evaluated against these principles before implementation. Complexity must be justified against the simplicity-first principle.
 
-**Version**: 1.1.0 | **Ratified**: 2025-10-17 | **Last Amended**: 2025-10-17
+**Version**: 1.2.0 | **Ratified**: 2025-10-17 | **Last Amended**: 2025-10-17
