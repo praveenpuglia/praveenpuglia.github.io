@@ -9,7 +9,7 @@ eleventyNavigation:
 {% set postslistCounter = collections.posts | length %}
 <ol reversed class="posts-list">
   {% for post in collections.posts | reverse %}
-    <li class="post">
+    <li class="post-item">
       <time class="post-date" datetime="{{ post.date | htmlDateString }}">{{
       post.date | readableDate
     }}</time>
