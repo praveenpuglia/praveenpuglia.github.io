@@ -48,9 +48,10 @@
 }
 
 .postlist-link .post-title {
-  margin-top: 0;
-  margin-bottom: 2rem;
+  margin: 0;
 }
+
+/* .postlist-link .post-title styles moved to post-list.css for consistency */
 
 @media (min-width: 768px) {
   .post__metadata {

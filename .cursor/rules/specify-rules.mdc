@@ -1,0 +1,24 @@
+# praveenpuglia.github.io Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-10-17
+
+## Active Technologies
+- JavaScript ES2022+ with Node.js 24.4.0 (managed via Volta) + Eleventy 3.x, PostCSS (autoprefixing only), existing syntax highlighting plugin (001-tag-search-page)
+
+## Project Structure
+```
+src/
+tests/
+```
+
+## Commands
+npm test && npm run lint
+
+## Code Style
+JavaScript ES2022+ with Node.js 24.4.0 (managed via Volta): Follow standard conventions
+
+## Recent Changes
+- 001-tag-search-page: Added JavaScript ES2022+ with Node.js 24.4.0 (managed via Volta) + Eleventy 3.x, PostCSS (autoprefixing only), existing syntax highlighting plugin
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
