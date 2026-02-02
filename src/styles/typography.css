@@ -1,5 +1,5 @@
 :root {
-  --font-monospace: "Jetbrains Mono", "SF Mono", "Menlo", monospace !important;
+  --font-monospace: "Google Sans Mono", "SF Mono", "Menlo", monospace;
 }
 /* Headings */
 h1,

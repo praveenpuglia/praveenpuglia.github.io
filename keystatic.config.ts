@@ -24,13 +24,28 @@ export default config({
           label: "Tags",
           itemLabel: (props) => props.value,
         }),
-        socialImage: fields.image({
-          label: "Social Image",
-          directory: "src/assets/images",
-          publicPath: "/assets/images/",
+        socialImage: fields.text({
+          label: "Social Image Path",
+          description: "Path to the social image (e.g., /assets/images/2025/image.avif)",
+        }),
+        published: fields.checkbox({
+          label: "Published",
+          defaultValue: true,
         }),
         content: fields.mdx({
           label: "Content",
+          options: {
+            image: {
+              directory: "public/assets/images/posts",
+              publicPath: "/assets/images/posts/",
+              transformFilename: (originalFilename) => {
+                const ext = originalFilename.split(".").pop();
+                const timestamp = Date.now();
+                const random = Math.random().toString(36).substring(2, 8);
+                return `${timestamp}-${random}.${ext}`;
+              },
+            },
+          },
         }),
       },
     }),
