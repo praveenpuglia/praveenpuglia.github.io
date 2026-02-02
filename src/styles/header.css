@@ -29,6 +29,7 @@
 }
 .navigation-links {
   list-style: none;
+  font-family: var(--font-heading);
   font-size: 1.25rem;
   margin: 0;
   padding: 0;
