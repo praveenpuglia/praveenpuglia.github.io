@@ -37,14 +37,46 @@ h6 {
 code {
   font-family: var(--font-monospace);
   font-weight: normal;
-  font-size: 0.85rem;
+  font-size: 0.9em;
 }
-code:not([class*="language-"]) {
-  background-color: #e2e2e2;
-  padding: 0.1rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.85rem;
+
+/* Inline code */
+:not(pre) > code {
+  background-color: #f0f0f0;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
 }
+
+/* Code blocks (Astro/Shiki) */
+pre {
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border: 1px solid var(--color-border-light);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* Shiki styling */
+.astro-code {
+  background-color: #fafafa !important;
+}
+
+.astro-code code {
+  display: block;
+  width: fit-content;
+  min-width: 100%;
+}
+
 a {
   color: var(--accent-color);
   text-decoration: none;
