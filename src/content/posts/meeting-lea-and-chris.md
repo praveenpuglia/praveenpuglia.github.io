@@ -1,7 +1,6 @@
 ---
 title: Meeting Lea & Chris
 date: 2015-12-11
-tags: [life]
 socialImage: "/assets/images/2015/12/meeting-lea-chris.webp"
 ---
 

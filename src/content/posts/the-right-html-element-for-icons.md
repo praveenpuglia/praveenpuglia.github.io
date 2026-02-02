@@ -1,7 +1,6 @@
 ---
 title: The Right HTML Element For Icons
 date: 2015-02-17
-tags: [html, icons]
 ---
 
 [![ VS ](/assets/images/2015/02/span_vs_i.avif)](/assets/images/2015/02/span_vs_i.avif)

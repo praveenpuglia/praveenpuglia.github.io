@@ -1,7 +1,6 @@
 ---
 title: The Case for StrictPascalCase
 date: 2024-08-06
-tags: [code, philosophy]
 ---
 
 # Introduction

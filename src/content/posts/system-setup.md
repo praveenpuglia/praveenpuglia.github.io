@@ -2,7 +2,6 @@
 title: System Setup in 2025
 description: "My setup, tools, and tricks I have learnt over the years"
 date: 2025-07-12
-tags: [productivity, engineer]
 socialImage: "/assets/images/2025/terminal.png"
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Xiaomi Redmi 1S Is A Powerful Product With Bad Design
 date: 2014-10-19
-tags: [thoughts, phone, design]
 ---
 
 [![](/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.avif)](/assets/images/2014/10/xiaomi-redmi-1s-quad-core-16ghz-1gb-8gb-47-inch-ips-8mp-camera-dual-sim-wcdma-version-smartphone-black.avif)

@@ -1,7 +1,6 @@
 ---
 title: Use AVIF today
 description: Short post on how to serve AVIF today with fallback for unsupported browsers.
-tags: [avif, image, compression, html]
 date: 2021-07-08
 ---
 

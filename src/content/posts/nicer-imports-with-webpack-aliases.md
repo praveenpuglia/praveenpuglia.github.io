@@ -1,7 +1,6 @@
 ---
 title: Nicer imports with webpack aliases
 date: 2017-10-26
-tags: [vue.js, webpack, scss]
 ---
 
 ## The Setup

@@ -1,7 +1,6 @@
 ---
 title: The CSS toggle() Function
 date: 2017-04-25
-tags: [css]
 ---
 
 CSS has had [functions](https://drafts.csswg.org/indexes/#functions) for a long time now. We use them everyday in colors( e.g `rgb()/hsl()`), backgrounds( e.g. `linear-gradient()`), animations(e.g. `cubic-bezier()`) etc. CSS Values and Units Module Level 4 defines the [`toggle()`](https://drafts.csswg.org/css-values-4/#funcdef-toggle) function. Let's take a look.

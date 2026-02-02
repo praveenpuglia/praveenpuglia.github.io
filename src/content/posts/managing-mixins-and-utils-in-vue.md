@@ -2,7 +2,6 @@
 title: Managing Mixins & Utilities in VueJS
 published: true
 date: 2019-04-09
-tags: [vue.js, typescript]
 ---
 
 I have been working quite a bit with [Vue.js](https://vuejs.org/) and I have sort of found a sweet spot for how to manage utilities in a Vue project.

@@ -1,7 +1,6 @@
 ---
 title: People I Learn From
 date: 2016-02-13
-tags: [life]
 ---
 
 The world of web development is wild. Every day there are literally tons of new things to learn. I feel exhausted time to time and it's really important for one to remain inspired. I like it when I look at work done by people and wonder wide eyed - _How the heck is this done?_. That inspires me.

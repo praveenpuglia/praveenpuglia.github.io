@@ -1,7 +1,6 @@
 ---
 title: Import Sass variables in JavaScript with Webpack
 date: 2021-01-24
-tags: [sass, webpack]
 ---
 
 Wouldn't that be great?

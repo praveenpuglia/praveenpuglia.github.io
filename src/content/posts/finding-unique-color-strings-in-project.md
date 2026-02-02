@@ -1,7 +1,6 @@
 ---
 title: Finding Unique Color Strings In Project
 date: 2015-11-01
-tags: [regex, javascript, colors]
 socialImage: "/assets/images/2015/11/show-me-my-colors.avif"
 ---
 

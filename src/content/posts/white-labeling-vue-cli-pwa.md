@@ -1,7 +1,6 @@
 ---
 title: White Labeling a Vue CLI PWA
 description: How to white label a Vue CLI PWA with different app names, icons, and colors for different environments.
-tags: [vue, pwa, vue-cli]
 date: 2021-07-17
 ---
 

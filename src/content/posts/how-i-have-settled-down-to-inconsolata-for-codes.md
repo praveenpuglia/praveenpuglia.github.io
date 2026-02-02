@@ -1,7 +1,6 @@
 ---
 title: I Have Settle Down To Inconsolata For Code
 date: 2014-07-29
-tags: [typography, font]
 ---
 
 Choosing the coding font that suits your style is a difficult job. It has to impress you with it's curves, spaces and visual aesthetics. For me, there are these specific things that mattered the most.
@@ -50,7 +49,7 @@ May be on a different system, I will give it another try.
 
 [**Inconsolata**](https://www.google.com/fonts/specimen/Inconsolata)
 
-Then one fine day I found this. I had heard about Inconsolata before but never gave it a try. But once I did, I stopped imagining my way back to any other font. It made my code look beautiful. It has the right amount of sharpness and size I require. It scales extremely well with smaller and higher font sizes. I fell in love. <3
+Then one fine day I found this. I had heard about Inconsolata before but never gave it a try. But once I did, I stopped imagining my way back to any other font. It made my code look beautiful. It has the right amount of sharpness and size I require. It scales extremely well with smaller and higher font sizes. I fell in love. ❤️
 
 [![inconsolata](/assets/images/2014/07/inconsolata.avif)](/assets/images/2014/07/inconsolata.avif)
 

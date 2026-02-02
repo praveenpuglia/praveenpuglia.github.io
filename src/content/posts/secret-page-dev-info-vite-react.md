@@ -1,7 +1,6 @@
 ---
 title: Secret Page for Devs
 description: You should never have to ask your team what version is on prod with a dedicated dev info page.
-tags: [tools, vite, git]
 date: 2023-01-06
 socialImage: "/assets/images/2023/app-version-git-hash.avif"
 ---

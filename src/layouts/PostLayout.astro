@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, tags, socialImage } = post.data;
+const { title, description, date, socialImage } = post.data;
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString("en-GB", {
@@ -33,13 +33,6 @@ const slug = post.slug;
       {description && <h4 class="subtitle">{description}</h4>}
       <div class="post__metadata">
         <time datetime={date.toISOString()}>{formatDate(date)}</time>
-        <ul class="post__metadata__tags">
-          {
-            tags.map((tag) => (
-              <li class="post__metadata__tag">{tag}</li>
-            ))
-          }
-        </ul>
       </div>
     </div>
 

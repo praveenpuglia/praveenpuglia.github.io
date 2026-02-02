@@ -1,7 +1,6 @@
 ---
 title: A Snake in CSS
 date: 2017-05-18
-tags: [css, animation]
 ---
 
 If you think the article has a terrible title, you are right. Moving on...
