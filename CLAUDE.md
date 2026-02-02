@@ -9,6 +9,7 @@ Personal blog built with Eleventy, deployed on Cloudflare Pages.
 - **Posts location**: `src/posts/`
 - **Templates**: `src/_includes/` (Nunjucks)
 - **Assets**: `src/assets/` (processed), `/static/` (static)
+- **Commits**: Use conventional commits (e.g., `feat:`, `fix:`, `docs:`, `refactor:`, `chore:`)
 
 ## Core Principles
 
