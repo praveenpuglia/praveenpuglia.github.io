@@ -1,0 +1,55 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  socialImage?: string;
+  canonical?: string;
+}
+
+const siteMeta = {
+  name: "Praveen Puglia",
+  shortDesc: "Web Developer since the days of Internet Explorer. Frontend Architect @smallcase",
+  url: "https://praveenpuglia.com",
+  authorHandle: "@praveenpuglia",
+};
+
+const { title, description, socialImage, canonical } = Astro.props;
+
+const pageTitle = title ? `${title} - ${siteMeta.name}` : siteMeta.name;
+const pageDesc = description || siteMeta.shortDesc;
+const currentUrl = siteMeta.url + Astro.url.pathname;
+const ogImage = socialImage
+  ? `${siteMeta.url}${socialImage}`
+  : `${siteMeta.url}/assets/images/home-banner-mobile.avif`;
+---
+
+{canonical && <link rel="canonical" href={canonical} />}
+
+<title>{pageTitle}</title>
+<meta property="og:site_name" content={siteMeta.name} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={currentUrl} />
+<meta property="twitter:url" content={currentUrl} />
+<meta property="twitter:site" content={siteMeta.name} />
+<meta name="twitter:creator" content={siteMeta.authorHandle} />
+
+<meta name="description" content={pageDesc} />
+<meta name="twitter:description" content={pageDesc} />
+<meta property="og:description" content={pageDesc} />
+<meta name="og:logo" content={`${siteMeta.url}/android-icon-192x192.png`} />
+
+{socialImage ? (
+  <>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta property="og:image:alt" content={pageTitle} />
+    <meta name="twitter:image:alt" content={pageTitle} />
+  </>
+) : (
+  <>
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
+  </>
+)}

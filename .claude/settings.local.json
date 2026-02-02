@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:simonswiss.com)",
+      "Bash(git checkout:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

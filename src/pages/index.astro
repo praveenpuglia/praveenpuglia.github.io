@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <picture class="hero-banner">
+    <source
+      media="(max-width: 480px)"
+      srcset="/assets/images/home-banner-mobile.avif"
+    />
+    <source
+      media="(max-width: 767px)"
+      srcset="/assets/images/home-banner-tablet.avif"
+    />
+    <img
+      src="/assets/images/home-banner-desktop.avif"
+      alt="Speaking at VueDay, Bengaluru, 2019"
+      fetchpriority="high"
+    />
+  </picture>
+
+  <h2>Hello!</h2>
+  <p>I am Praveen & that's not a cut off hand floating in the air.</p>
+
+  <h2>Work</h2>
+
+  <h3>Current</h3>
+  <ul>
+    <li>Staff Engineer @ <a href="https://smallcase.com">smallcase</a></li>
+  </ul>
+
+  <h3>Past</h3>
+  <ul>
+    <li><a href="https://sprinklr.com">Sprinklr</a></li>
+    <li>
+      <a href="https://www.crunchbase.com/organization/voicezen">Voicezen</a>
+    </li>
+    <li><a href="https://joveo.com">Joveo</a></li>
+    <li><a href="https://pramati.com">Pramati</a></li>
+    <li><a href="https://tcs.com">TCS</a></li>
+  </ul>
+</BaseLayout>

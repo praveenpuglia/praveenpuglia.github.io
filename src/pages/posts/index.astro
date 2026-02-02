@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import "../../styles/post-list.css";
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+};
+---
+
+<BaseLayout title="Posts">
+  <h1 class="title">Posts</h1>
+  <ol reversed class="posts-list">
+    {
+      posts.map((post) => (
+        <li class="post-item">
+          <time class="post-date" datetime={post.data.date.toISOString()}>
+            {formatDate(post.data.date)}
+          </time>
+          <a href={`/posts/${post.slug}/`} class="postlist-link">
+            <h4
+              class="post-title"
+              style={`view-transition-name: post-${post.slug}`}
+              transition:name={`post-${post.slug}`}
+            >
+              {post.data.title}
+            </h4>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</BaseLayout>

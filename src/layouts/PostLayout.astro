@@ -1,0 +1,41 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+
+const { post } = Astro.props;
+const { title, description, date, socialImage } = post.data;
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+};
+
+const slug = post.slug;
+---
+
+<BaseLayout title={title} description={description} socialImage={socialImage}>
+  <article class="single-post">
+    <div class="single-post__header">
+      <h1
+        class="title"
+        style={`view-transition-name: post-${slug}`}
+        transition:name={`post-${slug}`}
+      >
+        {title}
+      </h1>
+      {description && <h4 class="subtitle">{description}</h4>}
+      <div class="post__metadata">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+      </div>
+    </div>
+
+    <slot />
+  </article>
+</BaseLayout>

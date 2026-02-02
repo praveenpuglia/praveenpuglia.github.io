@@ -1,0 +1,40 @@
+@import url(./variables.css);
+@import url(./typography.css);
+@import url(./layout.css);
+@import url(./header.css);
+@import url(./post.css);
+@import url(./blog.css);
+@import url(./footer.css);
+
+/* Pages */
+@import url(./home.css);
+
+html {
+  /* Fluid base: 18px at 1080p, scales to 20px at 4k */
+  font-size: clamp(1.125rem, 1rem + 0.25vw, 1.25rem);
+}
+
+body {
+  font-family: "Geist", system-ui, sans-serif;
+  color: var(--color-primary);
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* in the CSS of both the source and the target: */
+@view-transition {
+  navigation: auto;
+}

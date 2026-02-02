@@ -1,0 +1,134 @@
+:root {
+  --font-body: "Geist", system-ui, sans-serif;
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-monospace: "Google Sans Mono", "SF Mono", "Menlo", monospace;
+}
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+/* First heading in article shouldn't have top margin */
+h1:first-child,
+h2:first-child,
+h3:first-child {
+  margin-top: 0;
+}
+h1 {
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 1rem + 0.75vw, 1.75rem);
+}
+h4 {
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+}
+h5 {
+  font-size: clamp(1rem, 0.9rem + 0.25vw, 1.25rem);
+}
+h6 {
+  font-size: 1rem;
+}
+
+/* Code Blocks */
+code {
+  font-family: var(--font-monospace);
+  font-weight: normal;
+  font-size: 0.9em;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: #f0f0f0;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* Code blocks (Astro/Shiki) */
+pre {
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.875em;
+  line-height: 1.6;
+  border: 1px solid var(--color-border-light);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* Shiki styling */
+.astro-code {
+  background-color: #fafafa !important;
+}
+
+.astro-code code {
+  display: block;
+  width: fit-content;
+  min-width: 100%;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--accent-color);
+  background-color: #fafafa;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.title {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: clamp(2.25rem, 1.75rem + 2vw, 3.25rem);
+  margin-top: 0;
+}
+
+ul li,
+ol li {
+  line-height: 1.7;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+li::marker {
+  color: var(--accent-color);
+}
+
+kbd {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  margin-inline: 0.25rem;
+  font-family: var(--font-monospace);
+}

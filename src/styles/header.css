@@ -1,0 +1,38 @@
+.site-header {
+  border-bottom: 1px solid var(--color-border-light);
+}
+.main-header {
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 1rem;
+  width: 85rem;
+  max-width: 97%;
+}
+.main-navigation {
+  margin-left: auto;
+}
+.main-header-logo {
+  margin: 0;
+}
+.main-header-logo::after {
+  content: "👋";
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: 0.16s;
+}
+.main-header-logo:hover::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+.navigation-links {
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
