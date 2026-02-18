@@ -1,6 +1,6 @@
 ---
-title: Controlling External Monitor Brightness on Linux
-description: "How I built a GNOME Shell extension to control external monitor brightness using keyboard shortcuts, just like macOS."
+title: Controlling External Monitor Brightness on Linux Using Brightness Control Keys
+description: "How I built a GNOME Shell extension to control external monitor brightness using brightness controls on keyboard"
 date: 2026-02-18
 ---
 
@@ -27,7 +27,7 @@ Turns out, that's easier said than done.
 I started exploring this with [Claude](https://claude.ai) and we discovered a bunch of tools in the Linux ecosystem.
 
 - **[ddcutil](https://www.ddcutil.com/)** — A command line tool that communicates with monitors using the DDC/CI protocol over the I2C bus. This is the one that actually lets you *set* brightness on an external monitor programmatically.
-- **[ddcui](https://www.ddcutil.com/ddcui_main/)** — A GUI frontend for ddcutil. Useful for exploring what your monitor supports but not what you'd want for keyboard shortcuts.
+- **[ddcui](https://www.ddcutil.com/ddcui_main/)** — A GUI frontend for ddcutil. Useful for exploring what your monitor supports but not what you'd want for utilizing the brightness control keys.
 - **[brightnessctl](https://github.com/Haikarainen/brightnessctl)** — Great for the built-in backlight but doesn't handle external monitors over DDC.
 
 ddcutil was clearly the tool we needed. Running `ddcutil setvcp 10 + 5` bumps your external monitor's brightness up by 5 (on a 0-100 scale). The challenge was wiring this up to the keyboard brightness keys in a smart way.
