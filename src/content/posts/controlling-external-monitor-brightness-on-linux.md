@@ -2,6 +2,7 @@
 title: Controlling External Monitor Brightness on Linux Using Brightness Control Keys
 description: "How I built a GNOME Shell extension to control external monitor brightness using brightness controls on keyboard"
 date: 2026-02-18
+socialImage: "/assets/images/2026/linux-external-monitor-brightness.avif"
 ---
 
 I recently moved from macOS to Linux. It's been a mixed experience overall (more on that later) and every now and then you find something that *just worked* on Mac and doesn't have a straightforward equivalent on Linux.
