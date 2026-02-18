@@ -52,7 +52,7 @@ code {
 
 /* Inline code */
 :not(pre) > code {
-  background-color: #f0f0f0;
+  background-color: var(--color-code-bg);
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
   font-size: 0.85em;
@@ -78,13 +78,34 @@ pre code {
 
 /* Shiki styling */
 .astro-code {
-  background-color: #fafafa !important;
+  background-color: var(--color-code-bg) !important;
 }
 
 .astro-code code {
   display: block;
   width: fit-content;
   min-width: 100%;
+}
+
+/* Shiki dual theme support */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+[data-theme="dark"] .astro-code,
+[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .astro-code,
+  :root:not([data-theme="light"]) .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
 }
 
 a {
@@ -99,7 +120,7 @@ blockquote {
   margin: 2rem 0;
   padding: 1rem 1.5rem;
   border-left: 4px solid var(--accent-color);
-  background-color: #fafafa;
+  background-color: var(--color-bg-secondary);
   font-family: var(--font-heading);
   font-style: italic;
 }
@@ -125,8 +146,8 @@ li::marker {
 }
 
 kbd {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-border);
   border-radius: 0.25rem;
   padding: 0.125rem 0.5rem;
   margin-inline: 0.25rem;

@@ -1,7 +1,142 @@
+/* Base colors */
 :root {
-  --color-link: #0070f3;
-  --accent-color: #002999;
-  --color-border-light: #eaeaea;
-  --color-primary: #14252e;
-  --color-primary-lighter: #767676;
+  --color-bg: #fafafa;
+  --color-bg-secondary: #f3f4f6;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+
+  /* Aliases for compatibility */
+  --color-primary: var(--color-text);
+  --color-primary-lighter: var(--color-text-muted);
+  --color-border-light: var(--color-border);
+  --color-link: var(--accent-color);
+
+  /* Code blocks */
+  --color-code-bg: #f3f4f6;
+  --color-code-border: #e5e7eb;
+}
+
+/* Dark theme base */
+[data-theme="dark"] {
+  --color-bg: #0f0f0f;
+  --color-bg-secondary: #1a1a1a;
+  --color-text: #e5e5e5;
+  --color-text-muted: #9ca3af;
+  --color-border: #2d2d2d;
+
+  --color-code-bg: #1e1e1e;
+  --color-code-border: #2d2d2d;
+}
+
+/* System preference dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0f0f0f;
+    --color-bg-secondary: #1a1a1a;
+    --color-text: #e5e5e5;
+    --color-text-muted: #9ca3af;
+    --color-border: #2d2d2d;
+
+    --color-code-bg: #1e1e1e;
+    --color-code-border: #2d2d2d;
+  }
+}
+
+/* ================================
+   Time-based accent colors
+   ================================ */
+
+/* Morning (6am-12pm) - Warm amber */
+:root {
+  --accent-color: #d97706;
+  --accent-color-hover: #b45309;
+}
+
+[data-theme="dark"] {
+  --accent-color: #fbbf24;
+  --accent-color-hover: #fcd34d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent-color: #fbbf24;
+    --accent-color-hover: #fcd34d;
+  }
+}
+
+/* Morning (6am-12pm) - Warm amber */
+[data-time="morning"] {
+  --accent-color: #d97706;
+  --accent-color-hover: #b45309;
+}
+
+[data-theme="dark"][data-time="morning"],
+[data-time="morning"][data-theme="dark"] {
+  --accent-color: #fbbf24;
+  --accent-color-hover: #fcd34d;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-time="morning"]:not([data-theme="light"]) {
+    --accent-color: #fbbf24;
+    --accent-color-hover: #fcd34d;
+  }
+}
+
+/* Afternoon (12pm-6pm) - Teal */
+[data-time="afternoon"] {
+  --accent-color: #0d9488;
+  --accent-color-hover: #0f766e;
+}
+
+[data-theme="dark"][data-time="afternoon"],
+[data-time="afternoon"][data-theme="dark"] {
+  --accent-color: #2dd4bf;
+  --accent-color-hover: #5eead4;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-time="afternoon"]:not([data-theme="light"]) {
+    --accent-color: #2dd4bf;
+    --accent-color-hover: #5eead4;
+  }
+}
+
+/* Evening (6pm-9pm) - Coral/Rose */
+[data-time="evening"] {
+  --accent-color: #e11d48;
+  --accent-color-hover: #be123c;
+}
+
+[data-theme="dark"][data-time="evening"],
+[data-time="evening"][data-theme="dark"] {
+  --accent-color: #fb7185;
+  --accent-color-hover: #fda4af;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-time="evening"]:not([data-theme="light"]) {
+    --accent-color: #fb7185;
+    --accent-color-hover: #fda4af;
+  }
+}
+
+/* Night (9pm-6am) - Purple/Violet */
+[data-time="night"] {
+  --accent-color: #7c3aed;
+  --accent-color-hover: #6d28d9;
+}
+
+[data-theme="dark"][data-time="night"],
+[data-time="night"][data-theme="dark"] {
+  --accent-color: #a78bfa;
+  --accent-color-hover: #c4b5fd;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-time="night"]:not([data-theme="light"]) {
+    --accent-color: #a78bfa;
+    --accent-color-hover: #c4b5fd;
+  }
 }

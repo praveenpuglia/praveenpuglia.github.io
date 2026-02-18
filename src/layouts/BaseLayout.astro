@@ -16,6 +16,26 @@ const { title, description, socialImage } = Astro.props;
 
 <!doctype html>
 <html lang="en">
+  <script is:inline>
+    // Prevent flash - runs before anything renders
+    (function() {
+      // Set theme
+      var stored = localStorage.getItem('theme');
+      if (stored) {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+
+      // Set time-based accent color
+      function getTimeOfDay() {
+        var hour = new Date().getHours();
+        if (hour >= 6 && hour < 12) return 'morning';
+        if (hour >= 12 && hour < 18) return 'afternoon';
+        if (hour >= 18 && hour < 21) return 'evening';
+        return 'night';
+      }
+      document.documentElement.setAttribute('data-time', getTimeOfDay());
+    })();
+  </script>
   <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22054303-1"
@@ -89,5 +109,65 @@ const { title, description, socialImage } = Astro.props;
       <slot />
     </div>
     <Footer />
+    <script is:inline>
+      function initThemeToggle() {
+        var toggle = document.getElementById('theme-toggle');
+        if (!toggle) return;
+
+        function getTheme() {
+          var stored = localStorage.getItem('theme');
+          if (stored) return stored;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        function setTheme(theme) {
+          document.documentElement.classList.add('theme-transition');
+          document.documentElement.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+
+          setTimeout(function() {
+            document.documentElement.classList.remove('theme-transition');
+          }, 300);
+        }
+
+        toggle.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme') || getTheme();
+          setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // Listen for system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+          if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+      }
+
+      // Time detection function (shared with inline script)
+      function getTimeOfDay() {
+        var hour = new Date().getHours();
+        if (hour >= 6 && hour < 12) return 'morning';
+        if (hour >= 12 && hour < 18) return 'afternoon';
+        if (hour >= 18 && hour < 21) return 'evening';
+        return 'night';
+      }
+
+      function restoreAttributes() {
+        // Restore theme from localStorage
+        var storedTheme = localStorage.getItem('theme');
+        if (storedTheme) {
+          document.documentElement.setAttribute('data-theme', storedTheme);
+        }
+        // Restore time-based accent
+        document.documentElement.setAttribute('data-time', getTimeOfDay());
+      }
+
+      // Run on initial load and after view transitions
+      initThemeToggle();
+      document.addEventListener('astro:after-swap', function() {
+        restoreAttributes();
+        initThemeToggle();
+      });
+    </script>
   </body>
 </html>
