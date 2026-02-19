@@ -8,6 +8,7 @@
 
 /* Pages */
 @import url(./home.css);
+@import url(./games.css);
 
 html {
   /* Fluid base: 18px at 1080p, scales to 20px at 4k */

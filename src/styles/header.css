@@ -5,6 +5,8 @@
   min-height: 3rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin: auto;
   padding: 1rem;
   width: 85rem;
@@ -36,4 +38,17 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    gap: 0.25rem;
+  }
+  .main-navigation {
+    margin-left: 0;
+    width: 100%;
+  }
+  .navigation-links .navigation-link-item:last-child {
+    margin-left: auto;
+  }
 }
