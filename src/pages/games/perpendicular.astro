@@ -45,9 +45,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         <!-- Guide arm at perfect 90° — ghost of where the arm should be -->
         <rect
           id="guide-arm"
-          x="241"
+          x="236"
           y="50"
-          width="18"
+          width="28"
           height="200"
           class="guide-arm hidden"
         />
@@ -113,7 +113,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   }
 
   .arm {
-    stroke-width: 18;
+    stroke-width: 28;
     stroke-linecap: butt;
   }
 
@@ -139,10 +139,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   .angle-arc {
     fill: var(--accent-color);
-    opacity: 0.15;
+    opacity: 0;
     stroke: var(--accent-color);
     stroke-width: 1.5;
     stroke-opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .angle-arc.revealed {
+    opacity: 0.15;
   }
 
   .pivot {
@@ -324,7 +329,9 @@ function initPerpendicular() {
     dragHandle.setAttribute('cy', tipY);
 
     updateArc(angleDeg);
-    updateMovableTicks(rad);
+    if (!locked) {
+      updateMovableTicks(rad);
+    }
   }
 
   function updateArc(angleDeg) {
