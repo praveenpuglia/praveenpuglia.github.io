@@ -16,7 +16,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       >
         <!-- Ruler tick marks on fixed arm -->
         <g id="fixed-ticks" class="ruler-ticks"></g>
-        <!-- Ruler tick marks on movable arm -->
+        <!-- Ruler tick marks on movable arm (hidden during play) -->
         <g id="movable-ticks" class="ruler-ticks"></g>
 
         <!-- Fixed arm (horizontal, pointing right) -->
@@ -329,9 +329,6 @@ function initPerpendicular() {
     dragHandle.setAttribute('cy', tipY);
 
     updateArc(angleDeg);
-    if (!locked) {
-      updateMovableTicks(rad);
-    }
   }
 
   function updateArc(angleDeg) {
@@ -451,38 +448,52 @@ function initPerpendicular() {
   function showResult() {
     var offset = Math.abs(currentAngle - 90);
 
-    resultAngle.textContent = currentAngle.toFixed(2) + '\u00B0';
-    resultOffset.textContent = offset.toFixed(2) + '\u00B0 off from 90\u00B0';
+    resultAngle.textContent = currentAngle.toFixed(3) + '\u00B0';
+    resultOffset.textContent = offset.toFixed(3) + '\u00B0 off from 90\u00B0';
 
     var rating;
-    if (offset < 0.05) {
+    if (offset < 0.01) {
+      rating = 'Excuse me, are you a CNC machine?';
+    } else if (offset < 0.05) {
       rating = 'Okay, who gave the robot a mouse?';
     } else if (offset < 0.1) {
       rating = 'Are you a protractor?';
-    } else if (offset < 0.3) {
+    } else if (offset < 0.2) {
       rating = 'Did you just... eyeball perfection?';
-    } else if (offset < 0.7) {
+    } else if (offset < 0.4) {
       rating = 'Your geometry teacher would shed a tear.';
-    } else if (offset < 1.5) {
+    } else if (offset < 0.7) {
+      rating = 'Suspiciously good. Are you cheating?';
+    } else if (offset < 1.2) {
       rating = 'Almost surgical. Almost.';
+    } else if (offset < 2) {
+      rating = 'So close, yet so far.';
     } else if (offset < 3) {
       rating = 'Your geometry teacher would almost be proud.';
     } else if (offset < 5) {
       rating = 'Close enough for government work.';
-    } else if (offset < 8) {
+    } else if (offset < 7) {
       rating = 'Did your hand sneeze?';
-    } else if (offset < 12) {
+    } else if (offset < 10) {
+      rating = 'The right angle filed a restraining order.';
+    } else if (offset < 14) {
       rating = 'Were you even trying?';
     } else if (offset < 18) {
       rating = "That's... creative.";
-    } else if (offset < 25) {
+    } else if (offset < 23) {
+      rating = 'Bold strategy. Wrong, but bold.';
+    } else if (offset < 30) {
       rating = 'This is modern art, not geometry.';
-    } else if (offset < 35) {
+    } else if (offset < 40) {
       rating = 'Sir, this is a right angle game.';
     } else if (offset < 50) {
       rating = 'Did you confuse this with a limbo game?';
+    } else if (offset < 60) {
+      rating = 'Even a broken clock is closer to right.';
     } else if (offset < 70) {
       rating = 'At this point, you are just vibing.';
+    } else if (offset < 80) {
+      rating = 'Congratulations, you found the wrong angle.';
     } else {
       rating = 'You literally just need to go up.';
     }
@@ -492,6 +503,8 @@ function initPerpendicular() {
     localStorage.setItem(STORAGE_KEY, String(trialCount));
     updateTrialCounter();
 
+    updateMovableTicks(-currentAngle / DEG);
+    angleArc.classList.add('revealed');
     guideArm.classList.remove('hidden');
     resultEl.classList.remove('hidden');
     instruction.classList.add('hidden');
@@ -501,6 +514,8 @@ function initPerpendicular() {
     locked = false;
     dragging = false;
     lastTickAngle = null;
+    movableTicks.innerHTML = '';
+    angleArc.classList.remove('revealed');
     guideArm.classList.add('hidden');
     resultEl.classList.add('hidden');
     instruction.classList.remove('hidden');
