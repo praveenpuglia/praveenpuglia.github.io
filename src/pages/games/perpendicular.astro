@@ -75,6 +75,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </div>
 
     <p class="game-instruction" id="game-instruction">Drag the handle to set your angle, then release.</p>
+    <p class="trial-counter" id="trial-counter"></p>
   </div>
 </BaseLayout>
 
@@ -234,6 +235,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   .game-instruction.hidden {
     display: none;
   }
+
+  .trial-counter {
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    opacity: 0.6;
+  }
 </style>
 
 <script is:inline>
@@ -254,6 +263,15 @@ function initPerpendicular() {
   var restartBtn = document.getElementById('restart-btn');
   var guideArm = document.getElementById('guide-arm');
   var instruction = document.getElementById('game-instruction');
+  var trialCounterEl = document.getElementById('trial-counter');
+
+  var STORAGE_KEY = 'perpendicular-trials';
+  var trialCount = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+  updateTrialCounter();
+
+  function updateTrialCounter() {
+    trialCounterEl.textContent = 'Attempt #' + (trialCount + 1);
+  }
 
   var PIVOT_X = 250;
   var PIVOT_Y = 250;
@@ -426,26 +444,46 @@ function initPerpendicular() {
   function showResult() {
     var offset = Math.abs(currentAngle - 90);
 
-    resultAngle.textContent = currentAngle.toFixed(1) + '\u00B0';
-    resultOffset.textContent = offset.toFixed(1) + '\u00B0 off from 90\u00B0';
+    resultAngle.textContent = currentAngle.toFixed(2) + '\u00B0';
+    resultOffset.textContent = offset.toFixed(2) + '\u00B0 off from 90\u00B0';
 
     var rating;
-    if (offset < 0.3) {
+    if (offset < 0.05) {
+      rating = 'Okay, who gave the robot a mouse?';
+    } else if (offset < 0.1) {
       rating = 'Are you a protractor?';
-    } else if (offset < 1) {
+    } else if (offset < 0.3) {
       rating = 'Did you just... eyeball perfection?';
+    } else if (offset < 0.7) {
+      rating = 'Your geometry teacher would shed a tear.';
+    } else if (offset < 1.5) {
+      rating = 'Almost surgical. Almost.';
     } else if (offset < 3) {
       rating = 'Your geometry teacher would almost be proud.';
-    } else if (offset < 7) {
+    } else if (offset < 5) {
       rating = 'Close enough for government work.';
-    } else if (offset < 15) {
+    } else if (offset < 8) {
+      rating = 'Did your hand sneeze?';
+    } else if (offset < 12) {
       rating = 'Were you even trying?';
-    } else if (offset < 30) {
+    } else if (offset < 18) {
       rating = "That's... creative.";
-    } else {
+    } else if (offset < 25) {
+      rating = 'This is modern art, not geometry.';
+    } else if (offset < 35) {
       rating = 'Sir, this is a right angle game.';
+    } else if (offset < 50) {
+      rating = 'Did you confuse this with a limbo game?';
+    } else if (offset < 70) {
+      rating = 'At this point, you are just vibing.';
+    } else {
+      rating = 'You literally just need to go up.';
     }
     resultRating.textContent = rating;
+
+    trialCount++;
+    localStorage.setItem(STORAGE_KEY, String(trialCount));
+    updateTrialCounter();
 
     guideArm.classList.remove('hidden');
     resultEl.classList.remove('hidden');
