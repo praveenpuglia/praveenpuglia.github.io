@@ -87,13 +87,7 @@ pre code {
   min-width: 100%;
 }
 
-/* Shiki dual theme support */
-.astro-code,
-.astro-code span {
-  color: var(--shiki-light) !important;
-  background-color: var(--shiki-light-bg) !important;
-}
-
+/* Shiki dual theme support - dark mode overrides */
 [data-theme="dark"] .astro-code,
 [data-theme="dark"] .astro-code span {
   color: var(--shiki-dark) !important;
