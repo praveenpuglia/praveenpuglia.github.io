@@ -1,5 +1,5 @@
 ---
-title: I Have Settle Down To Inconsolata For Code
+title: I Have Settled Down To Inconsolata For Code
 date: 2014-07-29
 ---
 
