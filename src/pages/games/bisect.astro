@@ -1,0 +1,995 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Bisect" description="Find the exact midpoint of a line segment. Five rounds to prove your precision.">
+  <div class="game-wrapper">
+    <h1 class="game-title">Bisect</h1>
+    <p class="game-subtitle">Click on the exact midpoint of the line.</p>
+
+    <div class="game-area" id="game-area">
+      <svg
+        id="game-svg"
+        viewBox="0 0 500 400"
+        class="game-svg"
+        aria-label="Bisect game area"
+      >
+        <!-- The random line segment (visible during play) -->
+        <line
+          id="segment-line"
+          x1="0" y1="0" x2="0" y2="0"
+          class="segment-line"
+        />
+
+        <!-- Split halves (shown after cut, animated apart) -->
+        <g id="half-a-group" class="half-group">
+          <line id="half-a" x1="0" y1="0" x2="0" y2="0" class="segment-half hidden" />
+        </g>
+        <g id="half-b-group" class="half-group">
+          <line id="half-b" x1="0" y1="0" x2="0" y2="0" class="segment-half hidden" />
+        </g>
+
+        <!-- Error segment along the line between cut and midpoint -->
+        <line
+          id="error-segment"
+          x1="0" y1="0" x2="0" y2="0"
+          class="error-segment hidden"
+        />
+
+        <!-- Cursor mark — perpendicular tick that slides along the line -->
+        <line
+          id="cursor-mark"
+          x1="0" y1="0" x2="0" y2="0"
+          class="cursor-mark hidden"
+        />
+
+        <!-- Cut mark — where the user clicked -->
+        <line
+          id="cut-mark"
+          x1="0" y1="0" x2="0" y2="0"
+          class="cut-mark hidden"
+        />
+
+        <!-- True midpoint mark -->
+        <line
+          id="midpoint-mark"
+          x1="0" y1="0" x2="0" y2="0"
+          class="midpoint-mark hidden"
+        />
+
+        <!-- Countdown timer -->
+        <g id="timer-group" class="timer-group hidden">
+          <circle id="timer-bg" cx="0" cy="0" r="14" class="timer-bg" />
+          <text id="timer-text" x="0" y="0" class="timer-text" text-anchor="middle" dominant-baseline="central"></text>
+        </g>
+
+        <!-- Invisible click target covering full SVG -->
+        <rect
+          id="click-target"
+          x="0" y="0" width="500" height="400"
+          class="click-target"
+        />
+      </svg>
+    </div>
+
+    <div class="round-info" id="round-info">
+      <span class="round-counter" id="round-counter">Round 1/5</span>
+      <span class="running-score" id="running-score"></span>
+    </div>
+
+    <div id="round-result" class="round-result hidden">
+      <p class="result-accuracy" id="result-accuracy"></p>
+      <p class="result-offset" id="result-offset"></p>
+      <p class="result-rating" id="result-rating"></p>
+    </div>
+
+    <div id="game-over" class="game-over hidden">
+      <div class="game-over-content">
+        <h2 class="game-over-title">Game Over</h2>
+        <p class="game-over-average" id="game-over-average"></p>
+        <p class="game-over-rating" id="game-over-rating"></p>
+        <div class="game-over-rounds" id="game-over-rounds"></div>
+        <div class="game-over-actions">
+          <button id="share-btn" class="share-btn">Share</button>
+          <button id="play-again-btn" class="play-again-btn">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="game-instruction" id="game-instruction">Click where you think the midpoint is.</p>
+    <p class="game-counter" id="game-counter"></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .game-wrapper {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .game-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .game-subtitle {
+    color: var(--color-text-muted);
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .game-area {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .game-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+  }
+
+  .segment-line {
+    stroke: var(--accent-color);
+    stroke-width: 28;
+    stroke-linecap: butt;
+  }
+
+  .segment-half {
+    stroke: var(--accent-color);
+    stroke-width: 28;
+    stroke-linecap: butt;
+  }
+
+  .half-group {
+    transition: transform 0.5s ease-out;
+  }
+
+  .cursor-mark {
+    stroke: var(--color-bg);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.6;
+  }
+
+  .cut-mark {
+    stroke: var(--color-bg);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+  }
+
+  .midpoint-mark {
+    stroke: var(--color-text-muted);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 3 2;
+  }
+
+  .error-segment {
+    stroke: var(--color-text-muted);
+    stroke-width: 28;
+    stroke-linecap: butt;
+    opacity: 0.3;
+  }
+
+  .timer-group.hidden {
+    display: none;
+  }
+
+  .timer-bg {
+    fill: var(--color-bg);
+    stroke: var(--color-text-muted);
+    stroke-width: 1.5;
+  }
+
+  .timer-text {
+    fill: var(--color-text-muted);
+    font-family: var(--font-monospace);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .click-target {
+    fill: transparent;
+    cursor: crosshair;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .round-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    font-family: var(--font-monospace);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .running-score {
+    opacity: 0.8;
+  }
+
+  .round-result {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .round-result.hidden {
+    display: none;
+  }
+
+  .result-accuracy {
+    font-family: var(--font-monospace);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.1;
+  }
+
+  .result-offset {
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0;
+    color: var(--color-text-muted);
+  }
+
+  .result-rating {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0.75rem 0 0;
+    color: var(--accent-color);
+  }
+
+  .game-over {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+  }
+
+  .game-over.hidden {
+    display: none;
+  }
+
+  .game-over-content {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .game-over-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .game-over-average {
+    font-family: var(--font-monospace);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--color-text);
+  }
+
+  .game-over-rating {
+    font-style: italic;
+    color: var(--accent-color);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .game-over-rounds {
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .game-over-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .share-btn,
+  .play-again-btn {
+    padding: 0.5rem 1.5rem;
+    min-width: 7rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .play-again-btn {
+    background: var(--accent-color);
+    color: var(--color-bg);
+  }
+
+  .share-btn {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .share-btn:hover,
+  .play-again-btn:hover {
+    opacity: 0.85;
+  }
+
+  .game-instruction {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  }
+
+  .game-instruction.hidden {
+    display: none;
+  }
+
+  .game-counter {
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    opacity: 0.6;
+  }
+</style>
+
+<script is:inline>
+function initBisect() {
+  var svg = document.getElementById('game-svg');
+  if (!svg || svg.dataset.initialized) return;
+  svg.dataset.initialized = 'true';
+
+  var segmentLine = document.getElementById('segment-line');
+  var halfA = document.getElementById('half-a');
+  var halfB = document.getElementById('half-b');
+  var halfAGroup = document.getElementById('half-a-group');
+  var halfBGroup = document.getElementById('half-b-group');
+  var cursorMark = document.getElementById('cursor-mark');
+  var cutMark = document.getElementById('cut-mark');
+  var midpointMark = document.getElementById('midpoint-mark');
+  var errorSegment = document.getElementById('error-segment');
+  var timerGroup = document.getElementById('timer-group');
+  var timerBg = document.getElementById('timer-bg');
+  var timerText = document.getElementById('timer-text');
+  var clickTarget = document.getElementById('click-target');
+  var roundCounter = document.getElementById('round-counter');
+  var runningScore = document.getElementById('running-score');
+  var roundResult = document.getElementById('round-result');
+  var resultAccuracy = document.getElementById('result-accuracy');
+  var resultOffset = document.getElementById('result-offset');
+  var resultRating = document.getElementById('result-rating');
+  var gameOverEl = document.getElementById('game-over');
+  var gameOverAverage = document.getElementById('game-over-average');
+  var gameOverRating = document.getElementById('game-over-rating');
+  var gameOverRounds = document.getElementById('game-over-rounds');
+  var shareBtn = document.getElementById('share-btn');
+  var playAgainBtn = document.getElementById('play-again-btn');
+  var instruction = document.getElementById('game-instruction');
+  var gameCounterEl = document.getElementById('game-counter');
+
+  var TOTAL_ROUNDS = 5;
+  var SVG_WIDTH = 500;
+  var SVG_HEIGHT = 400;
+  var PADDING = 60;
+  var MIN_LENGTH = 150;
+  var MAX_LENGTH = 350;
+
+  var KEY_GAME_COUNT = 'bisect-game-count';
+  var KEY_BEST_SCORE = 'bisect-best-score';
+  var KEY_RECENT_SCORES = 'bisect-recent-scores';
+
+  var currentRound = 0;
+  var roundScores = [];
+  var locked = false;
+  var audioCtx = null;
+
+  var lineX1, lineY1, lineX2, lineY2;
+  var midX, midY, lineLength;
+  // Perpendicular direction (unit normal to the segment), computed once per line
+  var perpX, perpY;
+  var MARK_HALF = 22; // half-length of the perpendicular tick marks
+  var SPLIT_GAP = 10; // how far halves spread apart on cut
+  var SPLIT_GRAVITY = 6; // slight downward drop
+  var timerInterval = null;
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function playCut() {
+    if (!audioCtx) return;
+    var now = audioCtx.currentTime;
+
+    // White noise burst for the "snip" texture
+    var bufferSize = audioCtx.sampleRate * 0.06;
+    var buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    var data = buffer.getChannelData(0);
+    for (var i = 0; i < bufferSize; i++) {
+      data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+    }
+    var noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    // High-pass filter to make it sharp
+    var filter = audioCtx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.value = 2000;
+
+    var noiseGain = audioCtx.createGain();
+    noiseGain.gain.setValueAtTime(0.15, now);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+
+    noise.connect(filter);
+    filter.connect(noiseGain);
+    noiseGain.connect(audioCtx.destination);
+    noise.start(now);
+    noise.stop(now + 0.06);
+
+    // Quick descending tone for the "slice" feel
+    var osc = audioCtx.createOscillator();
+    var oscGain = audioCtx.createGain();
+    osc.connect(oscGain);
+    oscGain.connect(audioCtx.destination);
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(1800, now);
+    osc.frequency.exponentialRampToValueAtTime(400, now + 0.04);
+    oscGain.gain.setValueAtTime(0.07, now);
+    oscGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+    osc.start(now);
+    osc.stop(now + 0.05);
+  }
+
+  function generateLine() {
+    var cx = PADDING + Math.random() * (SVG_WIDTH - 2 * PADDING);
+    var cy = PADDING + Math.random() * (SVG_HEIGHT - 2 * PADDING);
+    var angle = Math.random() * Math.PI;
+    var halfLen = (MIN_LENGTH + Math.random() * (MAX_LENGTH - MIN_LENGTH)) / 2;
+
+    var dx = halfLen * Math.cos(angle);
+    var dy = halfLen * Math.sin(angle);
+
+    var x1 = cx - dx;
+    var y1 = cy - dy;
+    var x2 = cx + dx;
+    var y2 = cy + dy;
+
+    var minX = PADDING, maxX = SVG_WIDTH - PADDING;
+    var minY = PADDING, maxY = SVG_HEIGHT - PADDING;
+    var shift;
+
+    if (x1 < minX) { shift = minX - x1; x1 += shift; x2 += shift; }
+    if (x2 < minX) { shift = minX - x2; x1 += shift; x2 += shift; }
+    if (x1 > maxX) { shift = x1 - maxX; x1 -= shift; x2 -= shift; }
+    if (x2 > maxX) { shift = x2 - maxX; x1 -= shift; x2 -= shift; }
+    if (y1 < minY) { shift = minY - y1; y1 += shift; y2 += shift; }
+    if (y2 < minY) { shift = minY - y2; y1 += shift; y2 += shift; }
+    if (y1 > maxY) { shift = y1 - maxY; y1 -= shift; y2 -= shift; }
+    if (y2 > maxY) { shift = y2 - maxY; y1 -= shift; y2 -= shift; }
+
+    lineX1 = x1;
+    lineY1 = y1;
+    lineX2 = x2;
+    lineY2 = y2;
+    midX = (x1 + x2) / 2;
+    midY = (y1 + y2) / 2;
+    lineLength = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
+    // Perpendicular unit vector (rotated 90 degrees from line direction)
+    var dirX = (x2 - x1) / lineLength;
+    var dirY = (y2 - y1) / lineLength;
+    perpX = -dirY;
+    perpY = dirX;
+  }
+
+  // Project a point onto the line segment, returning the clamped position
+  function projectOntoLine(px, py) {
+    var dx = lineX2 - lineX1;
+    var dy = lineY2 - lineY1;
+    var t = ((px - lineX1) * dx + (py - lineY1) * dy) / (lineLength * lineLength);
+    t = Math.max(0, Math.min(1, t));
+    return { x: lineX1 + t * dx, y: lineY1 + t * dy, t: t };
+  }
+
+  // Position a perpendicular tick mark at a point on the line
+  function setMark(el, px, py) {
+    el.setAttribute('x1', px - perpX * MARK_HALF);
+    el.setAttribute('y1', py - perpY * MARK_HALF);
+    el.setAttribute('x2', px + perpX * MARK_HALF);
+    el.setAttribute('y2', py + perpY * MARK_HALF);
+  }
+
+  function drawLine() {
+    segmentLine.setAttribute('x1', lineX1);
+    segmentLine.setAttribute('y1', lineY1);
+    segmentLine.setAttribute('x2', lineX2);
+    segmentLine.setAttribute('y2', lineY2);
+    segmentLine.classList.remove('hidden');
+  }
+
+  function calculateAccuracy(proj) {
+    // Distance along the line between projected cut and true midpoint
+    var dx = proj.x - midX;
+    var dy = proj.y - midY;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    var halfLen = lineLength / 2;
+    var errorPercent = (dist / halfLen) * 100;
+    var accuracy = Math.max(0, 100 - errorPercent);
+    return { dist: dist, errorPercent: errorPercent, accuracy: accuracy };
+  }
+
+  var highRatings = [
+    [99.5, [
+      'Are you a laser-guided ruler?',
+      'Okay, put down the electron microscope.',
+      'The midpoint just asked for a restraining order.',
+      'This should be illegal.',
+    ]],
+    [99, [
+      'Did a machine just play this?',
+      'You could split atoms with that precision.',
+      'One pixel off? You call that an error?',
+      'The midpoint is trembling.',
+    ]],
+    [98, [
+      'The midpoint filed a privacy complaint.',
+      'NASA would like to hire you.',
+      'Okay, who gave the surgeon a mouse?',
+      'You bisected the bisection.',
+    ]],
+    [97, [
+      'Pixel-perfect. Literally.',
+      'Are your fingers calibrated?',
+      'You sneezed and still nailed it.',
+      'This is suspiciously precise.',
+    ]],
+    [96, [
+      'Your eyes are basically calipers.',
+      'Do you moonlight as a CNC machine?',
+      'Geometrically gifted.',
+      'The line never stood a chance.',
+    ]],
+  ];
+
+  function getRating(accuracy) {
+    for (var i = 0; i < highRatings.length; i++) {
+      if (accuracy >= highRatings[i][0]) {
+        var msgs = highRatings[i][1];
+        return msgs[Math.floor(Math.random() * msgs.length)];
+      }
+    }
+    if (accuracy >= 94) return 'Did you bring a magnifying glass?';
+    if (accuracy >= 91) return 'Surgically precise. Almost.';
+    if (accuracy >= 88) return 'Your geometry teacher would weep with joy.';
+    if (accuracy >= 85) return 'Suspiciously good. Are you a compass?';
+    if (accuracy >= 80) return 'Solid. Very solid.';
+    if (accuracy >= 75) return 'Not bad for a pair of eyeballs.';
+    if (accuracy >= 70) return 'Close enough for a rough sketch.';
+    if (accuracy >= 65) return 'The midpoint is waving at you from over there.';
+    if (accuracy >= 60) return 'Half right about being half right.';
+    if (accuracy >= 50) return 'Bold guess. Emphasis on bold.';
+    if (accuracy >= 40) return 'That is... an endpoint.';
+    if (accuracy >= 30) return 'Sir, this is a midpoint game.';
+    if (accuracy >= 20) return 'Were you aiming for a different line?';
+    if (accuracy >= 10) return 'Did you close your eyes?';
+    return 'You just clicked for fun, right?';
+  }
+
+  function getSvgPoint(e) {
+    var pt = svg.createSVGPoint();
+    if (e.changedTouches) {
+      pt.x = e.changedTouches[0].clientX;
+      pt.y = e.changedTouches[0].clientY;
+    } else if (e.touches) {
+      pt.x = e.touches[0].clientX;
+      pt.y = e.touches[0].clientY;
+    } else {
+      pt.x = e.clientX;
+      pt.y = e.clientY;
+    }
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  function handlePointerMove(e) {
+    if (locked) return;
+    var svgPt = getSvgPoint(e);
+    var proj = projectOntoLine(svgPt.x, svgPt.y);
+    setMark(cursorMark, proj.x, proj.y);
+    cursorMark.classList.remove('hidden');
+  }
+
+  function handlePointerLeave() {
+    if (locked) return;
+    cursorMark.classList.add('hidden');
+  }
+
+  function handleClick(e) {
+    if (locked) return;
+    e.preventDefault();
+    initAudio();
+    locked = true;
+
+    var svgPt = getSvgPoint(e);
+    var proj = projectOntoLine(svgPt.x, svgPt.y);
+    playCut();
+    cursorMark.classList.add('hidden');
+    showRoundResult(proj);
+  }
+
+  function showRoundResult(proj) {
+    var result = calculateAccuracy(proj);
+
+    // Hide the full segment, show two halves at the cut point
+    segmentLine.classList.add('hidden');
+
+    halfA.setAttribute('x1', lineX1);
+    halfA.setAttribute('y1', lineY1);
+    halfA.setAttribute('x2', proj.x);
+    halfA.setAttribute('y2', proj.y);
+    halfA.classList.remove('hidden');
+
+    halfB.setAttribute('x1', proj.x);
+    halfB.setAttribute('y1', proj.y);
+    halfB.setAttribute('x2', lineX2);
+    halfB.setAttribute('y2', lineY2);
+    halfB.classList.remove('hidden');
+
+    // Reset transforms before animating
+    halfAGroup.style.transform = 'translate(0px, 0px)';
+    halfBGroup.style.transform = 'translate(0px, 0px)';
+
+    // Animate halves apart after a frame
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        var ax = -perpX * SPLIT_GAP;
+        var ay = -perpY * SPLIT_GAP + SPLIT_GRAVITY;
+        var bx = perpX * SPLIT_GAP;
+        var by = perpY * SPLIT_GAP + SPLIT_GRAVITY;
+        halfAGroup.style.transform = 'translate(' + ax + 'px, ' + ay + 'px)';
+        halfBGroup.style.transform = 'translate(' + bx + 'px, ' + by + 'px)';
+      });
+    });
+
+    // Show cut mark at the user's projected position
+    setMark(cutMark, proj.x, proj.y);
+    cutMark.classList.remove('hidden');
+
+    // Show true midpoint mark
+    setMark(midpointMark, midX, midY);
+    midpointMark.classList.remove('hidden');
+
+    // Show error segment along the line between cut and midpoint
+    errorSegment.setAttribute('x1', proj.x);
+    errorSegment.setAttribute('y1', proj.y);
+    errorSegment.setAttribute('x2', midX);
+    errorSegment.setAttribute('y2', midY);
+    errorSegment.classList.remove('hidden');
+
+    resultAccuracy.textContent = result.accuracy.toFixed(2) + '%';
+    resultOffset.textContent = result.dist.toFixed(2) + 'px off (' + result.errorPercent.toFixed(2) + '% of half-length)';
+    resultRating.textContent = getRating(result.accuracy);
+
+    roundScores.push(result.accuracy);
+
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+    runningScore.textContent = 'Avg: ' + avg.toFixed(2) + '%';
+
+    roundResult.classList.remove('hidden');
+    instruction.classList.add('hidden');
+
+    // Countdown timer at cut position (offset above the line)
+    startCountdown(proj.x, proj.y);
+  }
+
+  function startCountdown(cx, cy) {
+    var offsetY = -30;
+    timerBg.setAttribute('cx', cx);
+    timerBg.setAttribute('cy', cy + offsetY);
+    timerText.setAttribute('x', cx);
+    timerText.setAttribute('y', cy + offsetY);
+
+    var remaining = 3;
+    timerText.textContent = remaining;
+    timerGroup.classList.remove('hidden');
+
+    timerInterval = setInterval(function() {
+      remaining--;
+      if (remaining <= 0) {
+        clearInterval(timerInterval);
+        timerGroup.classList.add('hidden');
+        nextRound();
+      } else {
+        timerText.textContent = remaining;
+      }
+    }, 1000);
+  }
+
+  function nextRound() {
+    currentRound++;
+
+    if (currentRound >= TOTAL_ROUNDS) {
+      showGameOver();
+      return;
+    }
+
+    resetRound();
+  }
+
+  function resetRound() {
+    locked = false;
+
+    // Hide cut artifacts
+    halfA.classList.add('hidden');
+    halfB.classList.add('hidden');
+    halfAGroup.style.transform = '';
+    halfBGroup.style.transform = '';
+    cutMark.classList.add('hidden');
+    midpointMark.classList.add('hidden');
+    errorSegment.classList.add('hidden');
+    cursorMark.classList.add('hidden');
+    timerGroup.classList.add('hidden');
+    roundResult.classList.add('hidden');
+    instruction.classList.remove('hidden');
+
+    generateLine();
+    drawLine();
+
+    roundCounter.textContent = 'Round ' + (currentRound + 1) + '/' + TOTAL_ROUNDS;
+  }
+
+  function showGameOver() {
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '0', 10) + 1;
+    localStorage.setItem(KEY_GAME_COUNT, String(gameCount));
+
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    if (avg > bestScore) {
+      bestScore = avg;
+      localStorage.setItem(KEY_BEST_SCORE, String(bestScore.toFixed(2)));
+    }
+
+    var recentScores = JSON.parse(localStorage.getItem(KEY_RECENT_SCORES) || '[]');
+    recentScores.push(parseFloat(avg.toFixed(2)));
+    if (recentScores.length > 3) {
+      recentScores = recentScores.slice(-3);
+    }
+    localStorage.setItem(KEY_RECENT_SCORES, JSON.stringify(recentScores));
+
+    updateGameCounter(gameCount);
+
+    gameOverAverage.textContent = avg.toFixed(2) + '% accuracy';
+    gameOverRating.textContent = getRating(avg);
+
+    var roundsHtml = '';
+    for (var i = 0; i < roundScores.length; i++) {
+      roundsHtml += 'Round ' + (i + 1) + ': ' + roundScores[i].toFixed(2) + '%<br>';
+    }
+    gameOverRounds.innerHTML = roundsHtml;
+
+    gameOverEl.classList.remove('hidden');
+  }
+
+  function updateGameCounter(count) {
+    if (count === undefined) {
+      count = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '0', 10);
+    }
+    if (count > 0) {
+      gameCounterEl.textContent = 'Games played: ' + count;
+    }
+  }
+
+  function restart() {
+    currentRound = 0;
+    roundScores = [];
+    locked = false;
+
+    if (timerInterval) clearInterval(timerInterval);
+    gameOverEl.classList.add('hidden');
+    roundResult.classList.add('hidden');
+    halfA.classList.add('hidden');
+    halfB.classList.add('hidden');
+    halfAGroup.style.transform = '';
+    halfBGroup.style.transform = '';
+    cutMark.classList.add('hidden');
+    midpointMark.classList.add('hidden');
+    errorSegment.classList.add('hidden');
+    cursorMark.classList.add('hidden');
+    timerGroup.classList.add('hidden');
+    instruction.classList.remove('hidden');
+
+    runningScore.textContent = '';
+    roundCounter.textContent = 'Round 1/' + TOTAL_ROUNDS;
+    generateLine();
+    drawLine();
+  }
+
+  function buildShareCard() {
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '1', 10);
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    var recentScores = JSON.parse(localStorage.getItem(KEY_RECENT_SCORES) || '[]');
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    // Read theme colors from the document
+    var cs = getComputedStyle(document.documentElement);
+    var bg = cs.getPropertyValue('--color-bg').trim();
+    var text = cs.getPropertyValue('--color-text').trim();
+    var muted = cs.getPropertyValue('--color-text-muted').trim();
+    var accent = cs.getPropertyValue('--accent-color').trim();
+    var border = cs.getPropertyValue('--color-border').trim();
+
+    var dpr = window.devicePixelRatio || 1;
+    var W = 400;
+    var H = 380;
+    var canvas = document.createElement('canvas');
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    // Background
+    ctx.fillStyle = bg;
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 12);
+    ctx.fill();
+
+    // Border
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 12);
+    ctx.stroke();
+
+    // Title
+    ctx.fillStyle = muted;
+    ctx.font = '600 14px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Bisect #' + gameCount, W / 2, 36);
+
+    // Big accuracy number
+    ctx.fillStyle = text;
+    ctx.font = '700 48px ui-monospace, monospace';
+    ctx.fillText(avg.toFixed(2) + '%', W / 2, 88);
+
+    // Rating
+    ctx.fillStyle = accent;
+    ctx.font = 'italic 14px system-ui, sans-serif';
+    ctx.fillText(getRating(avg), W / 2, 112);
+
+    // Divider
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(40, 128);
+    ctx.lineTo(W - 40, 128);
+    ctx.stroke();
+
+    // Round scores
+    ctx.font = '13px ui-monospace, monospace';
+    ctx.fillStyle = muted;
+    var y = 156;
+    for (var i = 0; i < roundScores.length; i++) {
+      ctx.fillText('Round ' + (i + 1) + ':  ' + roundScores[i].toFixed(2) + '%', W / 2, y);
+      y += 22;
+    }
+
+    // Divider
+    ctx.strokeStyle = border;
+    ctx.beginPath();
+    ctx.moveTo(40, y + 4);
+    ctx.lineTo(W - 40, y + 4);
+    ctx.stroke();
+
+    // Best score
+    y += 26;
+    ctx.fillStyle = muted;
+    ctx.font = '13px ui-monospace, monospace';
+    ctx.fillText('Best ever: ' + bestScore.toFixed(2) + '%', W / 2, y);
+
+    // Recent scores
+    if (recentScores.length > 0) {
+      y += 22;
+      var recentStr = recentScores.map(function(s) { return s.toFixed(2) + '%'; }).join('  |  ');
+      ctx.fillText('Recent: ' + recentStr, W / 2, y);
+    }
+
+    // URL
+    ctx.fillStyle = accent;
+    ctx.font = '12px system-ui, sans-serif';
+    ctx.fillText('praveenpuglia.com/games/bisect', W / 2, H - 16);
+
+    return canvas;
+  }
+
+  function share() {
+    var canvas = buildShareCard();
+
+    canvas.toBlob(function(blob) {
+      if (!blob) return;
+
+      // Try native share with image file
+      if (navigator.share && navigator.canShare) {
+        var file = new File([blob], 'bisect-score.png', { type: 'image/png' });
+        var shareData = { files: [file] };
+        if (navigator.canShare(shareData)) {
+          navigator.share(shareData).catch(function() {});
+          return;
+        }
+      }
+
+      // Fallback: copy image to clipboard
+      if (navigator.clipboard && typeof ClipboardItem !== 'undefined') {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          shareBtn.textContent = 'Copied!';
+          setTimeout(function() { shareBtn.textContent = 'Share'; }, 2000);
+        }).catch(function() {
+          fallbackTextCopy();
+        });
+      } else {
+        fallbackTextCopy();
+      }
+    }, 'image/png');
+  }
+
+  function fallbackTextCopy() {
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '1', 10);
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    var text = 'Bisect #' + gameCount + '\n';
+    text += 'Accuracy: ' + avg.toFixed(2) + '%\n';
+    text += 'Best ever: ' + bestScore.toFixed(2) + '%\n';
+    text += '\nhttps://praveenpuglia.com/games/bisect';
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() {
+        shareBtn.textContent = 'Copied!';
+        setTimeout(function() { shareBtn.textContent = 'Share'; }, 2000);
+      });
+    }
+  }
+
+  // Event listeners
+  clickTarget.addEventListener('click', handleClick);
+  clickTarget.addEventListener('touchend', handleClick);
+  svg.addEventListener('mousemove', handlePointerMove);
+  svg.addEventListener('touchmove', function(e) { e.preventDefault(); handlePointerMove(e); }, { passive: false });
+  svg.addEventListener('mouseleave', handlePointerLeave);
+  playAgainBtn.addEventListener('click', restart);
+  shareBtn.addEventListener('click', share);
+
+  // Initialize
+  updateGameCounter();
+  generateLine();
+  drawLine();
+  roundCounter.textContent = 'Round 1/' + TOTAL_ROUNDS;
+}
+
+initBisect();
+document.addEventListener('astro:page-load', initBisect);
+</script>

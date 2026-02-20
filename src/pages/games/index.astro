@@ -7,6 +7,16 @@ const games = [
     title: "Perpendicular",
     description: "Drag the arm and try to hit exactly 90 degrees. How precise are you?",
     href: "/games/perpendicular",
+    avatar: `<line x1="50" y1="50" x2="95" y2="50" stroke="var(--color-text-muted)" stroke-width="10" stroke-linecap="butt" opacity="0.4" />
+      <line x1="50" y1="50" x2="80" y2="15" stroke="var(--accent-color)" stroke-width="10" stroke-linecap="butt" />
+      <circle cx="50" cy="50" r="5" fill="var(--color-text)" />`,
+  },
+  {
+    title: "Bisect",
+    description: "Find the exact midpoint of a line segment. Five rounds to prove your precision.",
+    href: "/games/bisect",
+    avatar: `<line x1="15" y1="70" x2="85" y2="30" stroke="var(--color-text-muted)" stroke-width="6" stroke-linecap="round" opacity="0.5" />
+      <circle cx="50" cy="50" r="5" fill="var(--accent-color)" />`,
   },
 ];
 ---
@@ -19,11 +29,7 @@ const games = [
         <li class="game-card">
           <a href={game.href} class="game-card-link">
             <div class="game-card-avatar">
-              <svg viewBox="0 0 100 100" aria-hidden="true" class="game-avatar">
-                <line x1="50" y1="50" x2="95" y2="50" stroke="var(--color-text-muted)" stroke-width="10" stroke-linecap="butt" opacity="0.4" />
-                <line x1="50" y1="50" x2="80" y2="15" stroke="var(--accent-color)" stroke-width="10" stroke-linecap="butt" />
-                <circle cx="50" cy="50" r="5" fill="var(--color-text)" />
-              </svg>
+              <svg viewBox="0 0 100 100" aria-hidden="true" class="game-avatar" set:html={game.avatar} />
             </div>
             <div class="game-card-body">
               <h4>{game.title}</h4>
