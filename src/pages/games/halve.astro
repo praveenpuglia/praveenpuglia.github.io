@@ -1,0 +1,1564 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Halve" description="Split a shape into two equal halves with a single cut. Five rounds to prove your precision.">
+  <div class="game-wrapper">
+    <h1 class="game-title">Halve</h1>
+    <p class="game-subtitle">Draw a line to split the shape in half.</p>
+
+    <div class="round-info" id="round-info">
+      <span class="round-counter" id="round-counter">Round 1/5</span>
+      <span class="running-score" id="running-score"></span>
+    </div>
+
+    <p class="result-rating hidden" id="result-rating"></p>
+
+    <div class="game-area" id="game-area">
+      <svg
+        id="game-svg"
+        viewBox="0 0 500 400"
+        class="game-svg"
+        aria-label="Halve game area"
+      >
+        <!-- The random convex polygon -->
+        <polygon id="shape-polygon" class="shape-polygon" points="" />
+
+        <!-- Split halves (shown after cut) -->
+        <g id="half-a-group" class="half-group">
+          <polygon id="half-a" class="shape-half hidden" points="" />
+          <text id="label-a" class="half-label hidden" x="0" y="0"></text>
+        </g>
+        <g id="half-b-group" class="half-group">
+          <polygon id="half-b" class="shape-half hidden" points="" />
+          <text id="label-b" class="half-label hidden" x="0" y="0"></text>
+        </g>
+
+        <!-- Cut line preview (dashed, visible while placing second point) -->
+        <line id="cut-preview" class="cut-preview hidden"
+              x1="0" y1="0" x2="0" y2="0" />
+
+        <!-- Laser beam (animated on cut) -->
+        <line id="laser-glow" class="laser-glow hidden"
+              x1="0" y1="0" x2="0" y2="0" />
+        <line id="laser-core" class="laser-core hidden"
+              x1="0" y1="0" x2="0" y2="0" />
+
+        <!-- Final cut line (solid, shown after cut confirmed) -->
+        <line id="cut-line" class="cut-line hidden"
+              x1="0" y1="0" x2="0" y2="0" />
+
+        <!-- Snap dot — follows mouse along polygon boundary -->
+        <circle id="snap-dot" class="snap-dot hidden" cx="0" cy="0" r="5" />
+
+        <!-- First cut point marker -->
+        <circle id="cut-point-1" class="cut-point hidden" cx="0" cy="0" r="5" />
+
+        <!-- Second cut point marker -->
+        <circle id="cut-point-2" class="cut-point hidden" cx="0" cy="0" r="5" />
+
+        <!-- Confetti particles (celebration) -->
+        <g id="confetti-group"></g>
+
+        <!-- Invisible click target covering full SVG -->
+        <rect id="click-target" x="0" y="0" width="500" height="400"
+              class="click-target" />
+      </svg>
+    </div>
+
+    <div id="round-result" class="round-result hidden">
+      <div class="result-row">
+        <p class="result-accuracy" id="result-accuracy"></p>
+        <button id="next-round-btn" class="next-round-btn">Next Round</button>
+      </div>
+    </div>
+
+    <div id="game-over" class="game-over hidden">
+      <div class="game-over-content">
+        <h2 class="game-over-title">Game Over</h2>
+        <p class="game-over-average" id="game-over-average"></p>
+        <p class="game-over-rating" id="game-over-rating"></p>
+        <div class="game-over-rounds" id="game-over-rounds"></div>
+        <div class="game-over-actions">
+          <button id="share-btn" class="share-btn">Share</button>
+          <button id="play-again-btn" class="play-again-btn">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="game-instruction" id="game-instruction">Click on the shape's edge to start your cut.</p>
+    <p class="game-counter" id="game-counter"></p>
+  </div>
+</BaseLayout>
+
+<style>
+  .game-wrapper {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .game-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .game-subtitle {
+    color: var(--color-text-muted);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .game-area {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .game-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+  }
+
+  .shape-polygon {
+    fill: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    stroke: var(--accent-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+  }
+
+  .shape-half {
+    fill: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    stroke: var(--accent-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+  }
+
+  .half-group {
+    transition: transform 0.5s ease-out;
+  }
+
+  .snap-dot {
+    fill: var(--accent-color);
+    stroke: var(--color-bg);
+    stroke-width: 2;
+    pointer-events: none;
+  }
+
+  .cut-point {
+    fill: var(--color-bg);
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    pointer-events: none;
+  }
+
+  .cut-preview {
+    stroke: var(--accent-color);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 4;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .cut-line {
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+
+  .half-label {
+    font-family: var(--font-monospace);
+    font-size: 14px;
+    font-weight: 700;
+    fill: var(--color-text);
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+  }
+
+  .laser-glow {
+    stroke: var(--accent-color);
+    stroke-width: 8;
+    stroke-linecap: round;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .laser-core {
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .click-target {
+    fill: transparent;
+    cursor: crosshair;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .round-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-monospace);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .running-score {
+    opacity: 0.8;
+  }
+
+  .round-result {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .round-result.hidden {
+    display: none;
+  }
+
+  .result-rating {
+    font-size: 1rem;
+    font-family: var(--font-monospace);
+    margin: 0 0 0.25rem;
+    color: var(--accent-color);
+    min-height: 1.5em;
+  }
+
+  .result-rating.hidden {
+    display: none;
+  }
+
+  .result-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .result-accuracy {
+    font-family: var(--font-monospace);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.1;
+  }
+
+  .next-round-btn {
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    background: var(--accent-color);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .next-round-btn:hover {
+    opacity: 0.85;
+  }
+
+  .game-over {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+  }
+
+  .game-over.hidden {
+    display: none;
+  }
+
+  .game-over-content {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 380px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .game-over-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .game-over-average {
+    font-family: var(--font-monospace);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--color-text);
+  }
+
+  .game-over-rating {
+    color: var(--accent-color);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .game-over-rounds {
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .game-over-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+
+  .share-btn,
+  .play-again-btn {
+    padding: 0.5rem 1.5rem;
+    min-width: 7rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .play-again-btn {
+    background: var(--accent-color);
+    color: var(--color-bg);
+  }
+
+  .share-btn {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .share-btn:hover,
+  .play-again-btn:hover {
+    opacity: 0.85;
+  }
+
+  .game-instruction {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  }
+
+  .game-instruction.hidden {
+    display: none;
+  }
+
+  .game-counter {
+    font-family: var(--font-monospace);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    opacity: 0.6;
+  }
+
+  .perfect-round {
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    display: inline-block;
+  }
+
+  .epic-round {
+    color: #ffd700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15));
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .half-group {
+      transition: none;
+    }
+  }
+</style>
+
+<script is:inline>
+function initHalve() {
+  var svg = document.getElementById('game-svg');
+  if (!svg || svg.dataset.initialized) return;
+  svg.dataset.initialized = 'true';
+
+  var SVG_WIDTH = 500;
+  var SVG_HEIGHT = 400;
+  var TOTAL_ROUNDS = 5;
+  var SNAP_THRESHOLD = 40;
+  var MIN_CUT_DISTANCE = 30;
+  var SPLIT_GAP = 12;
+  var GREAT_THRESHOLD = 95;
+  var EPIC_THRESHOLD = 99;
+
+  var KEY_GAME_COUNT = 'halve-game-count';
+  var KEY_BEST_SCORE = 'halve-best-score';
+  var KEY_RECENT_SCORES = 'halve-recent-scores';
+
+  // DOM elements
+  var shapePolygon = document.getElementById('shape-polygon');
+  var halfA = document.getElementById('half-a');
+  var halfB = document.getElementById('half-b');
+  var halfAGroup = document.getElementById('half-a-group');
+  var halfBGroup = document.getElementById('half-b-group');
+  var cutPreview = document.getElementById('cut-preview');
+  var cutLineEl = document.getElementById('cut-line');
+  var snapDot = document.getElementById('snap-dot');
+  var cutPoint1El = document.getElementById('cut-point-1');
+  var cutPoint2El = document.getElementById('cut-point-2');
+  var labelA = document.getElementById('label-a');
+  var labelB = document.getElementById('label-b');
+  var laserGlow = document.getElementById('laser-glow');
+  var laserCore = document.getElementById('laser-core');
+  var confettiGroup = document.getElementById('confetti-group');
+  var clickTarget = document.getElementById('click-target');
+  var roundResult = document.getElementById('round-result');
+  var resultAccuracy = document.getElementById('result-accuracy');
+  var resultRating = document.getElementById('result-rating');
+  var nextRoundBtn = document.getElementById('next-round-btn');
+  var gameOverEl = document.getElementById('game-over');
+  var gameOverAverage = document.getElementById('game-over-average');
+  var gameOverRating = document.getElementById('game-over-rating');
+  var gameOverRounds = document.getElementById('game-over-rounds');
+  var shareBtn = document.getElementById('share-btn');
+  var playAgainBtn = document.getElementById('play-again-btn');
+  var roundCounter = document.getElementById('round-counter');
+  var runningScore = document.getElementById('running-score');
+  var instruction = document.getElementById('game-instruction');
+  var gameCounterEl = document.getElementById('game-counter');
+
+  // Game state
+  var polygon = [];
+  var currentRound = 0;
+  var roundScores = [];
+  var cutPoint1 = null;
+  var cutPoint2 = null;
+  var locked = false;
+  var audioCtx = null;
+  var currentSnap = null;
+
+  // --- Geometry utilities ---
+
+  function cross(O, A, B) {
+    return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+  }
+
+  function convexHull(points) {
+    var pts = points.slice().sort(function(a, b) {
+      return a.x === b.x ? a.y - b.y : a.x - b.x;
+    });
+    var n = pts.length;
+    if (n <= 1) return pts;
+
+    var lower = [];
+    for (var i = 0; i < n; i++) {
+      while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], pts[i]) <= 0) {
+        lower.pop();
+      }
+      lower.push(pts[i]);
+    }
+
+    var upper = [];
+    for (var i = n - 1; i >= 0; i--) {
+      while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], pts[i]) <= 0) {
+        upper.pop();
+      }
+      upper.push(pts[i]);
+    }
+
+    lower.pop();
+    upper.pop();
+    return lower.concat(upper);
+  }
+
+  function polygonArea(vertices) {
+    var n = vertices.length;
+    var area = 0;
+    for (var i = 0; i < n; i++) {
+      var j = (i + 1) % n;
+      area += vertices[i].x * vertices[j].y;
+      area -= vertices[j].x * vertices[i].y;
+    }
+    return Math.abs(area) / 2;
+  }
+
+  function polygonCentroid(vertices) {
+    var cx = 0, cy = 0;
+    for (var i = 0; i < vertices.length; i++) {
+      cx += vertices[i].x;
+      cy += vertices[i].y;
+    }
+    return { x: cx / vertices.length, y: cy / vertices.length };
+  }
+
+  function closestPointOnSegment(px, py, ax, ay, bx, by) {
+    var dx = bx - ax, dy = by - ay;
+    var lenSq = dx * dx + dy * dy;
+    if (lenSq === 0) {
+      var d = Math.sqrt((px - ax) * (px - ax) + (py - ay) * (py - ay));
+      return { x: ax, y: ay, dist: d };
+    }
+    var t = ((px - ax) * dx + (py - ay) * dy) / lenSq;
+    t = Math.max(0, Math.min(1, t));
+    var cx = ax + t * dx, cy = ay + t * dy;
+    var dist = Math.sqrt((px - cx) * (px - cx) + (py - cy) * (py - cy));
+    return { x: cx, y: cy, dist: dist };
+  }
+
+  function closestPointOnPolygon(px, py) {
+    var best = null;
+    for (var i = 0; i < polygon.length; i++) {
+      var j = (i + 1) % polygon.length;
+      var result = closestPointOnSegment(px, py,
+        polygon[i].x, polygon[i].y, polygon[j].x, polygon[j].y);
+      result.edgeIndex = i;
+      if (best === null || result.dist < best.dist) {
+        best = result;
+      }
+    }
+    return best;
+  }
+
+  function splitPolygon(p1, p1Edge, p2, p2Edge) {
+    var n = polygon.length;
+
+    // Ensure p1Edge < p2Edge for consistent ordering
+    if (p1Edge > p2Edge || (p1Edge === p2Edge && false)) {
+      var tmp = p1; p1 = p2; p2 = tmp;
+      var tmpE = p1Edge; p1Edge = p2Edge; p2Edge = tmpE;
+    }
+
+    // Half A: p1 -> vertices after p1's edge -> ... -> p2
+    var hA = [{ x: p1.x, y: p1.y }];
+    var i = (p1Edge + 1) % n;
+    var target = (p2Edge + 1) % n;
+    var safety = 0;
+    while (i !== target && safety < n + 1) {
+      hA.push({ x: polygon[i].x, y: polygon[i].y });
+      i = (i + 1) % n;
+      safety++;
+    }
+    hA.push({ x: p2.x, y: p2.y });
+
+    // Half B: p2 -> vertices after p2's edge -> ... -> p1
+    var hB = [{ x: p2.x, y: p2.y }];
+    i = (p2Edge + 1) % n;
+    target = (p1Edge + 1) % n;
+    safety = 0;
+    while (i !== target && safety < n + 1) {
+      hB.push({ x: polygon[i].x, y: polygon[i].y });
+      i = (i + 1) % n;
+      safety++;
+    }
+    hB.push({ x: p1.x, y: p1.y });
+
+    return { halfA: hA, halfB: hB };
+  }
+
+  function pointsToString(vertices) {
+    return vertices.map(function(v) { return v.x + ',' + v.y; }).join(' ');
+  }
+
+  // --- Polygon generation ---
+
+  function generatePolygon() {
+    var attempts = 0;
+    while (attempts < 50) {
+      attempts++;
+      var numVerts = 5 + Math.floor(Math.random() * 4); // 5-8
+      var baseStep = (Math.PI * 2) / numVerts;
+      var points = [];
+
+      for (var i = 0; i < numVerts; i++) {
+        var angle = i * baseStep + (Math.random() - 0.5) * baseStep * 0.6;
+        var radius = 80 + Math.random() * 80;
+        points.push({
+          x: 250 + radius * Math.cos(angle),
+          y: 200 + radius * Math.sin(angle)
+        });
+      }
+
+      var hull = convexHull(points);
+      if (hull.length < 4) continue;
+
+      // Check area
+      var area = polygonArea(hull);
+      if (area < 8000) continue;
+
+      // Check edges not too short
+      var tooShort = false;
+      for (var i = 0; i < hull.length; i++) {
+        var j = (i + 1) % hull.length;
+        var dx = hull[j].x - hull[i].x;
+        var dy = hull[j].y - hull[i].y;
+        if (Math.sqrt(dx * dx + dy * dy) < 30) { tooShort = true; break; }
+      }
+      if (tooShort) continue;
+
+      // Check fits in padded viewBox
+      var outOfBounds = false;
+      for (var i = 0; i < hull.length; i++) {
+        if (hull[i].x < 40 || hull[i].x > 460 || hull[i].y < 30 || hull[i].y > 370) {
+          outOfBounds = true; break;
+        }
+      }
+      if (outOfBounds) continue;
+
+      polygon = hull;
+      return;
+    }
+    // Fallback: simple centered pentagon
+    polygon = [];
+    for (var i = 0; i < 5; i++) {
+      var a = (i / 5) * Math.PI * 2 - Math.PI / 2;
+      polygon.push({ x: 250 + 120 * Math.cos(a), y: 200 + 120 * Math.sin(a) });
+    }
+  }
+
+  function drawPolygon() {
+    shapePolygon.setAttribute('points', pointsToString(polygon));
+    shapePolygon.classList.remove('hidden');
+  }
+
+  // --- Scoring ---
+
+  function calculateScore(hA, hB) {
+    var areaA = polygonArea(hA);
+    var areaB = polygonArea(hB);
+    var total = areaA + areaB;
+    if (total === 0) return { percentA: 50, percentB: 50, accuracy: 0 };
+    var percentA = (areaA / total) * 100;
+    var percentB = (areaB / total) * 100;
+    var accuracy = Math.max(0, 100 - Math.abs(percentA - 50) * 2);
+    return { percentA: percentA, percentB: percentB, accuracy: accuracy };
+  }
+
+  // --- Ratings ---
+
+  var ratings = [
+    [99.5, [
+      'The laser didn\'t even need to fire.',
+      'Euclid just flinched.',
+      'You split the atom. Wait, wrong game.',
+      'That polygon had a symmetry axis and you found it.',
+      'Diamond-cutter precision.',
+    ]],
+    [99, [
+      'Laser-guided and laser-approved.',
+      'The polygon didn\'t stand a chance.',
+      'Cleaner than a fracture along the crystal lattice.',
+      'Geologists call this a perfect cleavage.',
+      'Two twins, separated at laser.',
+    ]],
+    [98, [
+      'That beam barely had to try.',
+      'Smooth as a fault line after an earthquake.',
+      'The polygon split like mica under pressure.',
+      'You could facet gemstones for a living.',
+      'Photon-level precision.',
+    ]],
+    [97, [
+      'Quartzite wishes it could cleave this clean.',
+      'The laser hums with approval.',
+      'Angle of incidence = angle of perfection.',
+      'That\'s some igneous-grade splitting.',
+      'Both halves weigh the same on a geological scale.',
+    ]],
+    [96, [
+      'A seismic event of precision.',
+      'The beam found the vein in the rock.',
+      'Refraction couldn\'t bend this result.',
+      'Granite would crack along this line.',
+      'Tectonic, but make it elegant.',
+    ]],
+    [94, [
+      'The laser approves, mostly.',
+      'Close enough to fool a geometer.',
+      'Like splitting sandstone — almost too easy.',
+      'A prism would be proud.',
+    ]],
+    [91, [
+      'The beam wobbled, but landed.',
+      'Sedimentary precision — layered, not perfect.',
+      'One half is slightly jealous of the other.',
+      'The polygon felt that. Just a little.',
+    ]],
+    [88, [
+      'A crack in the right direction.',
+      'The laser squinted but committed.',
+      'Like marble — beautiful but not quite symmetrical.',
+      'Geometry says "close enough."',
+    ]],
+    [85, [
+      'The fault line wandered, but not far.',
+      'Obsidian would have shattered worse.',
+      'One half got the bigger slice of the rock.',
+      'The beam had a slight astigmatism.',
+    ]],
+    [80, [
+      'Solid as basalt. Not as precise.',
+      'The polygon survived, but with a limp.',
+      'A respectable fracture.',
+      'The laser did its job. Barely.',
+    ]],
+    [75, [
+      'More chisel than laser at this point.',
+      'The rock cracked, but argued about where.',
+      'Limestone-grade accuracy.',
+      'The beam took the scenic route.',
+    ]],
+    [70, [
+      'That\'s a geological estimate at best.',
+      'The polygon is lopsided and confused.',
+      'Somewhere, a protractor is crying.',
+      'The laser needs glasses.',
+    ]],
+    [60, [
+      'One half is a boulder. The other, a pebble.',
+      'The fault line had a fault.',
+      'That\'s less "halve" and more "shave."',
+      'The beam went on vacation mid-cut.',
+    ]],
+    [50, [
+      'The laser fired. That\'s about all we can say.',
+      'More landslide than precision cut.',
+      'The polygon is filing a complaint.',
+      'Tectonic plates move with more accuracy.',
+    ]],
+    [35, [
+      'You carved a sliver off a boulder.',
+      'That\'s not halving, that\'s trimming.',
+      'The beam hit the polygon. Somewhere.',
+      'Geometry left the chat.',
+    ]],
+    [20, [
+      'The laser hit the wall behind the polygon.',
+      'You gave one half 80% custody.',
+      'That\'s just a scratch on a rock.',
+    ]],
+    [0, [
+      'Did the laser even turn on?',
+      'The polygon is still whole in spirit.',
+      'You cut a corner. Literally, just the corner.',
+    ]],
+  ];
+
+  function getRating(accuracy) {
+    for (var i = 0; i < ratings.length; i++) {
+      if (accuracy >= ratings[i][0]) {
+        var msgs = ratings[i][1];
+        return msgs[Math.floor(Math.random() * msgs.length)];
+      }
+    }
+    return ratings[ratings.length - 1][1][0];
+  }
+
+  // --- SVG interaction ---
+
+  function getSvgPoint(e) {
+    var pt = svg.createSVGPoint();
+    if (e.changedTouches) {
+      pt.x = e.changedTouches[0].clientX;
+      pt.y = e.changedTouches[0].clientY;
+    } else if (e.touches) {
+      pt.x = e.touches[0].clientX;
+      pt.y = e.touches[0].clientY;
+    } else {
+      pt.x = e.clientX;
+      pt.y = e.clientY;
+    }
+    return pt.matrixTransform(svg.getScreenCTM().inverse());
+  }
+
+  function handlePointerMove(e) {
+    if (locked) return;
+    var svgPt = getSvgPoint(e);
+    var closest = closestPointOnPolygon(svgPt.x, svgPt.y);
+
+    if (!closest || closest.dist > SNAP_THRESHOLD) {
+      snapDot.classList.add('hidden');
+      if (cutPoint1) {
+        cutPreview.classList.add('hidden');
+      }
+      currentSnap = null;
+      return;
+    }
+
+    // Don't snap too close to cut point 1
+    if (cutPoint1) {
+      var dx = closest.x - cutPoint1.x;
+      var dy = closest.y - cutPoint1.y;
+      if (Math.sqrt(dx * dx + dy * dy) < MIN_CUT_DISTANCE) {
+        snapDot.classList.add('hidden');
+        cutPreview.classList.add('hidden');
+        currentSnap = null;
+        return;
+      }
+    }
+
+    currentSnap = closest;
+    snapDot.setAttribute('cx', closest.x);
+    snapDot.setAttribute('cy', closest.y);
+    snapDot.classList.remove('hidden');
+
+    // Show preview line from cut point 1 to snap position
+    if (cutPoint1) {
+      cutPreview.setAttribute('x1', cutPoint1.x);
+      cutPreview.setAttribute('y1', cutPoint1.y);
+      cutPreview.setAttribute('x2', closest.x);
+      cutPreview.setAttribute('y2', closest.y);
+      cutPreview.classList.remove('hidden');
+    }
+  }
+
+  function handlePointerLeave() {
+    if (locked) return;
+    snapDot.classList.add('hidden');
+    cutPreview.classList.add('hidden');
+    currentSnap = null;
+  }
+
+  function handleClick(e) {
+    if (locked) return;
+    if (!currentSnap) return;
+    e.preventDefault();
+    initAudio();
+
+    if (!cutPoint1) {
+      // First click — lock the first cut point
+      cutPoint1 = { x: currentSnap.x, y: currentSnap.y, edgeIndex: currentSnap.edgeIndex };
+      cutPoint1El.setAttribute('cx', cutPoint1.x);
+      cutPoint1El.setAttribute('cy', cutPoint1.y);
+      cutPoint1El.classList.remove('hidden');
+      snapDot.classList.add('hidden');
+      currentSnap = null;
+      instruction.textContent = 'Now click a second point to complete the cut.';
+    } else {
+      // Second click — confirm the cut
+      cutPoint2 = { x: currentSnap.x, y: currentSnap.y, edgeIndex: currentSnap.edgeIndex };
+      locked = true;
+      snapDot.classList.add('hidden');
+      cutPreview.classList.add('hidden');
+      currentSnap = null;
+
+      cutPoint2El.setAttribute('cx', cutPoint2.x);
+      cutPoint2El.setAttribute('cy', cutPoint2.y);
+      cutPoint2El.classList.remove('hidden');
+
+      // Animate laser beam, then show result
+      animateLaser(cutPoint1, cutPoint2, 300, function() {
+        showRoundResult();
+      });
+    }
+  }
+
+  // --- Laser beam animation ---
+
+  var laserAnimId = null;
+
+  function animateLaser(p1, p2, duration, onDone) {
+    if (laserAnimId) cancelAnimationFrame(laserAnimId);
+    playLaser();
+
+    // Set start position (both ends at p1)
+    laserGlow.setAttribute('x1', p1.x);
+    laserGlow.setAttribute('y1', p1.y);
+    laserGlow.setAttribute('x2', p1.x);
+    laserGlow.setAttribute('y2', p1.y);
+    laserCore.setAttribute('x1', p1.x);
+    laserCore.setAttribute('y1', p1.y);
+    laserCore.setAttribute('x2', p1.x);
+    laserCore.setAttribute('y2', p1.y);
+    laserGlow.classList.remove('hidden');
+    laserCore.classList.remove('hidden');
+
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var t = Math.min((ts - startTime) / duration, 1);
+      var ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      var x = p1.x + (p2.x - p1.x) * ease;
+      var y = p1.y + (p2.y - p1.y) * ease;
+      laserGlow.setAttribute('x2', x);
+      laserGlow.setAttribute('y2', y);
+      laserCore.setAttribute('x2', x);
+      laserCore.setAttribute('y2', y);
+      if (t < 1) {
+        laserAnimId = requestAnimationFrame(step);
+      } else {
+        laserAnimId = null;
+        // Fade out laser after a brief moment
+        setTimeout(function() {
+          laserGlow.classList.add('hidden');
+          laserCore.classList.add('hidden');
+        }, 150);
+        if (onDone) onDone();
+      }
+    }
+    laserAnimId = requestAnimationFrame(step);
+  }
+
+  // --- Engrave text animation ---
+
+  var engraveInterval = null;
+
+  function engraveText(el, text) {
+    if (engraveInterval) clearInterval(engraveInterval);
+    el.textContent = '';
+    el.classList.remove('hidden');
+    var i = 0;
+    engraveInterval = setInterval(function() {
+      i++;
+      el.textContent = text.slice(0, i);
+      if (i >= text.length) {
+        clearInterval(engraveInterval);
+        engraveInterval = null;
+      }
+    }, 25);
+  }
+
+  // --- Confetti animation ---
+
+  var confettiAnimId = null;
+  var CONFETTI_COLORS = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', '#43aa8b', '#577590', '#6d6875'];
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clearConfetti() {
+    if (confettiAnimId) { cancelAnimationFrame(confettiAnimId); confettiAnimId = null; }
+    while (confettiGroup.firstChild) confettiGroup.removeChild(confettiGroup.firstChild);
+  }
+
+  function confetti(epic) {
+    if (prefersReducedMotion) return;
+    clearConfetti();
+
+    var PARTICLE_COUNT = epic ? 80 : 40;
+    var particles = [];
+    var ns = 'http://www.w3.org/2000/svg';
+    var EPIC_COLORS = ['#ffd700', '#ffb700', '#fff44f', '#ffe066', '#f94144', '#f3722c', '#f8961e', '#90be6d', '#43aa8b', '#577590'];
+
+    function spawnParticle(startFromTop) {
+      var rect = document.createElementNS(ns, 'rect');
+      var size = epic ? (4 + Math.random() * 5) : (3 + Math.random() * 4);
+      var x = epic ? (Math.random() * 500) : (50 + Math.random() * 400);
+      var y = startFromTop ? (-10 - Math.random() * 40) : (Math.random() * 200 - 30);
+      var colors = epic ? EPIC_COLORS : CONFETTI_COLORS;
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      rect.setAttribute('width', size);
+      rect.setAttribute('height', size * (0.6 + Math.random() * 0.8));
+      rect.setAttribute('fill', color);
+      rect.setAttribute('rx', '1');
+      if (epic) rect.setAttribute('opacity', '1');
+      confettiGroup.appendChild(rect);
+      return {
+        el: rect,
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * (epic ? 3 : 2),
+        vy: epic ? (0.5 + Math.random() * 1.5) : (0.8 + Math.random() * 1.2),
+        rotation: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * (epic ? 10 : 6),
+        size: size,
+        opacity: epic ? 1 : 0.9,
+      };
+    }
+
+    for (var i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push(spawnParticle(false));
+    }
+
+    function step() {
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.vx += (Math.random() - 0.5) * (epic ? 0.3 : 0.2);
+        p.vx *= 0.99;
+        p.y += p.vy;
+        p.vy += epic ? 0.03 : 0.04;
+        p.rotation += p.rotSpeed;
+
+        if (p.y > 420) {
+          confettiGroup.removeChild(p.el);
+          particles[i] = spawnParticle(true);
+          continue;
+        }
+
+        p.el.setAttribute('x', p.x);
+        p.el.setAttribute('y', p.y);
+        p.el.setAttribute('opacity', p.opacity);
+        p.el.setAttribute('transform',
+          'rotate(' + p.rotation + ' ' + (p.x + p.size / 2) + ' ' + (p.y + p.size / 2) + ')');
+      }
+
+      confettiAnimId = requestAnimationFrame(step);
+    }
+    confettiAnimId = requestAnimationFrame(step);
+  }
+
+  // --- Round result ---
+
+  function showRoundResult() {
+    var split = splitPolygon(cutPoint1, cutPoint1.edgeIndex, cutPoint2, cutPoint2.edgeIndex);
+    var result = calculateScore(split.halfA, split.halfB);
+
+    // Hide original polygon, show two halves
+    shapePolygon.classList.add('hidden');
+    halfA.setAttribute('points', pointsToString(split.halfA));
+    halfB.setAttribute('points', pointsToString(split.halfB));
+    halfA.classList.remove('hidden');
+    halfB.classList.remove('hidden');
+
+    // Show the cut line
+    cutLineEl.setAttribute('x1', cutPoint1.x);
+    cutLineEl.setAttribute('y1', cutPoint1.y);
+    cutLineEl.setAttribute('x2', cutPoint2.x);
+    cutLineEl.setAttribute('y2', cutPoint2.y);
+    cutLineEl.classList.remove('hidden');
+
+    // Animate halves apart along cut normal
+    var dx = cutPoint2.x - cutPoint1.x;
+    var dy = cutPoint2.y - cutPoint1.y;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var normalX = -dy / len;
+    var normalY = dx / len;
+
+    var centroidA = polygonCentroid(split.halfA);
+    var centroidB = polygonCentroid(split.halfB);
+    var cutMidX = (cutPoint1.x + cutPoint2.x) / 2;
+    var cutMidY = (cutPoint1.y + cutPoint2.y) / 2;
+    var dot = (centroidA.x - cutMidX) * normalX + (centroidA.y - cutMidY) * normalY;
+    var signA = dot > 0 ? 1 : -1;
+    var signB = -signA;
+
+    // Position percentage labels at each half's centroid
+    labelA.setAttribute('x', centroidA.x);
+    labelA.setAttribute('y', centroidA.y);
+    labelA.textContent = result.percentA.toFixed(1) + '%';
+    labelA.classList.remove('hidden');
+
+    labelB.setAttribute('x', centroidB.x);
+    labelB.setAttribute('y', centroidB.y);
+    labelB.textContent = result.percentB.toFixed(1) + '%';
+    labelB.classList.remove('hidden');
+
+    halfAGroup.style.transform = 'translate(0px, 0px)';
+    halfBGroup.style.transform = 'translate(0px, 0px)';
+
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        halfAGroup.style.transform = 'translate(' + (normalX * SPLIT_GAP * signA) + 'px, ' + (normalY * SPLIT_GAP * signA) + 'px)';
+        halfBGroup.style.transform = 'translate(' + (normalX * SPLIT_GAP * signB) + 'px, ' + (normalY * SPLIT_GAP * signB) + 'px)';
+      });
+    });
+
+    // Display results
+    resultAccuracy.textContent = result.accuracy.toFixed(1) + '%';
+    engraveText(resultRating, getRating(result.accuracy));
+
+    // Celebrate exceptional splits
+    if (result.accuracy >= EPIC_THRESHOLD) {
+      setTimeout(function() {
+        confetti(true);
+        playEpicCelebration();
+      }, 500);
+    } else if (result.accuracy >= GREAT_THRESHOLD) {
+      setTimeout(function() {
+        confetti(false);
+        playCelebration();
+      }, 500);
+    }
+
+    roundScores.push(result.accuracy);
+
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+    runningScore.textContent = 'Avg: ' + avg.toFixed(1) + '%';
+
+    // Update button text
+    if (currentRound >= TOTAL_ROUNDS - 1) {
+      nextRoundBtn.textContent = 'See Results';
+    } else {
+      nextRoundBtn.textContent = 'Next Round';
+    }
+
+    roundResult.classList.remove('hidden');
+    instruction.classList.add('hidden');
+  }
+
+  // --- Round management ---
+
+  function nextRound() {
+    currentRound++;
+
+    if (currentRound >= TOTAL_ROUNDS) {
+      showGameOver();
+      return;
+    }
+
+    resetRound();
+  }
+
+  function resetRound() {
+    locked = false;
+    cutPoint1 = null;
+    cutPoint2 = null;
+    currentSnap = null;
+    if (engraveInterval) { clearInterval(engraveInterval); engraveInterval = null; }
+    clearConfetti();
+
+    resultRating.classList.add('hidden');
+    halfA.classList.add('hidden');
+    halfB.classList.add('hidden');
+    halfAGroup.style.transform = '';
+    halfBGroup.style.transform = '';
+    labelA.classList.add('hidden');
+    labelB.classList.add('hidden');
+    cutLineEl.classList.add('hidden');
+    cutPoint1El.classList.add('hidden');
+    cutPoint2El.classList.add('hidden');
+    cutPreview.classList.add('hidden');
+    snapDot.classList.add('hidden');
+    laserGlow.classList.add('hidden');
+    laserCore.classList.add('hidden');
+    roundResult.classList.add('hidden');
+    instruction.textContent = "Click on the shape's edge to start your cut.";
+    instruction.classList.remove('hidden');
+
+    generatePolygon();
+    drawPolygon();
+
+    roundCounter.textContent = 'Round ' + (currentRound + 1) + '/' + TOTAL_ROUNDS;
+  }
+
+  // --- Game over ---
+
+  function showGameOver() {
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '0', 10) + 1;
+    localStorage.setItem(KEY_GAME_COUNT, String(gameCount));
+
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    if (avg > bestScore) {
+      bestScore = avg;
+      localStorage.setItem(KEY_BEST_SCORE, String(bestScore.toFixed(2)));
+    }
+
+    var recentScores = JSON.parse(localStorage.getItem(KEY_RECENT_SCORES) || '[]');
+    recentScores.push(parseFloat(avg.toFixed(2)));
+    if (recentScores.length > 3) {
+      recentScores = recentScores.slice(-3);
+    }
+    localStorage.setItem(KEY_RECENT_SCORES, JSON.stringify(recentScores));
+
+    updateGameCounter(gameCount);
+
+    gameOverAverage.textContent = avg.toFixed(1) + '% accuracy';
+    gameOverRating.textContent = getRating(avg);
+
+    var roundsHtml = '';
+    for (var i = 0; i < roundScores.length; i++) {
+      var scoreText = 'Round ' + (i + 1) + ': ' + roundScores[i].toFixed(1) + '%';
+      if (roundScores[i] >= EPIC_THRESHOLD) {
+        roundsHtml += '<span class="epic-round">\u{1F525} ' + scoreText + ' \u{1F525}</span><br>';
+      } else if (roundScores[i] >= GREAT_THRESHOLD) {
+        roundsHtml += '<span class="perfect-round">\u2605 ' + scoreText + ' \u2605</span><br>';
+      } else {
+        roundsHtml += scoreText + '<br>';
+      }
+    }
+    gameOverRounds.innerHTML = roundsHtml;
+
+    gameOverEl.classList.remove('hidden');
+  }
+
+  function updateGameCounter(count) {
+    if (count === undefined) {
+      count = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '0', 10);
+    }
+    if (count > 0) {
+      gameCounterEl.textContent = 'Games played: ' + count;
+    }
+  }
+
+  // --- Audio ---
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+  }
+
+  function playLaser() {
+    if (!audioCtx) return;
+    var now = audioCtx.currentTime;
+    var duration = 0.35;
+
+    // Primary sine — high sweep down
+    var osc1 = audioCtx.createOscillator();
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(3800, now);
+    osc1.frequency.exponentialRampToValueAtTime(600, now + duration);
+
+    // Detuned sine for phaser effect
+    var osc2 = audioCtx.createOscillator();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(4000, now);
+    osc2.frequency.exponentialRampToValueAtTime(650, now + duration);
+
+    var gain1 = audioCtx.createGain();
+    gain1.gain.setValueAtTime(0.08, now);
+    gain1.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+    var gain2 = audioCtx.createGain();
+    gain2.gain.setValueAtTime(0.06, now);
+    gain2.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+    osc1.connect(gain1);
+    gain1.connect(audioCtx.destination);
+    osc1.start(now);
+    osc1.stop(now + duration);
+
+    osc2.connect(gain2);
+    gain2.connect(audioCtx.destination);
+    osc2.start(now);
+    osc2.stop(now + duration);
+  }
+
+  function playCelebration() {
+    if (!audioCtx) return;
+    var now = audioCtx.currentTime;
+
+    // Mario level complete jingle (simplified)
+    // G4 C5 E5 G5 C6 E6 G6 — then hold E6 → G6
+    var melody = [
+      { freq: 392.00, time: 0,     dur: 0.1  }, // G4
+      { freq: 523.25, time: 0.1,   dur: 0.1  }, // C5
+      { freq: 659.25, time: 0.2,   dur: 0.1  }, // E5
+      { freq: 783.99, time: 0.3,   dur: 0.1  }, // G5
+      { freq: 1046.50, time: 0.4,  dur: 0.1  }, // C6
+      { freq: 1318.51, time: 0.5,  dur: 0.1  }, // E6
+      { freq: 1567.98, time: 0.6,  dur: 0.3  }, // G6 (hold)
+      { freq: 1318.51, time: 0.95, dur: 0.15 }, // E6
+      { freq: 1567.98, time: 1.15, dur: 0.4  }, // G6 (final hold)
+    ];
+
+    for (var i = 0; i < melody.length; i++) {
+      var n = melody[i];
+      var osc = audioCtx.createOscillator();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(n.freq, now + n.time);
+
+      var gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0, now + n.time);
+      gain.gain.linearRampToValueAtTime(0.07, now + n.time + 0.01);
+      gain.gain.setValueAtTime(0.07, now + n.time + n.dur * 0.7);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now + n.time);
+      osc.stop(now + n.time + n.dur);
+    }
+  }
+
+  function playEpicCelebration() {
+    if (!audioCtx) return;
+    var now = audioCtx.currentTime;
+
+    // Extended Mario stage clear — full fanfare with harmony
+    // Lead melody
+    var lead = [
+      { freq: 392.00, time: 0,     dur: 0.08 }, // G4
+      { freq: 523.25, time: 0.08,  dur: 0.08 }, // C5
+      { freq: 659.25, time: 0.16,  dur: 0.08 }, // E5
+      { freq: 783.99, time: 0.24,  dur: 0.08 }, // G5
+      { freq: 1046.50, time: 0.32, dur: 0.08 }, // C6
+      { freq: 1318.51, time: 0.40, dur: 0.08 }, // E6
+      { freq: 1567.98, time: 0.48, dur: 0.25 }, // G6 (hold)
+      { freq: 1318.51, time: 0.78, dur: 0.12 }, // E6
+      // Second phrase — higher, grander
+      { freq: 1567.98, time: 0.95, dur: 0.08 }, // G6
+      { freq: 1760.00, time: 1.03, dur: 0.08 }, // A6
+      { freq: 1975.53, time: 1.11, dur: 0.08 }, // B6
+      { freq: 2093.00, time: 1.19, dur: 0.5  }, // C7 (grand hold)
+      // Triumphant ending
+      { freq: 1567.98, time: 1.75, dur: 0.15 }, // G6
+      { freq: 2093.00, time: 1.95, dur: 0.6  }, // C7 (final)
+    ];
+
+    // Harmony (thirds below, softer)
+    var harmony = [
+      { freq: 523.25, time: 0.48, dur: 0.25 }, // C5 under G6
+      { freq: 659.25, time: 0.95, dur: 0.08 }, // E5
+      { freq: 698.46, time: 1.03, dur: 0.08 }, // F5
+      { freq: 783.99, time: 1.11, dur: 0.08 }, // G5
+      { freq: 1046.50, time: 1.19, dur: 0.5  }, // C6 under C7
+      { freq: 783.99, time: 1.75, dur: 0.15 }, // G5
+      { freq: 1046.50, time: 1.95, dur: 0.6  }, // C6 (final)
+    ];
+
+    function playNote(freq, time, dur, vol, wave) {
+      var osc = audioCtx.createOscillator();
+      osc.type = wave;
+      osc.frequency.setValueAtTime(freq, now + time);
+
+      var gain = audioCtx.createGain();
+      gain.gain.setValueAtTime(0, now + time);
+      gain.gain.linearRampToValueAtTime(vol, now + time + 0.01);
+      gain.gain.setValueAtTime(vol, now + time + dur * 0.7);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + time + dur);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now + time);
+      osc.stop(now + time + dur);
+    }
+
+    for (var i = 0; i < lead.length; i++) {
+      playNote(lead[i].freq, lead[i].time, lead[i].dur, 0.07, 'square');
+    }
+    for (var i = 0; i < harmony.length; i++) {
+      playNote(harmony[i].freq, harmony[i].time, harmony[i].dur, 0.04, 'triangle');
+    }
+  }
+
+  // --- Share ---
+
+  function buildShareCard() {
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '1', 10);
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    var recentScores = JSON.parse(localStorage.getItem(KEY_RECENT_SCORES) || '[]');
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    var cs = getComputedStyle(document.documentElement);
+    var bg = cs.getPropertyValue('--color-bg').trim();
+    var text = cs.getPropertyValue('--color-text').trim();
+    var muted = cs.getPropertyValue('--color-text-muted').trim();
+    var accent = cs.getPropertyValue('--accent-color').trim();
+    var border = cs.getPropertyValue('--color-border').trim();
+
+    var dpr = window.devicePixelRatio || 1;
+    var W = 400;
+    var H = 380;
+    var canvas = document.createElement('canvas');
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    var ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    // Background
+    ctx.fillStyle = bg;
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 12);
+    ctx.fill();
+
+    // Border
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 12);
+    ctx.stroke();
+
+    // Title
+    ctx.fillStyle = muted;
+    ctx.font = '600 14px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Halve #' + gameCount, W / 2, 36);
+
+    // Big accuracy number
+    ctx.fillStyle = text;
+    ctx.font = '700 48px ui-monospace, monospace';
+    ctx.fillText(avg.toFixed(1) + '%', W / 2, 88);
+
+    // Rating
+    ctx.fillStyle = accent;
+    ctx.font = '14px system-ui, sans-serif';
+    ctx.fillText(getRating(avg), W / 2, 112);
+
+    // Divider
+    ctx.strokeStyle = border;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(40, 128);
+    ctx.lineTo(W - 40, 128);
+    ctx.stroke();
+
+    // Round scores
+    ctx.font = '13px ui-monospace, monospace';
+    ctx.fillStyle = muted;
+    var y = 156;
+    for (var i = 0; i < roundScores.length; i++) {
+      var isEpic = roundScores[i] >= EPIC_THRESHOLD;
+      var isGreat = !isEpic && roundScores[i] >= GREAT_THRESHOLD;
+      var prefix = isEpic ? '\uD83D\uDD25 ' : isGreat ? '\u2605 ' : '  ';
+      var suffix = isEpic ? ' \uD83D\uDD25' : isGreat ? ' \u2605' : '  ';
+      var label = prefix + 'Round ' + (i + 1) + ':  ' + roundScores[i].toFixed(1) + '%' + suffix;
+      ctx.fillStyle = muted;
+      ctx.fillText(label, W / 2, y);
+      y += 22;
+    }
+
+    // Divider
+    ctx.strokeStyle = border;
+    ctx.beginPath();
+    ctx.moveTo(40, y + 4);
+    ctx.lineTo(W - 40, y + 4);
+    ctx.stroke();
+
+    // Best score
+    y += 26;
+    ctx.fillStyle = muted;
+    ctx.font = '13px ui-monospace, monospace';
+    ctx.fillText('Best ever: ' + bestScore.toFixed(1) + '%', W / 2, y);
+
+    // Recent scores
+    if (recentScores.length > 0) {
+      y += 22;
+      var recentStr = recentScores.map(function(s) { return s.toFixed(1) + '%'; }).join('  |  ');
+      ctx.fillText('Recent: ' + recentStr, W / 2, y);
+    }
+
+    // URL
+    ctx.fillStyle = accent;
+    ctx.font = '12px system-ui, sans-serif';
+    ctx.fillText('praveenpuglia.com/games/halve', W / 2, H - 16);
+
+    return canvas;
+  }
+
+  function share() {
+    var canvas = buildShareCard();
+
+    canvas.toBlob(function(blob) {
+      if (!blob) return;
+
+      if (navigator.share && navigator.canShare) {
+        var file = new File([blob], 'halve-score.png', { type: 'image/png' });
+        var shareData = { files: [file] };
+        if (navigator.canShare(shareData)) {
+          navigator.share(shareData).catch(function() {});
+          return;
+        }
+      }
+
+      if (navigator.clipboard && typeof ClipboardItem !== 'undefined') {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          shareBtn.textContent = 'Copied!';
+          setTimeout(function() { shareBtn.textContent = 'Share'; }, 2000);
+        }).catch(function() {
+          fallbackTextCopy();
+        });
+      } else {
+        fallbackTextCopy();
+      }
+    }, 'image/png');
+  }
+
+  function fallbackTextCopy() {
+    var gameCount = parseInt(localStorage.getItem(KEY_GAME_COUNT) || '1', 10);
+    var bestScore = parseFloat(localStorage.getItem(KEY_BEST_SCORE) || '0');
+    var avg = roundScores.reduce(function(a, b) { return a + b; }, 0) / roundScores.length;
+
+    var text = 'Halve #' + gameCount + '\n';
+    text += 'Accuracy: ' + avg.toFixed(1) + '%\n';
+    text += 'Best ever: ' + bestScore.toFixed(1) + '%\n';
+    text += '\nhttps://praveenpuglia.com/games/halve';
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function() {
+        shareBtn.textContent = 'Copied!';
+        setTimeout(function() { shareBtn.textContent = 'Share'; }, 2000);
+      });
+    }
+  }
+
+  // --- Restart ---
+
+  function restart() {
+    currentRound = 0;
+    roundScores = [];
+    locked = false;
+    cutPoint1 = null;
+    cutPoint2 = null;
+    currentSnap = null;
+
+    if (laserAnimId) { cancelAnimationFrame(laserAnimId); laserAnimId = null; }
+    if (engraveInterval) { clearInterval(engraveInterval); engraveInterval = null; }
+    clearConfetti();
+    gameOverEl.classList.add('hidden');
+    roundResult.classList.add('hidden');
+    resultRating.classList.add('hidden');
+    halfA.classList.add('hidden');
+    halfB.classList.add('hidden');
+    halfAGroup.style.transform = '';
+    halfBGroup.style.transform = '';
+    labelA.classList.add('hidden');
+    labelB.classList.add('hidden');
+    cutLineEl.classList.add('hidden');
+    cutPoint1El.classList.add('hidden');
+    cutPoint2El.classList.add('hidden');
+    cutPreview.classList.add('hidden');
+    snapDot.classList.add('hidden');
+    laserGlow.classList.add('hidden');
+    laserCore.classList.add('hidden');
+    instruction.textContent = "Click on the shape's edge to start your cut.";
+    instruction.classList.remove('hidden');
+
+    runningScore.textContent = '';
+    roundCounter.textContent = 'Round 1/' + TOTAL_ROUNDS;
+    generatePolygon();
+    drawPolygon();
+  }
+
+  // --- Event listeners ---
+
+  clickTarget.addEventListener('click', handleClick);
+  clickTarget.addEventListener('touchend', handleClick);
+  svg.addEventListener('mousemove', handlePointerMove);
+  svg.addEventListener('touchmove', function(e) { e.preventDefault(); handlePointerMove(e); }, { passive: false });
+  svg.addEventListener('mouseleave', handlePointerLeave);
+  nextRoundBtn.addEventListener('click', nextRound);
+  playAgainBtn.addEventListener('click', restart);
+  shareBtn.addEventListener('click', share);
+
+  // --- Initialize ---
+
+  updateGameCounter();
+  generatePolygon();
+  drawPolygon();
+  roundCounter.textContent = 'Round 1/' + TOTAL_ROUNDS;
+}
+
+initHalve();
+document.addEventListener('astro:page-load', initHalve);
+</script>
