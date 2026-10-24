@@ -32,12 +32,30 @@ I sat down with [Claude](https://claude.ai) and asked if we could take a look at
 
 Once I saw that this was actually possible, I got excited. If we could fix the frame rate, what else was hiding in there? Were there developer switches? Items I never had? Things I could never get, because the game doesn't run events anymore?
 
+## The Developer Switches
+
+Turns out, the developers had left a bunch of switches in the game. The kind of stuff you'd use while building and testing a game, switched off before shipping it. The code that checks them is still in there though. Flip one on and the game behaves like a developer's build.
+
+Some of my favourites -
+
+- **`UnlockFastTravelEverywhere`** — Exactly what it says. Every camp and every town on the map is open for fast travel. The map also shows every region at once instead of only the ones you have reached.
+- **`DebugStaminaDrainOff`** — No more stamina. Walk as far as you want without stopping to eat.
+- **`SkipGates`** — Walk straight through the gates on the trail. No tickets, no requirements.
+- **`Debug_PermitMinigameWithoutTool`** — Chop trees and hunt without an axe or a slingshot.
+- **`Debug_CanBuyAllFurniture`** — Every piece of furniture in the catalogue is up for grabs, whatever your level.
+- **`Debug_CanUpgradeHouseNow`** — Upgrade your house without the furniture and supplies it normally asks for.
+
+Then there was a whole debug window. Around 70 buttons. **Learn every recipe**, **upgrade the house right now** and a lot more. The code that opened it had been stripped out of the release build, so there was no way to bring it up. Claude found a way to wire a couple of those buttons into the game anyway. That's how my home got to level 17 without me gathering a single plank.
+
+My favourite find though was a switch named `BuyPlotWithoutDBBecauseDimitriBrokeSomethingAndIsntAroundToFixIt`. It lets you buy a plot in town without going through the server. I have no idea who Dimitri is, but I hope he fixed it. There's also an `IsDimitriMode` that nothing in the game uses anymore. Whatever Dimitri mode was, it's gone forever.
+
+Developers being developers. I loved every bit of it.
+
 ## The Nifty Little Things
 
 It took us through a lot of nifty little things.
 
 - **The frame rate** — 120fps, on a game that never went above 30 for me.
-- **Developer switches** — The developers had left switches in the game for things like fast travelling anywhere on the map, skipping gates and turning off stamina drain. We switched them on.
 - **Quest items** — Those pesky quest items that need 90, 100, 120 of something you barely find on the trail. Quests now complete as soon as I pick them up, with the reward and everything. All 114 quests across the four professions are done.
 - **My home** — Upgraded to level 17, the highest level the game has. The game now tells me *"Larger houses coming soon!"*. Of course it does.
 - **Recipes** — Every recipe at its top crafting level.
