@@ -2,6 +2,7 @@
 title: Finally Finishing The Trail
 description: "How I went from fixing a 30fps cap to seeing everything The Trail had to offer, with Claude by my side"
 date: 2026-10-24
+socialImage: "/assets/images/2026/the-trail-social.png"
 ---
 
 I have been playing [The Trail](https://play.google.com/store/apps/details?id=com.kongregate.mobile.thetrail.google) for more than half a decade now. It's one of those games I keep coming back to, again and again.
